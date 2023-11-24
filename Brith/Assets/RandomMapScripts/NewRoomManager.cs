@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class NewRoomManager : MonoBehaviour
 {
     List<Room> RoomList;
-    List<GameObject> Rooms=new();
+    List<GameObject> Rooms = new();
     List<Vector3> RoomPosition;
     //Transform OriginPoint;
     Vector3 OriginPosition;
@@ -16,7 +18,9 @@ public class NewRoomManager : MonoBehaviour
     [Header("房间总数量")]
     public int RoomNumber;
     [Header("房间最大间隔")]
-    public int RoomIntervalMAx;//max interval between two rooms
+    public int RoomIntervalMAX;//max interval between two rooms
+    [Header("房间最小间隔")]
+    public int RoomIntervalMIN;
     [Header("大房间数量")]
     public int BigRoomCount;
     [Header("大房间半径范围")]
@@ -29,6 +33,8 @@ public class NewRoomManager : MonoBehaviour
     public int SmallRoomCount;
     [Header("小房间半径范围")]
     public int[] SmallRoomRadius = new int[2];
+    [Header("基础半径")]
+    public int BaseRadius;
 
     #region IsVisableInCamera
     public Camera Camera;
@@ -45,6 +51,8 @@ public class NewRoomManager : MonoBehaviour
         {
             ClearRoom();
             CreateNewRoom();
+            //test mst
+            IcanSeeInCameral();
         }
 
     }
@@ -90,7 +98,7 @@ public class NewRoomManager : MonoBehaviour
         foreach (Room v in RoomList)
         {
             float tempDis = Vector3.Distance(position, v.Position);
-            if (tempDis <= radius + v.Radius | tempDis > RoomIntervalMAx)
+            if (tempDis <= radius + v.Radius | tempDis > RoomIntervalMAX)
                 return false;
         }
         return true;
@@ -109,8 +117,8 @@ public class NewRoomManager : MonoBehaviour
             while (true)
             {
 
-                tempPos = new Vector3(OriginPosition.x + Random.Range(-XOffsetMax, XOffsetMax), OriginPosition.y + Random.Range(-YOffsetMAX, YOffsetMAX), 0);
-                if (IsVisableInCamera(tempPos, 0.5f) && IsCoincide(tempPos, 0.5f, RoomList))
+                tempPos = new Vector3(OriginPosition.x + UnityEngine.Random.Range(-XOffsetMax, XOffsetMax), OriginPosition.y + UnityEngine.Random.Range(-YOffsetMAX, YOffsetMAX), 0);
+                if (IsVisableInCamera(tempPos, BaseRadius) && IsCoincide(tempPos, BaseRadius, RoomList))
                 {
                     //Debug.Log("Find");
                     break;
@@ -121,16 +129,56 @@ public class NewRoomManager : MonoBehaviour
                     break;
                 #endregion
             }
+            //save Room
             RoomList.Add(new(tempPos, 0.5f, i));
             Rooms.Add(Instantiate(RoomPrefab, tempPos, Quaternion.identity));
         }
+        CreateMST(RoomList.Count);
     }
     void ClearRoom()
     {
-        for(int i = 0;i < Rooms.Count;i++)
+        for (int i = 0; i < Rooms.Count; i++)
         {
             Destroy(Rooms[i]);
         }
         Rooms.Clear();
     }
+    float DIstanceBTRoom(Room roomA, Room roomB)
+    {
+        return (Vector3.Distance(roomA.Position, roomB.Position));
+    }
+    void CreateMST(int number)
+    {
+        Graph g = new Graph(number);
+        for (int i = 0; i < number; i++)
+        {
+            for (int j = 0; j < number; j++)
+            {
+                if (i != j)
+                {
+                    g.AddEdge(i, j, DIstanceBTRoom(RoomList[i], RoomList[j]));
+                }
+            }
+        }
+        List<Edge> mst = g.KruskalMST();
+        foreach (Edge e in mst)
+        {
+            RoomList[e.Source].Connect(e.Destination);
+            RoomList[e.Destination].Connect(e.Source);
+        }
+    }
+    #region text mst
+    void IcanSeeInCameral()
+    {
+        foreach (Room room in RoomList)
+        {
+            room.IcanSee();
+        }
+        for(int i = 0;i < Rooms.Count;i++)
+        {
+            GameObject go = Rooms[i];
+            go.GetComponentInChildren<TMP_Text>().text = RoomList[i].IcanSeeWay;
+        }
+    }
+    #endregion
 }
