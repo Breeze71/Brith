@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Room
 {
-    Vector3 Position;
-    float Radius;
+    public Vector3 Position;
+    public float Radius;
     int Number;
     List<int> ConnectedRoom;
-    Room(Vector3 position, float radius, int number)
+    public Room(Vector3 position, float radius, int number)
     {
         Position = position;
         Radius = radius;
