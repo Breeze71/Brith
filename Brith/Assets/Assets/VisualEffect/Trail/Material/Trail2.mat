@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LitSparksTrail
-  m_Shader: {fileID: -6465566751694194690, guid: 7c269a7295db259459899b9d365fcf7d, type: 3}
+  m_Name: Trail2
+  m_Shader: {fileID: -6465566751694194690, guid: 04002b8801cb2f0438fb2a75536ce760, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,8 +23,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Partical_Texture:
-        m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 07f7f39d9af418b48a5f4fa7a091f81c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -41,13 +41,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha_Clip: 0.31
+    - _AlphaClip: 0.22
+    - _DissolveScale: 94.94
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _ParticalColor: {r: 1.1333582, g: 1.0179121, b: 0.3357306, a: 0}
+    - _Color01: {r: 11.984313, g: 1.6313721, b: 2.2150047, a: 1}
+    - _Color02: {r: 9.082411, g: 5.2886395, b: 2.7104578, a: 1}
+    - _DissolveSpeed: {r: -0.39, g: -0.48, b: 0, a: 0}
+    - _MainSpeed: {r: -1.14, g: -0, b: 0, a: 0}
+    - _MainTexScale: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &375446343995171247
+--- !u!114 &6675596308337105210
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
