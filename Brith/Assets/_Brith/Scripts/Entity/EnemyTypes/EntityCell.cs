@@ -17,8 +17,12 @@ namespace V
         public int HealthAmount { get; set; }
         #endregion
 
+        #region Element && Reproduce
+        [SerializeField] private int elementAmountToReproduce = 200;
+        [SerializeField] private GameObject element;
         public EntityElement entityElement{ get; set;}   // 存儲元素 
         private event Action OnElementChange; // Element Change
+        #endregion
 
         protected override void Start()
         {
@@ -48,7 +52,14 @@ namespace V
         public void Die()
         {
             // TO - DO 每有五十点元素结晶就变成一个随机方向的新元素粒子。
-            
+            int totalElement = entityElement.GetTotalElementAmount();
+
+            while(totalElement >= 50)
+            {
+                Instantiate(element);
+
+                totalElement -= 50;
+            }
 
             Destroy(gameObject);
         }
@@ -66,15 +77,29 @@ namespace V
         private void BasicEntity_ElementChange()
         {
             // 檢查元素總量
-            if(entityElement.GetTotalElementAmount() >= 50)
+            if(entityElement.GetTotalElementAmount() >= elementAmountToReproduce)
             {
                 entityElement.DecreaseElement();
 
-                // TO - Do 生出新 Entity
-                Debug.LogError("Reproduce");
+                // 生出新 Entity
+                Instantiate(gameObject);
             }
         }
 
+        #endregion
+    
+        #region Test
+        [ContextMenu("TestDead()")]
+        private void TestDead()
+        {
+            TakeDamage(110);
+        }
+        [ContextMenu("TestCollect10Element()")]
+        private void TestCollect100Element()
+        {
+            entityElement.FireElement += 100;
+            ElementChangeEvent();
+        }
         #endregion
     }
 }

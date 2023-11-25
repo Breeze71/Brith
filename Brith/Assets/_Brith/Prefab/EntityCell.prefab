@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8584906, g: 0.11743506, b: 0.11743506, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 1029295677085223212}
   - component: {fileID: 3593020408556743791}
   - component: {fileID: 2282818823538130856}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: EntityCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,6 +287,8 @@ MonoBehaviour:
   speed: 2
   <maxHealth>k__BackingField: 100
   <HealthBarUI>k__BackingField: {fileID: 5671006373899315964}
+  reproduceAmount: 10
+  element: {fileID: 208937080080910159, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
 --- !u!1 &5072783012162999744
 GameObject:
   m_ObjectHideFlags: 0

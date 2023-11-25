@@ -474,7 +474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8189151295235615877}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.37, y: -0.21, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -567,6 +567,8 @@ MonoBehaviour:
   speed: 2
   <maxHealth>k__BackingField: 100
   <HealthBarUI>k__BackingField: {fileID: 2586133620568862468}
+  reproduceAmount: 10
+  element: {fileID: 208937080080910159, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
 --- !u!1 &8957673820172601069
 GameObject:
   m_ObjectHideFlags: 0
