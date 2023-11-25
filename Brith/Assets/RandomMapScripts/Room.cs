@@ -6,7 +6,7 @@ public class Room
 {
     public Vector3 Position;
     public float Radius;
-    int Number;
+    public int Number;
     List<int> ConnectedRoom = new List<int>();
     public string IcanSeeWay;
     public Room(Vector3 position, float radius, int number)
@@ -14,12 +14,13 @@ public class Room
         Position = position;
         Radius = radius;
         Number = number;
-        IcanSeeWay = number.ToString() + ":";
+        IcanSeeWay = number.ToString() + ":";//test
     }
     public void Connect(int connectedRoom)
     {
         ConnectedRoom.Add(connectedRoom);
     }
+    //test mst
     public void IcanSee()
     {
         for (int i = 0; i < ConnectedRoom.Count; i++)
@@ -29,11 +30,10 @@ public class Room
                 IcanSeeWay += room;
             else
                 IcanSeeWay += room + "/";
-
         }
-        //foreach (var room in ConnectedRoom)
-        //{
-        //    IcanSeeWay +=room+"/";
-        //}
+    }
+    public List<int> GetConnectedRoom
+    {
+        get { return ConnectedRoom; }
     }
 }

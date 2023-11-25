@@ -13,7 +13,11 @@ public class NewRoomManager : MonoBehaviour
     //Transform OriginPoint;
     Vector3 OriginPosition;
     public GameObject RoomPrefab;
-    public float XOffsetMax;
+    public GameObject DoorPrefab;
+    public float BaseRadius;//Basic radius（standard radius）
+
+    #region Custom Varible
+    public float XOffsetMAX;
     public float YOffsetMAX;
     [Header("房间总数量")]
     public int RoomNumber;
@@ -33,8 +37,8 @@ public class NewRoomManager : MonoBehaviour
     public int SmallRoomCount;
     [Header("小房间半径范围")]
     public int[] SmallRoomRadius = new int[2];
-    [Header("基础半径")]
-    public int BaseRadius;
+    #endregion
+
 
     #region IsVisableInCamera
     public Camera Camera;
@@ -51,8 +55,7 @@ public class NewRoomManager : MonoBehaviour
         {
             ClearRoom();
             CreateNewRoom();
-            //test mst
-            IcanSeeInCameral();
+            IcanSeeInCameral();//test mst
         }
 
     }
@@ -104,6 +107,7 @@ public class NewRoomManager : MonoBehaviour
         return true;
     }
     #endregion
+    #region CreateNewRoom
     void CreateNewRoom()
     {
         RoomList = new List<Room>();
@@ -116,8 +120,7 @@ public class NewRoomManager : MonoBehaviour
             Vector3 tempPos;
             while (true)
             {
-
-                tempPos = new Vector3(OriginPosition.x + UnityEngine.Random.Range(-XOffsetMax, XOffsetMax), OriginPosition.y + UnityEngine.Random.Range(-YOffsetMAX, YOffsetMAX), 0);
+                tempPos = new Vector3(OriginPosition.x + UnityEngine.Random.Range(-XOffsetMAX, XOffsetMAX), OriginPosition.y + UnityEngine.Random.Range(-YOffsetMAX, YOffsetMAX), 0);
                 if (IsVisableInCamera(tempPos, BaseRadius) && IsCoincide(tempPos, BaseRadius, RoomList))
                 {
                     //Debug.Log("Find");
@@ -130,11 +133,14 @@ public class NewRoomManager : MonoBehaviour
                 #endregion
             }
             //save Room
-            RoomList.Add(new(tempPos, 0.5f, i));
+            RoomList.Add(new(tempPos, BaseRadius, i));
             Rooms.Add(Instantiate(RoomPrefab, tempPos, Quaternion.identity));
         }
         CreateMST(RoomList.Count);
+        CreateDoor();
     }
+    #endregion
+    #region clear Room
     void ClearRoom()
     {
         for (int i = 0; i < Rooms.Count; i++)
@@ -143,6 +149,7 @@ public class NewRoomManager : MonoBehaviour
         }
         Rooms.Clear();
     }
+    #endregion
     float DIstanceBTRoom(Room roomA, Room roomB)
     {
         return (Vector3.Distance(roomA.Position, roomB.Position));
@@ -167,6 +174,31 @@ public class NewRoomManager : MonoBehaviour
             RoomList[e.Destination].Connect(e.Source);
         }
     }
+    void CreateDoor()
+    {
+        for (int i = 0; i < RoomList.Count; i++)
+        {
+            Room tempRoom = RoomList[i];
+            List<int> tempConnectedRoom = tempRoom.GetConnectedRoom;
+            for (int j = 0; j < tempConnectedRoom.Count; j++) {
+                int ConnctedRoom = tempConnectedRoom[j];
+                Vector3 tempDirection = FindDoor(tempRoom.Position,RoomList[ConnctedRoom].Position);
+                Vector3 Rotation = tempDirection.normalized;
+                Debug.Log(Rotation);
+                Vector3 DoorOffset = tempRoom.Radius * Rotation;
+                Vector3 DoorEndOffset = tempDirection - RoomList[ConnctedRoom].Radius * Rotation;
+                GameObject tempDoor= Instantiate(DoorPrefab,tempRoom.Position+DoorOffset,Quaternion.identity);
+                Door door= tempDoor.GetComponent<Door>();
+                door.ConnectedRoom = ConnctedRoom;
+                door.EndPosition = tempRoom.Position + DoorEndOffset;
+                tempDoor.transform.SetParent(Rooms[ConnctedRoom].transform,true);
+            }
+        }
+    }
+    Vector3 FindDoor(Vector3 A,Vector3 B)
+    {
+        return(B-A);
+    }
     #region text mst
     void IcanSeeInCameral()
     {
@@ -174,7 +206,7 @@ public class NewRoomManager : MonoBehaviour
         {
             room.IcanSee();
         }
-        for(int i = 0;i < Rooms.Count;i++)
+        for (int i = 0; i < Rooms.Count; i++)
         {
             GameObject go = Rooms[i];
             go.GetComponentInChildren<TMP_Text>().text = RoomList[i].IcanSeeWay;
