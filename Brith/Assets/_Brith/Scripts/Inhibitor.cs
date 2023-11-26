@@ -18,6 +18,7 @@ namespace V
         private void Start() 
         {
             HealthSystem = new HealthSystem(HealthAmount);
+            techTreeUI = GameObject.FindGameObjectWithTag("TechTree");
 
             techTreeUI.SetActive(false);
         }

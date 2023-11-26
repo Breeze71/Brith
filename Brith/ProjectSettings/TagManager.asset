@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Element
   - Marbles
+  - TechTree
   layers:
   - Default
   - TransparentFX
