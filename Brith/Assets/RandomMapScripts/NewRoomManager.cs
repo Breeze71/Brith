@@ -121,6 +121,7 @@ public class NewRoomManager : MonoBehaviour
 
         CreateMST(RoomList.Count);
         CreateDoor();
+        FindEndRoom();
     }
     void CreateDifferentRoom(int number, float[] range)
     {
@@ -207,8 +208,8 @@ public class NewRoomManager : MonoBehaviour
                 Vector3 tempDirection = FindDoor(tempRoom.Position, RoomList[ConnctedRoom].Position);
                 Vector3 Rotation = tempDirection.normalized;
                 //Debug.Log(Rotation);
-                Vector3 DoorOffset = (tempRoom.Radius-0.1f) * Rotation;//move the door near the center of room
-                Vector3 DoorEndOffset = tempDirection - (RoomList[ConnctedRoom].Radius-0.1f )* Rotation;////move the door near the center of room
+                Vector3 DoorOffset = (tempRoom.Radius - 0.1f) * Rotation;//move the door near the center of room
+                Vector3 DoorEndOffset = tempDirection - (RoomList[ConnctedRoom].Radius - 0.1f) * Rotation;////move the door near the center of room
                 GameObject tempDoor = Instantiate(DoorPrefab, tempRoom.Position + DoorOffset, Quaternion.identity);
                 Door door = tempDoor.GetComponent<Door>();
                 door.ConnectedRoom = ConnctedRoom;
@@ -222,6 +223,37 @@ public class NewRoomManager : MonoBehaviour
         return (B - A);
     }
     #endregion
+    void FindEndRoom()
+    {
+        bool[] VisitedRoom = new bool[RoomList.Count];
+        Queue<Room> queue = new Queue<Room>();
+        queue.Enqueue(RoomList[0]);
+        VisitedRoom[0] = true;
+        while (queue.Count > 0)
+        {
+            Room tempRoom = queue.Dequeue();
+            foreach(int index in tempRoom.ConnectedRoom)
+            {
+                if (!VisitedRoom[index])
+                {
+                    RoomList[index].RoomNumberFromOrigin = tempRoom.RoomNumberFromOrigin+1;
+                    VisitedRoom[index] = true;
+                    queue.Enqueue(RoomList[index]);
+                }
+            }
+        }
+        int tempN = 0;
+        int temPIndex = 0;
+        for (int i = 1; i < RoomList.Count; i++)
+        {
+            if (RoomList[i].RoomNumberFromOrigin > tempN) { 
+                temPIndex = i;
+                tempN = RoomList[i].RoomNumberFromOrigin;
+            }
+                
+        }
+        RoomList[temPIndex].EndRoom = true;
+    }
     #region text mst
     void IcanSeeInCameral()
     {

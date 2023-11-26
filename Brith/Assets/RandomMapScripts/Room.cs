@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Room
 {
+    [HideInInspector]
+    public int RoomNumberFromOrigin;
+    [HideInInspector]
+    public bool EndRoom;
     public Vector3 Position;
     public float Radius;
     public int Number;
-    List<int> ConnectedRoom = new List<int>();
+    public List<int> ConnectedRoom = new List<int>();
     public string IcanSeeWay;
     public Room(Vector3 position, float radius, int number)
     {
@@ -31,6 +35,7 @@ public class Room
             else
                 IcanSeeWay += room + "/";
         }
+        IcanSeeWay += "~" + RoomNumberFromOrigin+ EndRoom;
     }
     public List<int> GetConnectedRoom
     {
