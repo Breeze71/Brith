@@ -7,13 +7,13 @@ public class Injectparticle : MonoBehaviour
     public GameObject Particleprefab;
     [HideInInspector]
     public int ActiveParticleNumber;
-    [Header("Ò»´Î·¢ÉäÁ£×ÓµÄÊýÁ¿·¶Î§(min,max)")]
+    [Header("Ò»ï¿½Î·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§(min,max)")]
     public int[] POneInject;
-    [Header("·¢Éä¼ä¸ôÊ±¼ä")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½")]
     public int TimeOut;
-    [Header("×î´óÁ£×Ó´æÔÚÊý")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public int Maxnumber;
-    [Header("Á£×Ó·¢Éä³õËÙ¶È")]
+    [Header("ï¿½ï¿½ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½")]
     public float InitialSpeed;
 
     bool flag=true;
@@ -41,8 +41,8 @@ public class Injectparticle : MonoBehaviour
     //    if (activator.transform == gameObject.transform)
     //    {
     //        ActiveCount++;
-    //        //// ÎïÌå±»´Ë¼¤»îÔ´¼¤»î
-    //        //Debug.Log("ÎïÌå±»¼¤»î: " + obj.name);
+    //        //// ï¿½ï¿½ï¿½å±»ï¿½Ë¼ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½
+    //        //Debug.Log("ï¿½ï¿½ï¿½å±»ï¿½ï¿½ï¿½ï¿½: " + obj.name);
     //    }
     //}
 
@@ -52,14 +52,14 @@ public class Injectparticle : MonoBehaviour
     //    {
     //        ActiveCount--;
     //        OnDestory();
-    //        //// ÎïÌå±»´Ë¼¤»îÔ´È¡Ïû¼¤»î
-    //        //Debug.Log("ÎïÌå±»È¡Ïû¼¤»î: " + obj.name);
+    //        //// ï¿½ï¿½ï¿½å±»ï¿½Ë¼ï¿½ï¿½ï¿½Ô´È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //        //Debug.Log("ï¿½ï¿½ï¿½å±»È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: " + obj.name);
     //    }
     //}
 
     //private void OnDestroy()
     //{
-    //    // È¡Ïû¶©ÔÄÊÂ¼þ
+    //    // È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
     //    if (pool != null)
     //    {
     //        pool.OnObjectActivated -= HandleObjectActivated;
@@ -74,7 +74,7 @@ public class Injectparticle : MonoBehaviour
         for (int i = 0; i < Pnumber; i++)
         {
             //!!!here is the position when instantiate
-            // ¶©ÔÄÊÂ¼þ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
             //    pool.OnObjectActivated += HandleObjectActivated;
             //    pool.OnObjectDeactivated += HandleObjectDeactivated;
             GameObject particle =Instantiate(Particleprefab,gameObject.transform.position+ Quaternion.AngleAxis(Particleangle * i, Vector3.forward) * new Vector2(0, 0.5f), Quaternion.identity);//TODO: get from objectpool

@@ -18,7 +18,6 @@ namespace V
     {
         public Element element;   // 屬性
 
-        [SerializeField] private GameObject visual;
         private bool isCollected = false;
 
         public override void EnterTrigger(Collider2D _other)
@@ -35,7 +34,7 @@ namespace V
                 return;
             }
 
-            visual.SetActive(false);
+            gameObject.SetActive(false);
             isCollected = true;
 
             // 判別是哪屬性

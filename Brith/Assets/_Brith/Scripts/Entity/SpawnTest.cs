@@ -17,7 +17,7 @@ namespace V
 
         private void Update() 
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKey(KeyCode.E))
             {
                 Spawn();
 
