@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 1029295677085223212}
   - component: {fileID: 3593020408556743791}
   - component: {fileID: 2282818823538130856}
+  - component: {fileID: -4323880744473651614}
   m_Layer: 6
   m_Name: EntityCell
   m_TagString: Marbles
@@ -293,6 +294,20 @@ MonoBehaviour:
   sp_2: 10
   hp_1: 50
   hp_2: 80
+--- !u!114 &-4323880744473651614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086584053871405437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453312881ade4dc4eb49c64b6a51cc7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 0
+  CoolingTime: 5
 --- !u!1 &5072783012162999744
 GameObject:
   m_ObjectHideFlags: 0
