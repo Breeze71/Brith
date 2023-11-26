@@ -16,25 +16,27 @@ namespace V
         {
             base.DoEnterState();
 
+            // To - Do 改為投放方向
             Vector2 _randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
 
             enemyBase.Rb.AddForce(_randomDirection * minStableSpeed, ForceMode2D.Impulse);
 
-            moveDiretion = _randomDirection;
+            moveDiretion = enemyBase.Rb.velocity.normalized;
         }
+        
 
         public override void DoFrameUpdate()
         {
             base.DoFrameUpdate();
 
             // if current velocity less then minStable Speed
-            if(enemyBase.Rb.velocity.magnitude < minStableSpeed * 0.7)
+            if(enemyBase.Rb.velocity.magnitude < minStableSpeed * 0.9)
             {
                 enemyBase.Rb.AddForce(moveDiretion * minStableSpeed, ForceMode2D.Impulse);
             }
 
             // if current velocity more than minStable speed
-            else if(enemyBase.Rb.velocity.magnitude > minStableSpeed * 1.2)
+            else if(enemyBase.Rb.velocity.magnitude > minStableSpeed * 1.1)
             {
                 Vector2 _currentDir = enemyBase.Rb.velocity.normalized;
 

@@ -21,19 +21,27 @@ namespace V
         [SerializeField] private int elementAmountToReproduce = 200;
         [SerializeField] private GameObject element;
         public EntityElement entityElement{ get; set;}   // 存儲元素 
+
         private event Action OnElementChange; // Element Change
+        public event Action OnReproduce;
         #endregion
 
-        protected override void Start()
+        private CellTech cellTech;
+
+        public override void InitalizeEntity()
         {
-            base.Start();
+            base.InitalizeEntity();
 
             HealthSystem = new HealthSystem(maxHealth);
+            entityElement = new EntityElement();
+            cellTech = new CellTech();            
+        }
+        protected override void SetEntity()
+        {
             HealthBarUI.SetupHealthSystemUI(HealthSystem);
 
-            entityElement = new EntityElement();
-
-            OnElementChange += BasicEntity_ElementChange;
+            OnElementChange += BasicEntity_ElementChange;  // pick up element
+            cellTech.OnUnlockedNewTech += CellTech_OnUnlockedNewTech; // add new tech
         }
 
         #region Health
@@ -80,14 +88,39 @@ namespace V
             if(entityElement.GetTotalElementAmount() >= elementAmountToReproduce)
             {
                 entityElement.DecreaseElement();
+                OnReproduce?.Invoke();  // 改變 move 方向
 
-                // 生出新 Entity
+                // TO - DO 生出新 Entity
                 Instantiate(gameObject);
             }
         }
 
         #endregion
     
+        #region Tech
+        /// <summary>
+        /// Recive Add Tech Event 
+        /// </summary>
+        private void CellTech_OnUnlockedNewTech()
+        {
+            // To - Do Lot of Tech
+            if(CanUseFollow())
+            {
+                // To - Do
+                Debug.Log("Can Use Follow");
+            }
+        }
+
+        public CellTech GetCellTech()
+        {
+            return cellTech;
+        }
+        public bool CanUseFollow()
+        {
+            return cellTech.IsTechUnlocked(TechType.Follow);
+        }
+        #endregion
+
         #region Test
         [ContextMenu("TestDead()")]
         private void TestDead()
@@ -99,6 +132,11 @@ namespace V
         {
             entityElement.FireElement += 100;
             ElementChangeEvent();
+        }
+        [ContextMenu("Change Max Health")]
+        private void TestChangeMaxHealth()
+        {
+            HealthSystem.ChangeMaxHealth(30);
         }
         #endregion
     }

@@ -14,7 +14,7 @@ TagManager:
   - EntityCell
   - Enemy
   - Element
-  - 
+  - EntityIgnoreColl
   - 
   - 
   - 

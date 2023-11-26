@@ -4,18 +4,38 @@ using UnityEngine;
 
 public class HealthBarUI : MonoBehaviour
 {
-    [SerializeField] private Transform BarPosition;
+    [SerializeField] private Transform barPosition;
     private HealthSystem healthSystem;
 
     public void SetupHealthSystemUI(HealthSystem _healthSystem)
     {
         healthSystem = _healthSystem;
 
-        healthSystem.OnHealthChanged += healthSystem_OnHealthChanged;
+        healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
+        healthSystem.OnMaxHealthChanged += HealthSystem_OnMaxHealthChanged;
+    }
+    private void OnDestroy() 
+    {
+        healthSystem.OnHealthChanged -= HealthSystem_OnHealthChanged;
+        healthSystem.OnMaxHealthChanged -= HealthSystem_OnMaxHealthChanged;        
     }
 
-    private void healthSystem_OnHealthChanged(object sender, EventArgs e)
+    private void HealthSystem_OnMaxHealthChanged()
     {
-        BarPosition.transform.localScale = new Vector3(healthSystem.GetHealthPercent(), 1, 1);  
+        UpdateUI();        
+    }
+
+    private void HealthSystem_OnHealthChanged()
+    {
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        float _healthPercent = healthSystem.GetHealthPercent();
+        float _maxHealthPercent = healthSystem.GetInitMaxHealth() / healthSystem.GetInitMaxHealth();
+
+        barPosition.transform.localScale = new Vector3(_healthPercent * _maxHealthPercent, 1, 1);  
+
     }
 }

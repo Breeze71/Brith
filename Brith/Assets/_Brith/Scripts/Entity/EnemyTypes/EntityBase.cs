@@ -44,6 +44,8 @@ namespace V
             IdleState = new EnemyIdleState(this, StateMachine);    
             AttackState = new EnemyAttackState(this, StateMachine);   
             ChaseState = new EnemyChaseState(this, StateMachine);
+
+            InitalizeEntity();
         }
         protected virtual void Start() 
         {
@@ -54,6 +56,8 @@ namespace V
             EnemyAttackBaseInstance.Initialize(gameObject, this);
 
             StateMachine.Initalize(IdleState);
+
+            SetEntity();
         }
         
         private void Update() 
@@ -66,6 +70,14 @@ namespace V
         }
         #endregion
 
+        /// <summary>
+        /// Call at Awake
+        /// </summary>
+        public virtual void InitalizeEntity() {}
+        /// <summary>
+        /// Call at Start
+        /// </summary>
+        protected virtual void SetEntity(){}
 
         #region Movement
         public void SetVelocity(Vector2 _velocity)

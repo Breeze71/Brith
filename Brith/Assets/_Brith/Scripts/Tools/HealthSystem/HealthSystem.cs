@@ -2,21 +2,46 @@ using System;
 
 public class HealthSystem
 {
-    public event EventHandler OnHealthChanged;
+    public event Action OnHealthChanged;
+    public event Action OnMaxHealthChanged;
 
     private int health;
-    private int healthMax;
+    private int healthMax;  // 當前生命最大值
+    private int initHealthMax;  // 初始化生命最大值
+
 
     public HealthSystem(int _healthMax)
     {
-        healthMax = _healthMax;
-        health = healthMax;
+        initHealthMax = _healthMax;
+        healthMax = initHealthMax;
+
+        health = initHealthMax;
     }
 
     public int GetHealthAmount()
     {
         return health;
     }
+
+    public int GetInitMaxHealth()
+    {
+        return initHealthMax;
+    }
+
+    public int GetCurrentMaxHealth()
+    {
+        return healthMax;
+    }
+    /// <summary>
+    /// 最大生命值變化
+    /// </summary>
+    public void ChangeMaxHealth(int _healthAmount)
+    {
+        OnMaxHealthChanged?.Invoke();
+
+        healthMax = _healthAmount;
+    }
+
     
     public float GetHealthPercent()
     {
@@ -28,14 +53,14 @@ public class HealthSystem
         health -= _damageAmount;
 
         if(health <= 0) health = 0;
-        if(OnHealthChanged != null) OnHealthChanged?.Invoke(this, EventArgs.Empty);
+        if(OnHealthChanged != null) OnHealthChanged?.Invoke();
     }
 
     public void Heal(int _healthAmount)
     {
         health += _healthAmount;
 
-        if(health >= healthMax) health = healthMax;
-        if(OnHealthChanged != null) OnHealthChanged?.Invoke(this, EventArgs.Empty);
+        if(health >= healthMax) health = initHealthMax;
+        if(OnHealthChanged != null) OnHealthChanged?.Invoke();
     }
 }
