@@ -78,7 +78,7 @@ namespace V
             for (int i = 0; i < Pnumber; i++)
             {
                 GameObject _element = SpawnRandomElement().gameObject;
-                _element.transform.position = gameObject.transform.position+ Quaternion.AngleAxis(Particleangle * i, Vector3.forward) * new Vector2(0, 0.5f);
+                _element.transform.position = gameObject.transform.position+ Quaternion.AngleAxis(Particleangle * i, Vector3.forward) * new Vector2(0, 0.1f);
                 
                 SetSpeed(Quaternion.AngleAxis(Particleangle*i,Vector3.forward)*new Vector2(0,1), _element);
             }
