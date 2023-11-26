@@ -9,6 +9,7 @@ TagManager:
   - Element
   - Marbles
   - TechTree
+  - CellTag
   layers:
   - Default
   - TransparentFX

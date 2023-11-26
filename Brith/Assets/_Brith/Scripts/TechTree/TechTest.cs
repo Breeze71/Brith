@@ -12,7 +12,7 @@ namespace V
 
         private void Start()
         {
-            techTreeUI.SetCellTech(entityCell.GetCellTech());
+            // techTreeUI.SetCellTech(entityCell.GetCellTech());
         }
     }
 }

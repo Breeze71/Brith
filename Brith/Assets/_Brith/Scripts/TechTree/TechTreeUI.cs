@@ -22,18 +22,21 @@ namespace V.UI
 
         private CellTech cellTech;
 
-        private void Start() 
+        private void Awake() 
         {
             SetButtonUnlockTech(followButton, TechType.Follow);
             SetButtonUnlockTech(hp_1Button, TechType.HealthMax_1);
             SetButtonUnlockTech(hp_2Button, TechType.HealthMax_2);
             SetButtonUnlockTech(sp_1Button, TechType.MoveSpeed_1);
             SetButtonUnlockTech(sp_2Button, TechType.MoveSpeed_2);
+            Debug.Log("setbutton");
 
             nextSceneButton.onClick.AddListener(() =>
             {   
                 Loader.LoadScene(Loader.Scene.RandomMapTest);
             });
+
+            cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>(); 
         }
 
         private void SetButtonUnlockTech(Button _button, TechType _unlockTechType)
@@ -50,12 +53,5 @@ namespace V.UI
             }); 
         }
 
-        /// <summary>
-        /// 設定該 ui 和 cell tech
-        /// </summary>
-        public void SetCellTech(CellTech _cellTech)
-        {
-            cellTech = _cellTech;
-        }
     }
 }

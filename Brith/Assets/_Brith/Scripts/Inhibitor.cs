@@ -45,7 +45,7 @@ namespace V
         [ContextMenu("test dead")]
         private void TestDead()
         {
-            HealthSystem.TakeDamage(200);
+            TakeDamage(200);
         }
     }
 }
