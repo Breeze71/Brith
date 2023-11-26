@@ -14,29 +14,30 @@ public class NewRoomManager : MonoBehaviour
     Vector3 OriginPosition;
     public GameObject RoomPrefab;
     public GameObject DoorPrefab;
-    public float BaseRadius;//Basic radius（standard radius）
+    float BaseRadius;//Basic radius（standard radius）
 
     #region Custom Varible
+    public int MaxFindTime;
     public float XOffsetMAX;
     public float YOffsetMAX;
     [Header("房间总数量")]
     public int RoomNumber;
     [Header("房间最大间隔")]
-    public int RoomIntervalMAX;//max interval between two rooms
+    public float RoomIntervalMAX;//max interval between two rooms
     [Header("房间最小间隔")]
-    public int RoomIntervalMIN;
+    public float RoomIntervalMIN;
     [Header("大房间数量")]
     public int BigRoomCount;
     [Header("大房间半径范围")]
-    public int[] BigRoomRadius = new int[2];
+    public float[] BigRoomRadius = new float[2];
     [Header("中房间数量")]
     public int MediumRoomCount;
     [Header("中房间半径范围")]
-    public int[] MediumRoomRadius = new int[2];
+    public float[] MediumRoomRadius = new float[2];
     [Header("小房间数量")]
     public int SmallRoomCount;
     [Header("小房间半径范围")]
-    public int[] SmallRoomRadius = new int[2];
+    public float[] SmallRoomRadius = new float[2];
     #endregion
 
 
@@ -45,6 +46,7 @@ public class NewRoomManager : MonoBehaviour
     #endregion
     private void Start()
     {
+        BaseRadius = 0.5f;
         //OriginPoint = gameObject.transform;
         OriginPosition = gameObject.transform.position;
         //CreateNewRoom();
@@ -101,7 +103,7 @@ public class NewRoomManager : MonoBehaviour
         foreach (Room v in RoomList)
         {
             float tempDis = Vector3.Distance(position, v.Position);
-            if (tempDis <= radius + v.Radius | tempDis > RoomIntervalMAX)
+            if (tempDis <= radius + v.Radius | tempDis < RoomIntervalMIN | tempDis > RoomIntervalMAX)
                 return false;
         }
         return true;
@@ -112,32 +114,52 @@ public class NewRoomManager : MonoBehaviour
     {
         RoomList = new List<Room>();
 
-        #region to prevent stucking
-        int KeyOut = 0;//to prevent stucking
-        #endregion
-        for (int i = 0; i < RoomNumber; i++)
+        CreateDifferentRoom(BigRoomCount, BigRoomRadius);
+        CreateDifferentRoom(MediumRoomCount, MediumRoomRadius);
+        CreateDifferentRoom(SmallRoomCount, SmallRoomRadius);
+
+        CreateMST(RoomList.Count);
+        CreateDoor();
+    }
+    void CreateDifferentRoom(int number, float[] range)
+    {
+        for (int i = 0; i < number; i++)
         {
+            #region to prevent stucking
+            int KeyOut = 0;//to prevent stucking
+            bool flag = false;
+            #endregion
+            float radius = UnityEngine.Random.Range(range[0], range[1]);
             Vector3 tempPos;
             while (true)
             {
                 tempPos = new Vector3(OriginPosition.x + UnityEngine.Random.Range(-XOffsetMAX, XOffsetMAX), OriginPosition.y + UnityEngine.Random.Range(-YOffsetMAX, YOffsetMAX), 0);
-                if (IsVisableInCamera(tempPos, BaseRadius) && IsCoincide(tempPos, BaseRadius, RoomList))
+                if (IsVisableInCamera(tempPos, radius) && IsCoincide(tempPos, radius, RoomList))
                 {
                     //Debug.Log("Find");
+                    flag = true;
                     break;
                 }
                 #region to prevent stucking
                 KeyOut++;
-                if (KeyOut > 100000)
+                if (KeyOut > MaxFindTime)
                     break;
                 #endregion
             }
             //save Room
-            RoomList.Add(new(tempPos, BaseRadius, i));
-            Rooms.Add(Instantiate(RoomPrefab, tempPos, Quaternion.identity));
+            if (flag)
+            {
+                RoomList.Add(new(tempPos, radius, i));
+                GameObject go = Instantiate(RoomPrefab, tempPos, Quaternion.identity);
+                go.transform.localScale *= radius / 0.5f;
+                Rooms.Add(go);
+            }
+            Debug.Log(KeyOut);//find times
         }
-        CreateMST(RoomList.Count);
-        CreateDoor();
+    }
+    float DIstanceBTRoom(Room roomA, Room roomB)
+    {
+        return (Vector3.Distance(roomA.Position, roomB.Position));
     }
     #endregion
     #region clear Room
@@ -150,10 +172,7 @@ public class NewRoomManager : MonoBehaviour
         Rooms.Clear();
     }
     #endregion
-    float DIstanceBTRoom(Room roomA, Room roomB)
-    {
-        return (Vector3.Distance(roomA.Position, roomB.Position));
-    }
+
     void CreateMST(int number)
     {
         Graph g = new Graph(number);
@@ -174,31 +193,34 @@ public class NewRoomManager : MonoBehaviour
             RoomList[e.Destination].Connect(e.Source);
         }
     }
+    #region CreateDoor
     void CreateDoor()
     {
         for (int i = 0; i < RoomList.Count; i++)
         {
             Room tempRoom = RoomList[i];
             List<int> tempConnectedRoom = tempRoom.GetConnectedRoom;
-            for (int j = 0; j < tempConnectedRoom.Count; j++) {
+            for (int j = 0; j < tempConnectedRoom.Count; j++)
+            {
                 int ConnctedRoom = tempConnectedRoom[j];
-                Vector3 tempDirection = FindDoor(tempRoom.Position,RoomList[ConnctedRoom].Position);
+                Vector3 tempDirection = FindDoor(tempRoom.Position, RoomList[ConnctedRoom].Position);
                 Vector3 Rotation = tempDirection.normalized;
-                Debug.Log(Rotation);
+                //Debug.Log(Rotation);
                 Vector3 DoorOffset = tempRoom.Radius * Rotation;
                 Vector3 DoorEndOffset = tempDirection - RoomList[ConnctedRoom].Radius * Rotation;
-                GameObject tempDoor= Instantiate(DoorPrefab,tempRoom.Position+DoorOffset,Quaternion.identity);
-                Door door= tempDoor.GetComponent<Door>();
+                GameObject tempDoor = Instantiate(DoorPrefab, tempRoom.Position + DoorOffset, Quaternion.identity);
+                Door door = tempDoor.GetComponent<Door>();
                 door.ConnectedRoom = ConnctedRoom;
                 door.EndPosition = tempRoom.Position + DoorEndOffset;
-                tempDoor.transform.SetParent(Rooms[ConnctedRoom].transform,true);
+                tempDoor.transform.SetParent(Rooms[ConnctedRoom].transform, true);
             }
         }
     }
-    Vector3 FindDoor(Vector3 A,Vector3 B)
+    Vector3 FindDoor(Vector3 A, Vector3 B)
     {
-        return(B-A);
+        return (B - A);
     }
+    #endregion
     #region text mst
     void IcanSeeInCameral()
     {
