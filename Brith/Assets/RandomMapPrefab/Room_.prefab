@@ -150,6 +150,7 @@ MonoBehaviour:
   coll: {fileID: 915592140217026729}
   entities:
   - {fileID: 1181240780522633421, guid: eb5e6e89358972f48b509aa732357e2c, type: 3}
+  - {fileID: 2086584053871405437, guid: d28d05739891e554cabce9560c2c1bc5, type: 3}
 --- !u!1 &4584246093173535778
 GameObject:
   m_ObjectHideFlags: 0

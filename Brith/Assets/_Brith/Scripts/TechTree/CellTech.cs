@@ -18,10 +18,10 @@ namespace V
     /// <summary>
     ///  The Technology Tree of Cell
     /// </summary>
-    public class CellTech
+    public class CellTech : MonoBehaviour
     {
         public event Action<TechType> OnUnlockedNewTech;
-        private List<TechType> unlockTechList;
+        public List<TechType> unlockTechList;
 
 
         public CellTech()
@@ -97,6 +97,14 @@ namespace V
                 UnlockNewTech(_techType);
 
                 return true;
+            }
+        }
+
+        public void CheckUnlockSkill()
+        {
+            foreach(TechType techType in unlockTechList)
+            {
+                TryUnlockNewTech(techType);
             }
         }
     }

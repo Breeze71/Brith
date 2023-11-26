@@ -41,14 +41,17 @@ namespace V
 
             HealthSystem = new HealthSystem(maxHealth);
             entityElement = new EntityElement();
-            cellTech = new CellTech();            
+
         }
         protected override void SetEntity()
         {
             HealthBarUI.SetupHealthSystemUI(HealthSystem);
 
             OnElementChange += BasicEntity_ElementChange;  // pick up element
+
+            cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();           
             cellTech.OnUnlockedNewTech += CellTech_OnUnlockedNewTech; // add new tech
+            cellTech.CheckUnlockSkill();
         }
 
         #region Health
@@ -126,6 +129,11 @@ namespace V
                     SetMaxHealthAmount(hp_2);
                     break;                
             }
+        }
+
+        private void CheckUnlockTech()
+        {
+            cellTech.CheckUnlockSkill();
         }
 
         public CellTech GetCellTech()
