@@ -207,8 +207,8 @@ public class NewRoomManager : MonoBehaviour
                 Vector3 tempDirection = FindDoor(tempRoom.Position, RoomList[ConnctedRoom].Position);
                 Vector3 Rotation = tempDirection.normalized;
                 //Debug.Log(Rotation);
-                Vector3 DoorOffset = tempRoom.Radius * Rotation;
-                Vector3 DoorEndOffset = tempDirection - RoomList[ConnctedRoom].Radius * Rotation;
+                Vector3 DoorOffset = (tempRoom.Radius-0.2f) * Rotation;
+                Vector3 DoorEndOffset = tempDirection - (RoomList[ConnctedRoom].Radius-0.2f )* Rotation;
                 GameObject tempDoor = Instantiate(DoorPrefab, tempRoom.Position + DoorOffset, Quaternion.identity);
                 Door door = tempDoor.GetComponent<Door>();
                 door.ConnectedRoom = ConnctedRoom;
