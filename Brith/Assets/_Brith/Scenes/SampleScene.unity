@@ -328,6 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d6c533ac48149449a47818ee704ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  techUnlockMaterial: {fileID: 0}
+  techUnlockableMaterial: {fileID: 0}
   followButton: {fileID: 1993223070}
   hp_1Button: {fileID: 802957945}
   hp_2Button: {fileID: 2129860005}

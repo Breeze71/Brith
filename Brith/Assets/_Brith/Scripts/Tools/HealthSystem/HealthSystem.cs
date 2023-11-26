@@ -40,6 +40,7 @@ public class HealthSystem
         OnMaxHealthChanged?.Invoke();
 
         healthMax = _healthAmount;
+        health = healthMax;
     }
 
     

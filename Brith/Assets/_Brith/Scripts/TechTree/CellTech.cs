@@ -7,6 +7,7 @@ namespace V
 {
     public enum TechType
     {
+        None,
         Follow,
         MoveSpeed_1,
         MoveSpeed_2,
@@ -19,7 +20,7 @@ namespace V
     /// </summary>
     public class CellTech
     {
-        public event Action OnUnlockedNewTech;
+        public event Action<TechType> OnUnlockedNewTech;
         private List<TechType> unlockTechList;
 
 
@@ -28,10 +29,7 @@ namespace V
             unlockTechList = new List<TechType>();
         }
 
-        /// <summary>
-        /// Unlock New Tech
-        /// </summary>
-        public void UnlockTech(TechType _techType)
+        private void UnlockNewTech(TechType _techType)
         {
             if(IsTechUnlocked(_techType))
             {   
@@ -42,7 +40,7 @@ namespace V
             unlockTechList.Add(_techType);
             Debug.Log("Unlock " + _techType);
             
-            OnUnlockedNewTech?.Invoke(); // To - Do ④是否被解锁示意圈
+            OnUnlockedNewTech?.Invoke(_techType); // To - Do ④是否被解锁示意圈
         }
 
         /// <summary>
@@ -51,6 +49,55 @@ namespace V
         public bool IsTechUnlocked(TechType _techType)
         {
             return unlockTechList.Contains(_techType);
+        }
+
+        /// <summary>
+        /// 前置需求
+        /// </summary>
+        public TechType GetTechRequirement(TechType _techType)
+        {
+            switch(_techType)
+            {
+                case TechType.MoveSpeed_2: 
+                    return TechType.MoveSpeed_1;
+
+                case TechType.HealthMax_2: 
+                    return TechType.HealthMax_1;
+            }
+
+            return TechType.None;
+        }
+
+        /// <summary>
+        /// UnlockNewTech
+        /// </summary>
+        public bool TryUnlockNewTech(TechType _techType)
+        {
+            TechType techTypeRequirement = GetTechRequirement(_techType);
+
+            if(techTypeRequirement != TechType.None)
+            {
+                // 檢查是否滿足前置需求
+                if(IsTechUnlocked(techTypeRequirement))
+                {
+                    UnlockNewTech(_techType);
+
+                    return true;
+                }
+
+                else
+                {
+                    return false;
+                }
+            }
+
+            // 沒有前置需求
+            else
+            {
+                UnlockNewTech(_techType);
+
+                return true;
+            }
         }
     }
 }

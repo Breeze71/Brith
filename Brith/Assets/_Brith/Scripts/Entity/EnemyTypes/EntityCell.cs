@@ -6,9 +6,8 @@ namespace V
     public class EntityCell : EntityBase, IDamagable
     {   
         #region Combat Var
-        public int defense;
-        public int speed;
-        [field : SerializeField] public int maxHealth {get; set ;}
+        [field : SerializeField] public int defense {get; private set;}
+        [field : SerializeField] public int maxHealth {get; private set ;}
         #endregion
 
         #region IDamagable
@@ -24,6 +23,14 @@ namespace V
 
         private event Action OnElementChange; // Element Change
         public event Action OnReproduce;
+        #endregion
+
+        #region Tech
+        [Header("Tech")]
+        public float sp_1 = 5;
+        public float sp_2 = 10;
+        public int hp_1 = 50;
+        public int hp_2 = 80;
         #endregion
 
         private CellTech cellTech;
@@ -101,13 +108,23 @@ namespace V
         /// <summary>
         /// Recive Add Tech Event 
         /// </summary>
-        private void CellTech_OnUnlockedNewTech()
+        private void CellTech_OnUnlockedNewTech(TechType techType)
         {
             // To - Do Lot of Tech
-            if(CanUseFollow())
+            switch(techType)
             {
-                // To - Do
-                Debug.Log("Can Use Follow");
+                case TechType.MoveSpeed_1:
+                    SetMinStableSpeed(sp_1);
+                    break;
+                case TechType.MoveSpeed_2:
+                    SetMinStableSpeed(sp_2);
+                    break;
+                case TechType.HealthMax_1:
+                    SetMaxHealthAmount(hp_1);
+                    break;
+                case TechType.HealthMax_2:
+                    SetMaxHealthAmount(hp_2);
+                    break;                
             }
         }
 
@@ -119,11 +136,24 @@ namespace V
         {
             return cellTech.IsTechUnlocked(TechType.Follow);
         }
+
+        private void SetMinStableSpeed(float _speed)
+        {
+            speed += _speed;
+
+            Debug.Log(speed);
+        }
+        private void SetMaxHealthAmount(int _amount)
+        {
+            HealthSystem.ChangeMaxHealth(maxHealth + _amount);
+
+            Debug.Log(HealthSystem.GetHealthAmount());
+        }
         #endregion
 
         #region Test
-        [ContextMenu("TestDead()")]
-        private void TestDead()
+        [ContextMenu("TestMinus100Hp()")]
+        private void TestMinus100Hp()
         {
             TakeDamage(110);
         }

@@ -7,6 +7,7 @@ namespace V
         public Rigidbody2D Rb {get; set;}
         public bool IsFacingRight {get; set;} = true;
         public int attack;
+        public float speed;
 
         #region ScriptableObject FSM
         [SerializeField] private EnemyIdleSOBase enemyIdleSOBase;
