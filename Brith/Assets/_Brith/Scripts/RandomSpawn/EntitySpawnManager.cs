@@ -13,6 +13,7 @@ namespace V
 
         [SerializeField] private LayerMask layerNotToSpawn;
         [SerializeField, Tooltip("用於避免生成在存在的 entity 上 ")] private float entitySize;
+        [SerializeField] private float offest;
 
         private void Awake() 
         {
@@ -50,7 +51,7 @@ namespace V
             // 嘗試 50 次 隨機生成點
             while(!_isSpawnPositionValid && _attempCount < _maxAttemp)
             {
-                _spawnPosition = GetRandomPointInCollider(_spawnArea);
+                _spawnPosition = GetRandomPointInCollider(_spawnArea, offest);
                 Collider2D[] _colls = Physics2D.OverlapCircleAll(_spawnPosition, 2f);
 
                 bool _isInValidCollision = false;

@@ -180,6 +180,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 448
   entitySize: 2
+  offest: 0.1
 --- !u!4 &141633066
 Transform:
   m_ObjectHideFlags: 0
@@ -350,6 +351,10 @@ PrefabInstance:
     - target: {fileID: 1181240780522633421, guid: eb5e6e89358972f48b509aa732357e2c, type: 3}
       propertyPath: m_Name
       value: SceneEntity
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181240780522633421, guid: eb5e6e89358972f48b509aa732357e2c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2331799532320512920, guid: eb5e6e89358972f48b509aa732357e2c, type: 3}

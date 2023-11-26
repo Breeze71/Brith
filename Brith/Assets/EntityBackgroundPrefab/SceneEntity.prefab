@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1025790464725514376}
   - component: {fileID: 8351330246650241239}
   - component: {fileID: 2569354275254561534}
-  - component: {fileID: 2331799532320512920}
   - component: {fileID: -6774113825561662021}
+  - component: {fileID: 1535515408029481124}
   m_Layer: 0
   m_Name: SceneEntity
   m_TagString: Untagged
@@ -29,11 +29,11 @@ Transform:
   m_GameObject: {fileID: 1181240780522633421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8351330246650241239
 SpriteRenderer:
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,24 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3985008e5f6b35d4a841036338fea296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2331799532320512920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181240780522633421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d12377b5529c0f54c92071dce81a90b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Particleprefab: {fileID: 8950489160745180254, guid: d73a40b12d8e09c43914b75fb43b1df4, type: 3}
-  ActiveParticleNumber: 0
-  POneInject: 050000000a000000
-  TimeOut: 5
-  Maxnumber: 50
-  InitialSpeed: 2
+  attribute: 0
+  ActiveCount: 0
 --- !u!60 &-6774113825561662021
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -168,3 +152,22 @@ PolygonCollider2D:
       - {x: 0.43359375, y: 0.25}
       - {x: 0, y: 0.5}
   m_UseDelaunayMesh: 0
+--- !u!114 &1535515408029481124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181240780522633421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720a06602380681489763b378acd2581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAmountMax: 50
+  currentElementAmount: 0
+  elementList:
+  - {fileID: 4594004309459327350, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
+  POneInject: 050000000a000000
+  InitialSpeed: 2
+  TimeOut: 5
