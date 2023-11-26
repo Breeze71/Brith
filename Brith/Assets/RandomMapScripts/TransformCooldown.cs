@@ -7,6 +7,10 @@ public class TransformCooldown : MonoBehaviour
     [HideInInspector]
     public bool flag;//Coling time
     public float CoolingTime;
+    private void Awake()
+    {
+        flag = true;
+    }
     public void Colling()
     {
         StartCoroutine(CoolingDown());
@@ -14,6 +18,7 @@ public class TransformCooldown : MonoBehaviour
     IEnumerator CoolingDown()
     {
         yield return new WaitForSeconds(CoolingTime);
+        Debug.Log("COOL");  
         flag = true;
     }
 }

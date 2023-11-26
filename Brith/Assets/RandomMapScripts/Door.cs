@@ -10,14 +10,23 @@ public class Door : MonoBehaviour
     public Vector3 EndPosition;
     public string ParticleTag;
     public string Marblestag;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         var TransformInfo = collision.gameObject.GetComponent<TransformCooldown>();
-        if ((collision.tag== ParticleTag && TransformInfo.flag) | (collision.tag == Marblestag && TransformInfo.flag))
+        if (TransformInfo != null)
         {
-            TransformInfo.flag = false;
-            TransformInfo.Colling();
-            collision.gameObject.transform.position = EndPosition;
+            if ((collision.tag == ParticleTag && TransformInfo.flag) | (collision.tag == Marblestag && TransformInfo.flag))
+            {
+                TransformInfo.flag = false;
+                collision.gameObject.transform.position = EndPosition;
+                TransformInfo.Colling();
+            }
         }
+
+        //if (collision.tag == ParticleTag  | collision.tag == Marblestag)
+        //{
+        //    Debug.Log(EndPosition);
+        //    collision.gameObject.transform.position = EndPosition;
+        //}
     }
 }

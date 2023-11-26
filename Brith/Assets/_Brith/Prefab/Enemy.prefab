@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034d970f11c8ba147b08ee775af50cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarPosition: {fileID: 9219915426882602133}
+  barPosition: {fileID: 0}
 --- !u!1 &4697063336254874327
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 8286217814807525968}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -559,16 +559,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 10
+  speed: 2
   enemyIdleSOBase: {fileID: 11400000, guid: 7521c96a1d364f344b2e20786f3e0e0e, type: 2}
   enemyChaseSOBase: {fileID: 11400000, guid: 1d0f89c2f0424f244abfcfdf9f751ac6, type: 2}
   enemyAttackSOBase: {fileID: 11400000, guid: cf4700bf26f4f6440b8c60824614489d, type: 2}
   TargetTransform: {fileID: 0}
-  defense: 3
-  speed: 2
+  <defense>k__BackingField: 0
   <maxHealth>k__BackingField: 100
   <HealthBarUI>k__BackingField: {fileID: 2586133620568862468}
-  reproduceAmount: 10
+  elementAmountToReproduce: 200
   element: {fileID: 208937080080910159, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
+  sp_1: 5
+  sp_2: 10
+  hp_1: 50
+  hp_2: 80
 --- !u!1 &8957673820172601069
 GameObject:
   m_ObjectHideFlags: 0

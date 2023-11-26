@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 2282818823538130856}
   m_Layer: 6
   m_Name: EntityCell
-  m_TagString: Untagged
+  m_TagString: Marbles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,16 +279,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 10
+  speed: 2
   enemyIdleSOBase: {fileID: 11400000, guid: 7521c96a1d364f344b2e20786f3e0e0e, type: 2}
   enemyChaseSOBase: {fileID: 11400000, guid: 1d0f89c2f0424f244abfcfdf9f751ac6, type: 2}
   enemyAttackSOBase: {fileID: 11400000, guid: cf4700bf26f4f6440b8c60824614489d, type: 2}
   TargetTransform: {fileID: 0}
-  defense: 3
-  speed: 2
+  <defense>k__BackingField: 0
   <maxHealth>k__BackingField: 100
   <HealthBarUI>k__BackingField: {fileID: 5671006373899315964}
   elementAmountToReproduce: 200
   element: {fileID: 208937080080910159, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
+  sp_1: 5
+  sp_2: 10
+  hp_1: 50
+  hp_2: 80
 --- !u!1 &5072783012162999744
 GameObject:
   m_ObjectHideFlags: 0
