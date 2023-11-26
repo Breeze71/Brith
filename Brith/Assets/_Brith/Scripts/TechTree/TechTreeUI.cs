@@ -9,6 +9,7 @@ namespace V.UI
     {
         [SerializeField] private Material techUnlockMaterial;
         [SerializeField] private Material techUnlockableMaterial;
+        [SerializeField] private Button nextSceneButton;
         
         #region Button
         [Header("Button")]
@@ -28,6 +29,11 @@ namespace V.UI
             SetButtonUnlockTech(hp_2Button, TechType.HealthMax_2);
             SetButtonUnlockTech(sp_1Button, TechType.MoveSpeed_1);
             SetButtonUnlockTech(sp_2Button, TechType.MoveSpeed_2);
+
+            nextSceneButton.onClick.AddListener(() =>
+            {   
+                Loader.LoadScene(Loader.Scene.RandomMapTest);
+            });
         }
 
         private void SetButtonUnlockTech(Button _button, TechType _unlockTechType)
@@ -41,7 +47,7 @@ namespace V.UI
                     // To - do
                     // ui  顯示需先滿足前置需求
                 }
-            });
+            }); 
         }
 
         /// <summary>
