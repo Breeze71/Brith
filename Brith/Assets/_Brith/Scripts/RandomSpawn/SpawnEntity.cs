@@ -8,9 +8,16 @@ namespace V
     {
         [SerializeField] private Collider2D coll;
         [SerializeField] private GameObject[] entities;
-        
-        private void Start() 
+        [SerializeField] private GameObject[] TargetEntity;
+        [SerializeField] private GameObject[] Enemy;
+        public RoomInfo room;
+        private void Start()
         {
+            room = GetComponent<RoomInfo>();
+            if (room.EndRoom)
+                EntitySpawnManager.Instance.SpawnEntities(coll, TargetEntity);
+            if (room.RoomNumberFromOrigin != 0)
+                EntitySpawnManager.Instance.SpawnEntities(coll, Enemy);
             EntitySpawnManager.Instance.SpawnEntities(coll, entities);
         }
     }

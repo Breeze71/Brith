@@ -156,7 +156,8 @@ namespace V
                 //save Room
                 if (flag)
                 {
-                    RoomList.Add(new(tempPos, radius, i));
+                    Room tempRoom= new(tempPos, radius, i);
+                    RoomList.Add(tempRoom);
                     GameObject go = Instantiate(RoomPrefab, tempPos, Quaternion.identity);
                     go.transform.localScale *= radius / 0.5f;
                     Rooms.Add(go);
@@ -259,6 +260,20 @@ namespace V
 
             }
             RoomList[temPIndex].EndRoom = true;
+        }
+        void AddRoomData()
+        {
+            for (int i = 0;i<Rooms.Count;i++)
+            {
+                Room room = RoomList[i];
+                GameObject go = Rooms[i];
+                RoomInfo roomInfo = go.GetComponent<RoomInfo>();
+                roomInfo.EndRoom = room.EndRoom;
+                roomInfo.Radius = room.Radius;
+                roomInfo.RoomNumberFromOrigin = room.RoomNumberFromOrigin;
+                roomInfo.Number=room.Number;
+                roomInfo.ConnectedRoom=room.ConnectedRoom;
+            }
         }
         #region text mst
         void IcanSeeInCameral()

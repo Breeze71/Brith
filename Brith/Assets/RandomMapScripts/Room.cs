@@ -5,9 +5,9 @@ using UnityEngine;
 public class Room
 {
     [HideInInspector]
-    public int RoomNumberFromOrigin;
+    public int RoomNumberFromOrigin;//the number of room from Originroom
     [HideInInspector]
-    public bool EndRoom;
+    public bool EndRoom;//End this room is?
     public Vector3 Position;
     public float Radius;
     public int Number;

@@ -1,0 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class RoomInfo : MonoBehaviour
+{
+    [HideInInspector]
+    public int RoomNumberFromOrigin;//the number of room from Originroom
+    [HideInInspector]
+    public bool EndRoom;//End this room is?
+    public float Radius;
+    public int Number;
+    public List<int> ConnectedRoom = new List<int>();
+}
