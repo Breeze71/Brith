@@ -42,7 +42,11 @@ namespace V
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.V))
+            //if (Input.GetKeyDown(KeyCode.V))
+            //{
+            //    Fire();
+            //}
+            if (flag)
             {
                 Fire();
             }
@@ -83,6 +87,7 @@ namespace V
                 SetSpeed(Quaternion.AngleAxis(Particleangle*i,Vector3.forward)*new Vector2(0,1), _element);
             }
             flag = false;
+            StartCoroutine(ThrowPartivles());
         }
         void SetSpeed(Vector2 direction, GameObject particel)
         {

@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5231531510108378610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5498520812504278618}
+  - component: {fileID: -4757127807227022854}
+  m_Layer: 0
+  m_Name: RoomCreateManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5498520812504278618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5231531510108378610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4757127807227022854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5231531510108378610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f80d1d123da98146a30922246af468a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomPrefab: {fileID: 6508442690050492750, guid: 56e943dfcc8cfe148b8d9bf28d848f26, type: 3}
+  DoorPrefab: {fileID: 6952011490494198062, guid: c73b9dfcc420efd47b914e15240de019, type: 3}
+  MaxFindTime: 10000
+  XOffsetMAX: 9
+  YOffsetMAX: 5
+  RoomNumber: 5
+  RoomIntervalMAX: 18
+  RoomIntervalMIN: 0
+  BigRoomCount: 5
+  BigRoomRadius:
+  - 0.8
+  - 2
+  MediumRoomCount: 0
+  MediumRoomRadius:
+  - 0
+  - 0
+  SmallRoomCount: 0
+  SmallRoomRadius:
+  - 0
+  - 0
+  Camera: {fileID: 0}

@@ -127,6 +127,8 @@ namespace V
             CreateMST(RoomList.Count);
             CreateDoor();
             FindEndRoom();
+            AddRoomData();
+            RoomCreateEntity();
         }
         void CreateDifferentRoom(int number, float[] range)
         {
@@ -273,6 +275,13 @@ namespace V
                 roomInfo.RoomNumberFromOrigin = room.RoomNumberFromOrigin;
                 roomInfo.Number=room.Number;
                 roomInfo.ConnectedRoom=room.ConnectedRoom;
+            }
+        }
+        void RoomCreateEntity()
+        {
+            foreach(GameObject go in Rooms)
+            {
+                go.GetComponentInChildren<SpawnEntity>().CreateEntity();
             }
         }
         #region text mst
