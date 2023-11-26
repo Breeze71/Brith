@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace V
 {
@@ -10,6 +12,11 @@ namespace V
         /// 最大生成數量
         /// </summary>
         public int spawnAmountMax;
+        /// <summary>
+        /// 當前場景中存在的 Element 數量
+        /// </summary>
+        public int currentElementAmount;
+        public event Action OnElementCollected;
         
         /// <summary>
         /// 元素屬性
@@ -44,12 +51,14 @@ namespace V
         private PoolableObject DoSpawnElement(int _spawnIndex)
         {
             PoolableObject _poolableObject = elementPoolDic[_spawnIndex].GetObject();
-
+            
             if(_poolableObject == null)
             {
                 Debug.LogError("生成列表為空");
                 return null;;
             }
+            _poolableObject.gameObject.GetComponent<ElementInteraction>().InjectElement = this;
+            currentElementAmount++;
 
             return _poolableObject;
         }
@@ -58,6 +67,7 @@ namespace V
         {
             return DoSpawnElement(Random.Range(0, elementList.Count));
         }
+
 
 
         void Fire()

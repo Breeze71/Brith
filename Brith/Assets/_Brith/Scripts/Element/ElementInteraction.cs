@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using V._Core;
 
@@ -17,8 +18,14 @@ namespace V
     public class ElementInteraction : InteractableBase
     {
         public Element element;   // 屬性
+        public InjectElement InjectElement;
 
-        private bool isCollected = false;
+        private bool isCollected;
+
+        private void OnEnable() 
+        {
+            isCollected = false;  
+        }
 
         public override void EnterTrigger(Collider2D _other)
         {
@@ -36,6 +43,7 @@ namespace V
 
             gameObject.SetActive(false);
             isCollected = true;
+            InjectElement.currentElementAmount--;
 
             // 判別是哪屬性
             if(element == Element.Ground)
