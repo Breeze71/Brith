@@ -14,29 +14,29 @@ public class NewRoomManager : MonoBehaviour
     Vector3 OriginPosition;
     public GameObject RoomPrefab;
     public GameObject DoorPrefab;
-    float BaseRadius;//Basic radius£¨standard radius£©
+    float BaseRadius;//Basic radiusï¿½ï¿½standard radiusï¿½ï¿½
 
     #region Custom Varible
     public int MaxFindTime;
     public float XOffsetMAX;
     public float YOffsetMAX;
-    [Header("·¿¼ä×ÜÊýÁ¿")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public int RoomNumber;
-    [Header("·¿¼ä×î´ó¼ä¸ô")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public float RoomIntervalMAX;//max interval between two rooms
-    [Header("·¿¼ä×îÐ¡¼ä¸ô")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½")]
     public float RoomIntervalMIN;
-    [Header("´ó·¿¼äÊýÁ¿")]
+    [Header("ï¿½ó·¿¼ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public int BigRoomCount;
-    [Header("´ó·¿¼ä°ë¾¶·¶Î§")]
+    [Header("ï¿½ó·¿¼ï¿½ë¾¶ï¿½ï¿½Î§")]
     public float[] BigRoomRadius = new float[2];
-    [Header("ÖÐ·¿¼äÊýÁ¿")]
+    [Header("ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public int MediumRoomCount;
-    [Header("ÖÐ·¿¼ä°ë¾¶·¶Î§")]
+    [Header("ï¿½Ð·ï¿½ï¿½ï¿½ë¾¶ï¿½ï¿½Î§")]
     public float[] MediumRoomRadius = new float[2];
-    [Header("Ð¡·¿¼äÊýÁ¿")]
+    [Header("Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public int SmallRoomCount;
-    [Header("Ð¡·¿¼ä°ë¾¶·¶Î§")]
+    [Header("Ð¡ï¿½ï¿½ï¿½ï¿½ë¾¶ï¿½ï¿½Î§")]
     public float[] SmallRoomRadius = new float[2];
     #endregion
 
@@ -44,6 +44,7 @@ public class NewRoomManager : MonoBehaviour
     #region IsVisableInCamera
     public Camera Camera;
     #endregion
+
     private void Start()
     {
         BaseRadius = 0.5f;
