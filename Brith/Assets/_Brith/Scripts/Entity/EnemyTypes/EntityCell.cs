@@ -5,11 +5,6 @@ namespace V
 {
     public class EntityCell : EntityBase, IDamagable
     {   
-        #region Combat Var
-        [field : SerializeField] public int defense {get; private set;}
-        [field : SerializeField] public int maxHealth {get; private set ;}
-        #endregion
-
         #region IDamagable
         [field : SerializeField] public HealthBarUI HealthBarUI { get; set; }
         public HealthSystem HealthSystem { get; set;}
