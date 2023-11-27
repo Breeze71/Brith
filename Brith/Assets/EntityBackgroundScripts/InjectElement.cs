@@ -46,7 +46,7 @@ namespace V
             //{
             //    Fire();
             //}
-            if (flag&& currentElementAmount<spawnAmountMax)
+            if (flag && currentElementAmount<spawnAmountMax)
             {
                 Fire();
             }
@@ -77,6 +77,9 @@ namespace V
         void Fire()
         {
             int Pnumber = Random.Range(POneInject[0], POneInject[1]);
+            while (Pnumber+currentElementAmount>spawnAmountMax) {
+                Pnumber = Random.Range(POneInject[0], POneInject[1]);
+            }
             float Particleangle = 360f / (Pnumber);
 
             for (int i = 0; i < Pnumber; i++)

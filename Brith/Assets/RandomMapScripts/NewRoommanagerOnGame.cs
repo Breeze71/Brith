@@ -7,6 +7,7 @@ namespace V
 {
     public class NewRoommanagerOnGame : MonoBehaviour
     {
+        public static NewRoommanagerOnGame Instance { get; set; }
         List<Room> RoomList;
         List<GameObject> Rooms = new();
         List<Vector3> RoomPosition;
@@ -44,8 +45,20 @@ namespace V
         #region IsVisableInCamera
         public Camera Camera;
         #endregion
+        #region Interface
+        public List<GameObject> GetRooms()
+        {
+            return Rooms;
+        }
+        #endregion
         private void Awake()
         {
+            if (Instance != null)
+            {
+                Debug.LogError("More than one NewRoomManager");
+            }
+
+            Instance = this;
             BaseRadius = 0.5f;
             OriginPosition = gameObject.transform.position;
             CreateNewRoom();
@@ -53,9 +66,6 @@ namespace V
         private void Start()
         {
 
-            //OriginPoint = gameObject.transform;
-
-            //CreateNewRoom();
         }
         //private void Update()
         //{
@@ -299,4 +309,5 @@ namespace V
         }
         #endregion
     }
+
 }

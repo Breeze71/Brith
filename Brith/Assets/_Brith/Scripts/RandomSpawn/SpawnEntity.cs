@@ -11,12 +11,9 @@ namespace V
         [SerializeField] private GameObject[] TargetEntity;
         [SerializeField] private GameObject[] Enemy;
         public RoomInfo room;
-        private void Awake()
-        {
-            room = gameObject.GetComponentInParent<RoomInfo>();
-        }
         public void CreateEntity()
         {
+            room = gameObject.GetComponentInParent<RoomInfo>();
             if (room.EndRoom)
                 EntitySpawnManager.Instance.SpawnEntities(coll, TargetEntity);
             if (room.RoomNumberFromOrigin != 0)

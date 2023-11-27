@@ -18,7 +18,7 @@ public class TransformCooldown : MonoBehaviour
     IEnumerator CoolingDown()
     {
         yield return new WaitForSeconds(CoolingTime);
-        Debug.Log("COOL");  
+        //Debug.Log("COOL");  
         flag = true;
     }
 }
