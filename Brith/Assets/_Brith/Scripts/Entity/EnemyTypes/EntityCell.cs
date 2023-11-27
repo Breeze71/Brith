@@ -53,6 +53,9 @@ namespace V
         private void OnDestroy() 
         {
             GameEventManager.Instance.PlayerEvent.CellDeadEvent(); // 通知 manager 細胞死亡
+            
+            cellTech.OnUnlockedNewTech -= CellTech_OnUnlockedNewTech; // add new tech
+            OnElementChange -= BasicEntity_ElementChange;  // pick up element
         }
 
 

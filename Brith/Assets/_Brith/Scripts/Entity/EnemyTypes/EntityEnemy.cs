@@ -36,6 +36,10 @@ namespace V
 
             OnElementChange += BasicEntity_ElementChange;  // pick up element
         }
+        private void OnDestroy() 
+        {
+            OnElementChange -= BasicEntity_ElementChange;  // pick up element
+        }
 
         #region Health
         public void TakeDamage(int _attack)

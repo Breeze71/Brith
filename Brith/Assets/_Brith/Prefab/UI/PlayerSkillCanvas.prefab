@@ -33,7 +33,7 @@ RectTransform:
   m_Children:
   - {fileID: 4401684207912457509}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -249,6 +249,10 @@ PrefabInstance:
     - target: {fileID: 7782843579255792577, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8652513640647720339, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
+      propertyPath: UseCount
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8652513640647720339, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: IconMaskImage
