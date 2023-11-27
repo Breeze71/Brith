@@ -50,7 +50,7 @@ MonoBehaviour:
   TargetEntity:
   - {fileID: 4584915725564916842, guid: 45d8b77897c9dea42b4ab4bdd6b32857, type: 3}
   Enemy:
-  - {fileID: 2086584053871405437, guid: d28d05739891e554cabce9560c2c1bc5, type: 3}
+  - {fileID: 8189151295235615877, guid: 4cd832b64e043df40a9e880a26d2e8c0, type: 3}
   room: {fileID: 0}
 --- !u!1 &1856438302859682984
 GameObject:
