@@ -46,7 +46,7 @@ namespace V
             //{
             //    Fire();
             //}
-            if (flag)
+            if (flag&& currentElementAmount<spawnAmountMax)
             {
                 Fire();
             }
