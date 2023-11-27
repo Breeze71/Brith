@@ -77,8 +77,13 @@ namespace V
         void Fire()
         {
             int Pnumber = Random.Range(POneInject[0], POneInject[1]);
+            int key = 0;
             while (Pnumber+currentElementAmount>spawnAmountMax) {
                 Pnumber = Random.Range(POneInject[0], POneInject[1]);
+                key++;
+                if (key > 50) {
+                    Pnumber = spawnAmountMax - currentElementAmount; break;
+                }
             }
             float Particleangle = 360f / (Pnumber);
 

@@ -37,6 +37,16 @@ namespace V
             }
         }
 
+        public void SpawnEntities(Collider2D _spawnArea, GameObject[] _entities,int _number)
+        {
+            foreach (GameObject _entity in _entities)
+            {
+                Vector2 _spawnPosition = GetRandomSpawnPosition(_spawnArea);
+                GameObject spawnEntity = Instantiate(_entity, _spawnPosition, Quaternion.identity);
+                spawnEntity.GetComponent<TransformCooldown>().RoomID = _number;
+            }
+        }
+
         /// <summary>
         /// Get a Random position whitout collision with other layer
         /// </summary>

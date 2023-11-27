@@ -461,6 +461,8 @@ MonoBehaviour:
   OriginRoom: {fileID: 0}
   CellPrefab:
   - {fileID: 2086584053871405437, guid: d28d05739891e554cabce9560c2c1bc5, type: 3}
+  CellPrefab2:
+  - {fileID: 8189151295235615877, guid: 4cd832b64e043df40a9e880a26d2e8c0, type: 3}
   CellSpawnNumber: 1
 --- !u!4 &1708111364
 Transform:

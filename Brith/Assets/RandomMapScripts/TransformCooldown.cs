@@ -15,7 +15,10 @@ public class TransformCooldown : MonoBehaviour
     }
     public void Colling()
     {
-        StartCoroutine(CoolingDown());
+        if (gameObject.activeSelf)
+            StartCoroutine(CoolingDown());
+        else
+            flag = true;
     }
     IEnumerator CoolingDown()
     {

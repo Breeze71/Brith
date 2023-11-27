@@ -459,9 +459,10 @@ GameObject:
   - component: {fileID: 7140587382156266708}
   - component: {fileID: 6668781655056837015}
   - component: {fileID: 8286217814807525968}
+  - component: {fileID: -2475666802328040769}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: Enemy
+  m_TagString: Marbles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -475,7 +476,7 @@ Transform:
   m_GameObject: {fileID: 8189151295235615877}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7354572507827469909}
@@ -573,6 +574,21 @@ MonoBehaviour:
   sp_2: 10
   hp_1: 50
   hp_2: 80
+--- !u!114 &-2475666802328040769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189151295235615877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453312881ade4dc4eb49c64b6a51cc7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 0
+  CoolingTime: 5
+  RoomID: 0
 --- !u!1 &8957673820172601069
 GameObject:
   m_ObjectHideFlags: 0

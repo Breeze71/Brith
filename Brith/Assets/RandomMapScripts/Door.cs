@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    
+    [HideInInspector]
     public int ConnectedRoom;
     [HideInInspector]
     public Vector3 EndPosition;
     public string ParticleTag;
     public string Marblestag;
+    public string EnemyTag;
     private void OnTriggerStay2D(Collider2D collision)
     {
         var TransformInfo = collision.gameObject.GetComponent<TransformCooldown>();
         if (TransformInfo != null)
         {
-            if ((collision.tag == ParticleTag && TransformInfo.flag) | (collision.tag == Marblestag && TransformInfo.flag))
+            if ((collision.tag == ParticleTag && TransformInfo.flag) | (collision.tag == Marblestag && TransformInfo.flag) | (collision.tag == EnemyTag && TransformInfo.flag))
             {
                 TransformInfo.flag = false;
                 collision.gameObject.transform.position = EndPosition;
                 TransformInfo.RoomID = ConnectedRoom;
-                TransformInfo.Colling();
+                if(collision.gameObject.activeSelf)
+                    TransformInfo.Colling();
             }
         }
 

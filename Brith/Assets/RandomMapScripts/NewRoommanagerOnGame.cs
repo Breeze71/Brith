@@ -236,8 +236,10 @@ namespace V
                     GameObject tempDoor = Instantiate(DoorPrefab, tempRoom.Position + DoorOffset, Quaternion.identity);
                     Door door = tempDoor.GetComponent<Door>();
                     door.ConnectedRoom = ConnctedRoom;
+                    //Debug.Log(tempDoor.GetComponent<Door>().ConnectedRoom);
                     door.EndPosition = tempRoom.Position + DoorEndOffset;
                     tempDoor.transform.SetParent(Rooms[i].transform, true);
+                    Debug.Log(tempDoor.GetComponent<Door>().EndPosition);
                 }
             }
         }

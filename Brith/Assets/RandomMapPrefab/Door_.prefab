@@ -103,6 +103,7 @@ MonoBehaviour:
   EndPosition: {x: 0, y: 0, z: 0}
   ParticleTag: Element
   Marblestag: Marbles
+  EnemyTag: 
 --- !u!61 &6394442587688409529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,3 +165,4 @@ MonoBehaviour:
   EndPosition: {x: 0, y: 0, z: 0}
   ParticleTag: Element
   Marblestag: Marbles
+  EnemyTag: EnemyM

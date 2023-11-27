@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flag: 0
   CoolingTime: 5
+  RoomID: 0
 --- !u!1 &6913821164210563557
 GameObject:
   m_ObjectHideFlags: 0
