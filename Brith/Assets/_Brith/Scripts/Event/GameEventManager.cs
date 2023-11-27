@@ -9,6 +9,7 @@ namespace V
         public static GameEventManager Instance { get; private set; }
 
         public PlayerEvent PlayerEvent;
+        public SkillEvent SkillEvent;
 
         private void Awake() 
         {
@@ -19,6 +20,7 @@ namespace V
             Instance = this;
 
             PlayerEvent = new PlayerEvent();
+            SkillEvent = new SkillEvent();
         }
     }
 }

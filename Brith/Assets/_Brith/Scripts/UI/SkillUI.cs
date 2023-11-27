@@ -6,6 +6,26 @@ using TMPro;
 
 namespace V
 {
+    public enum SkillType
+    {
+        /// <summary>
+        /// 元素迸发
+        /// </summary>
+        ElementBurst,
+        /// <summary>
+        /// 钟慢效应
+        /// </summary>
+        Slowdown,
+        /// <summary>
+        /// 生生不息
+        /// </summary>
+        Endless,
+        /// <summary>
+        /// 生命涌现
+        /// </summary>
+        SpringUp
+    }
+
     public class SkillUI : MonoBehaviour
     {
         public SkillButtonUI Skill_1;
@@ -13,12 +33,16 @@ namespace V
         public SkillButtonUI Skill_3;
         public SkillButtonUI Skill_4;
 
+        public float enemySlowdownSpeed = 1f;   // 钟慢效应 敌方细胞的移速
+        public float slowdownTimerMax = 3f; // 钟慢效应 时间
+
+
         private void Start() 
         {
-            InitSkill(Skill_1);
-            InitSkill(Skill_2);
-            InitSkill(Skill_3);
-            InitSkill(Skill_4);
+            InitSkill(Skill_1, SkillType.ElementBurst);
+            InitSkill(Skill_2, SkillType.Slowdown);
+            InitSkill(Skill_3, SkillType.Endless);
+            InitSkill(Skill_4, SkillType.SpringUp);
         }
 
         private void Update() 
@@ -40,7 +64,7 @@ namespace V
         /// 按鈕按下邏輯
         /// </summary>
         /// <param name="_skillButtonUI"></param>
-        private void SetSkillButton(SkillButtonUI _skillButtonUI)
+        private void SetSkillButton(SkillButtonUI _skillButtonUI, SkillType _skillType)
         {
             _skillButtonUI.SkillButton.onClick.AddListener(() =>
             {
@@ -53,6 +77,30 @@ namespace V
                     _skillButtonUI.UseCountText.text = "x " + _skillButtonUI.UseCount;
 
                     Debug.Log("use skill");
+                    switch(_skillType)
+                    {
+                        case SkillType.ElementBurst:
+                            GameEventManager.Instance.SkillEvent.ElementBurstSkillEvent();
+                            break;
+                        case SkillType.Slowdown:
+                            GameEventManager.Instance.SkillEvent.SlowdownSkillEvent();
+                            break;
+                        case SkillType.Endless:
+                            GameEventManager.Instance.SkillEvent.EndlessSkillEvent();
+                            break;
+                        case SkillType.SpringUp:
+                            GameEventManager.Instance.SkillEvent.SpringUpEvent();
+                            break;
+                    }
+                }
+
+                if(_skillButtonUI.UseCount <= 0)
+                {
+                    _skillButtonUI.SkillButton.enabled = false;
+                }
+                else
+                {
+                    _skillButtonUI.SkillButton.enabled = true;
                 }
             }); 
         }
@@ -61,13 +109,13 @@ namespace V
         /// 初始化按鈕 
         /// </summary>
         /// <param name="_skillButtonUI"></param>
-        private void InitSkill(SkillButtonUI _skillButtonUI)
+        private void InitSkill(SkillButtonUI _skillButtonUI, SkillType _skillType)
         {
             SetFillAmount(_skillButtonUI.IconMaskImage, 0);
 
             _skillButtonUI.CooldownTimeText.text = "";
 
-            SetSkillButton(_skillButtonUI);            
+            SetSkillButton(_skillButtonUI, _skillType);            
         }
 
         /// <summary>

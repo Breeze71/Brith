@@ -254,7 +254,7 @@ MonoBehaviour:
   IconMaskImage: {fileID: 547787122801579403}
   CooldownTimeText: {fileID: 5118485835139608895}
   UseCountText: {fileID: 1601788069885013625}
-  SkillCooldownTimerMax: 10
+  SkillCooldownTimerMax: 3
   CurrentCooldownTimer: 0
   IsCooldown: 0
   UseCount: 3

@@ -16,7 +16,7 @@ namespace V
         {
             enemyBase.SetAttackStatus(true);
 
-            _other.GetComponentInChildren<IDamagable>().TakeDamage(enemyBase.attack);
+            _other.GetComponentInChildren<IDamagable>().TakeDamage(enemyBase.Attack);
         }
 
         public override void ExitTrigger(Collider2D _other)

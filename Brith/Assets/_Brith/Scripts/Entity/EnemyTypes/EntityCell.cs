@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace V
@@ -14,6 +15,7 @@ namespace V
         #region Element && Reproduce
         [SerializeField] private int elementAmountToReproduce = 200;
         [SerializeField] private GameObject element;
+        [SerializeField] private GameObject entityOriginCell; // 生命涌现 我方的初始细胞
         public EntityElement entityElement{ get; set;}   // 存儲元素 
 
         private event Action OnElementChange; // Element Change
@@ -28,13 +30,19 @@ namespace V
         public int hp_2 = 80;
         #endregion
 
+        #region Skill
+        public float EndlessTimerMax; // 生生不息 时间
+        private bool isEndless = false;
+        #endregion
+
         private CellTech cellTech;
 
+        #region Unity
         public override void InitalizeEntity()
         {
             base.InitalizeEntity();
 
-            HealthSystem = new HealthSystem(maxHealth);
+            HealthSystem = new HealthSystem(MaxHealth);
             entityElement = new EntityElement();
         }
         protected override void SetEntity()
@@ -49,20 +57,29 @@ namespace V
             OnElementChange += BasicEntity_ElementChange;  // pick up element
 
             GameEventManager.Instance.PlayerEvent.SpawnCellEvent(); // 通知 manager 生成新細胞
+
+            GameEventManager.Instance.SkillEvent.OnEndlessSkill += SkillEvent_OnEndlessSkill;
         }
         private void OnDestroy() 
         {
             GameEventManager.Instance.PlayerEvent.CellDeadEvent(); // 通知 manager 細胞死亡
+            GameEventManager.Instance.SkillEvent.OnEndlessSkill -= SkillEvent_OnEndlessSkill;
             
             cellTech.OnUnlockedNewTech -= CellTech_OnUnlockedNewTech; // add new tech
             OnElementChange -= BasicEntity_ElementChange;  // pick up element
         }
-
+        #endregion
 
         #region Health
         public void TakeDamage(int _attack)
         {
-            int _countDamage = _attack - defense;
+            // 生生不息
+            if(isEndless)
+            {
+                return;
+            }
+
+            int _countDamage = _attack - Defense;
 
             HealthSystem.TakeDamage(_countDamage);
 
@@ -103,10 +120,13 @@ namespace V
             if(entityElement.GetTotalElementAmount() >= elementAmountToReproduce)
             {
                 entityElement.DecreaseElement();
-                OnReproduce?.Invoke();  // 改變 move 方向
 
-                // TO - DO 生出新 Entity
-                Instantiate(gameObject);
+                // 生成同位置，並不為父子物體
+                Vector3 spawnPosition = transform.position;
+
+                GameObject newEntity = Instantiate(entityOriginCell, spawnPosition, Quaternion.identity);
+
+                newEntity.transform.parent = null;
             }
         }
 
@@ -152,13 +172,13 @@ namespace V
 
         private void SetMinStableSpeed(float _speed)
         {
-            speed += _speed;
+            Speed += _speed;
 
-            Debug.Log(speed);
+            Debug.Log(Speed);
         }
         private void SetMaxHealthAmount(int _amount)
         {
-            HealthSystem.ChangeMaxHealth(maxHealth + _amount);
+            HealthSystem.ChangeMaxHealth(MaxHealth + _amount);
 
             Debug.Log(HealthSystem.GetHealthAmount());
         }
@@ -180,6 +200,19 @@ namespace V
         private void TestChangeMaxHealth()
         {
             HealthSystem.ChangeMaxHealth(30);
+        }
+        #endregion
+    
+        #region Skill 生生不息
+        private void SkillEvent_OnEndlessSkill()
+        {
+            StartCoroutine(Coroutine_Endless());
+        }    
+        private IEnumerator Coroutine_Endless()
+        {
+            isEndless = true;
+            yield return new WaitForSeconds(EndlessTimerMax);
+            isEndless = false;
         }
         #endregion
     }
