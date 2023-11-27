@@ -15,10 +15,14 @@ namespace V
 
         [SerializeField] private GameObject techTreeUI;
 
-        private void Start() 
+        private void Awake() 
         {
             HealthSystem = new HealthSystem(HealthAmount);
             techTreeUI = GameObject.FindGameObjectWithTag("TechTree");
+        }
+        private void Start() 
+        {
+            HealthBarUI.SetupHealthSystemUI(HealthSystem);
 
             techTreeUI.SetActive(false);
         }
@@ -42,10 +46,11 @@ namespace V
             techTreeUI.SetActive(true);
         }
 
-        [ContextMenu("test dead")]
-        private void TestDead()
+        [ContextMenu("TestMinus50Hp()")]
+        private void TestMinus50Hp()
         {
-            TakeDamage(200);
+            TakeDamage(50);
         }
+        
     }
 }
