@@ -151,7 +151,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1
 --- !u!114 &7601859631448851840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ Transform:
   - {fileID: 5382839182846998690}
   - {fileID: 4144875390081788233}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1029295677085223212
 Rigidbody2D:
@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flag: 0
   CoolingTime: 5
+  RoomID: 0
 --- !u!1 &5072783012162999744
 GameObject:
   m_ObjectHideFlags: 0
