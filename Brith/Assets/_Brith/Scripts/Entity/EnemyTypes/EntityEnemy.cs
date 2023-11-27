@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace V
 {
-    public class EntityCell : EntityBase, IDamagable
-    {   
+    public class EntityEnemy : EntityBase, IDamagable
+    {
         #region IDamagable
         [field : SerializeField] public HealthBarUI HealthBarUI { get; set; }
         public HealthSystem HealthSystem { get; set;}
@@ -20,41 +22,20 @@ namespace V
         public event Action OnReproduce;
         #endregion
 
-        #region Tech
-        [Header("Tech")]
-        public float sp_1 = 5;
-        public float sp_2 = 10;
-        public int hp_1 = 50;
-        public int hp_2 = 80;
-        #endregion
-
-        private CellTech cellTech;
-
         public override void InitalizeEntity()
         {
             base.InitalizeEntity();
 
             HealthSystem = new HealthSystem(maxHealth);
             entityElement = new EntityElement();
+
         }
         protected override void SetEntity()
         {
             HealthBarUI.SetupHealthSystemUI(HealthSystem);
 
-
-            cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();           
-            cellTech.OnUnlockedNewTech += CellTech_OnUnlockedNewTech; // add new tech
-            cellTech.CheckUnlockSkill();
-
             OnElementChange += BasicEntity_ElementChange;  // pick up element
-
-            GameEventManager.Instance.PlayerEvent.SpawnCellEvent(); // 通知 manager 生成新細胞
         }
-        private void OnDestroy() 
-        {
-            GameEventManager.Instance.PlayerEvent.CellDeadEvent(); // 通知 manager 細胞死亡
-        }
-
 
         #region Health
         public void TakeDamage(int _attack)
@@ -105,59 +86,6 @@ namespace V
                 // TO - DO 生出新 Entity
                 Instantiate(gameObject);
             }
-        }
-
-        #endregion
-    
-        #region Tech
-        /// <summary>
-        /// Recive Add Tech Event 
-        /// </summary>
-        private void CellTech_OnUnlockedNewTech(TechType techType)
-        {
-            // To - Do Lot of Tech
-            switch(techType)
-            {
-                case TechType.MoveSpeed_1:
-                    SetMinStableSpeed(sp_1);
-                    break;
-                case TechType.MoveSpeed_2:
-                    SetMinStableSpeed(sp_2);
-                    break;
-                case TechType.HealthMax_1:
-                    SetMaxHealthAmount(hp_1);
-                    break;
-                case TechType.HealthMax_2:
-                    SetMaxHealthAmount(hp_2);
-                    break;                
-            }
-        }
-
-        private void CheckUnlockTech()
-        {
-            cellTech.CheckUnlockSkill();
-        }
-
-        public CellTech GetCellTech()
-        {
-            return cellTech;
-        }
-        public bool CanUseFollow()
-        {
-            return cellTech.IsTechUnlocked(TechType.Follow);
-        }
-
-        private void SetMinStableSpeed(float _speed)
-        {
-            speed += _speed;
-
-            Debug.Log(speed);
-        }
-        private void SetMaxHealthAmount(int _amount)
-        {
-            HealthSystem.ChangeMaxHealth(maxHealth + _amount);
-
-            Debug.Log(HealthSystem.GetHealthAmount());
         }
         #endregion
 
