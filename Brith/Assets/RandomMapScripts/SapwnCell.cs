@@ -24,7 +24,7 @@ namespace V
                     Debug.Log("spawncell");
                     for (int i = 0; i < CellSpawnNumber; i++)
                     {
-                        EntitySpawnManager.Instance.SpawnEntities(hit.collider, CellPrefab);
+                        Instantiate(CellPrefab[0],hit.point,Quaternion.identity);
                     }
                 }
             }
