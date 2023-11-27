@@ -6,6 +6,8 @@ using UnityEngine;
 public class RoomInfo : MonoBehaviour
 {
     [HideInInspector]
+    public int SceneEntity;
+    [HideInInspector]
     public int RoomNumberFromOrigin;//the number of room from Originroom
     [HideInInspector]
     public bool EndRoom;//End this room is?

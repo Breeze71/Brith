@@ -19,6 +19,8 @@ namespace V
             if (room.RoomNumberFromOrigin != 0)
                 EntitySpawnManager.Instance.SpawnEntities(coll, Enemy);
             EntitySpawnManager.Instance.SpawnEntities(coll, entities);
+            Room roomdata= NewRoommanagerOnGame.Instance.GetRoomList()[room.Number];
+            roomdata.SceneEntityNumber = room.SceneEntity = roomdata.SceneEntityNumber + 1;
         }
     }
 }

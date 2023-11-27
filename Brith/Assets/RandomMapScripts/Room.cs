@@ -5,6 +5,8 @@ using UnityEngine;
 public class Room
 {
     [HideInInspector]
+    public int SceneEntityNumber;
+    [HideInInspector]
     public int RoomNumberFromOrigin;//the number of room from Originroom
     [HideInInspector]
     public bool EndRoom;//End this room is?

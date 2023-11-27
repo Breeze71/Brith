@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [HideInInspector]
+    
     public int ConnectedRoom;
     [HideInInspector]
     public Vector3 EndPosition;
@@ -19,6 +19,7 @@ public class Door : MonoBehaviour
             {
                 TransformInfo.flag = false;
                 collision.gameObject.transform.position = EndPosition;
+                TransformInfo.RoomID = ConnectedRoom;
                 TransformInfo.Colling();
             }
         }

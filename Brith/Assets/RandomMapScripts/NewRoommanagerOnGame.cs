@@ -50,6 +50,10 @@ namespace V
         {
             return Rooms;
         }
+        public List<Room> GetRoomList()
+        {
+            return RoomList;
+        }
         #endregion
         private void Awake()
         {
@@ -168,7 +172,7 @@ namespace V
                 //save Room
                 if (flag)
                 {
-                    Room tempRoom= new(tempPos, radius, i);
+                    Room tempRoom = new(tempPos, radius, i);
                     RoomList.Add(tempRoom);
                     GameObject go = Instantiate(RoomPrefab, tempPos, Quaternion.identity);
                     go.transform.localScale *= radius / 0.5f;
@@ -223,6 +227,7 @@ namespace V
                 for (int j = 0; j < tempConnectedRoom.Count; j++)
                 {
                     int ConnctedRoom = tempConnectedRoom[j];
+                    //Debug.Log(ConnctedRoom);
                     Vector3 tempDirection = FindDoor(tempRoom.Position, RoomList[ConnctedRoom].Position);
                     Vector3 Rotation = tempDirection.normalized;
                     //Debug.Log(Rotation);
@@ -232,7 +237,7 @@ namespace V
                     Door door = tempDoor.GetComponent<Door>();
                     door.ConnectedRoom = ConnctedRoom;
                     door.EndPosition = tempRoom.Position + DoorEndOffset;
-                    tempDoor.transform.SetParent(Rooms[ConnctedRoom].transform, true);
+                    tempDoor.transform.SetParent(Rooms[i].transform, true);
                 }
             }
         }
@@ -275,7 +280,7 @@ namespace V
         }
         void AddRoomData()
         {
-            for (int i = 0;i<Rooms.Count;i++)
+            for (int i = 0; i < Rooms.Count; i++)
             {
                 Room room = RoomList[i];
                 GameObject go = Rooms[i];
@@ -283,13 +288,13 @@ namespace V
                 roomInfo.EndRoom = room.EndRoom;
                 roomInfo.Radius = room.Radius;
                 roomInfo.RoomNumberFromOrigin = room.RoomNumberFromOrigin;
-                roomInfo.Number=room.Number;
-                roomInfo.ConnectedRoom=room.ConnectedRoom;
+                roomInfo.Number = room.Number;
+                roomInfo.ConnectedRoom = room.ConnectedRoom;
             }
         }
         void RoomCreateEntity()
         {
-            foreach(GameObject go in Rooms)
+            foreach (GameObject go in Rooms)
             {
                 go.GetComponentInChildren<SpawnEntity>().CreateEntity();
             }
@@ -308,6 +313,33 @@ namespace V
             }
         }
         #endregion
+        public int CalculateBTRoom(int a, int b)
+        {
+            if(a==b)
+                return 0;
+            bool[] VisitedRoom = new bool[RoomList.Count];
+            int[] Distance = new int[RoomList.Count];
+            Queue<Room> queue = new Queue<Room>();
+            queue.Enqueue(RoomList[a]);
+            VisitedRoom[a] = true;
+            Distance[a] = 0;
+            while (queue.Count > 0)
+            {
+                Room tempRoom = queue.Dequeue();
+                foreach (int index in tempRoom.ConnectedRoom)
+                {
+                    if (!VisitedRoom[index])
+                    {
+                        VisitedRoom[index] = true;
+                        Distance[index] = Distance[tempRoom.Number]+1;
+                        queue.Enqueue(RoomList[index]);
+                    }
+                    if (index == b)
+                        return Distance[b];
+                }
+            }
+            return Distance[b];
+        }
     }
 
 }
