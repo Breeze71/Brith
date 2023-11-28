@@ -10,7 +10,6 @@ TagManager:
   - Marbles
   - TechTree
   - CellTag
-  - PlayerSkill
   layers:
   - Default
   - TransparentFX

@@ -33,8 +33,8 @@ public class HealthBarUI : MonoBehaviour
     private void UpdateUI()
     {
         float _healthPercent = healthSystem.GetHealthPercent();
-        // float _maxHealthPercent = healthSystem.GetInitMaxHealth() / healthSystem.GetInitMaxHealth();
+        float _maxHealthPercent = healthSystem.GetInitMaxHealth() / healthSystem.GetInitMaxHealth();
 
-        barPosition.transform.localScale = new Vector3(_healthPercent, 1, 1);
+        barPosition.transform.localScale = new Vector3(_healthPercent * _maxHealthPercent, 1, 1);
     }
 }
