@@ -1,14 +1,23 @@
 using System;
+using UnityEngine.UI;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace V
 {
-    public class EntityBase : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
+    public class EntityBase : MonoBehaviour, IEnemyMoveable, ITriggerCheckable, IDamagable
     {
         public Rigidbody2D Rb {get; set;}
         public bool IsFacingRight {get; set;} = true;
 
-        public EntityElement entityElement{ get; set;}   // 存儲元素 
+        #region IDamagable
+        [field : SerializeField] public HealthBarUI HealthBarUI { get; set; }
+        public HealthSystem HealthSystem { get; set;}
+        public int HealthAmount { get; set; }
+        #endregion
+
+        public Image CellImg;
+        public EntityElement EntityElement{ get; set;}   // 存儲元素 
         public int Attack;
         public float Speed;
         public int Defense;
@@ -146,6 +155,105 @@ namespace V
             EnemyDamaged,
             PlayFootStepSound,
         }
+        #endregion
+    
+        #region GearSysytem
+        public GearInfo gearInfo;
+        private bool GearFull;
+        private List<Element> Gears = new List<Element>();
+
+        public List<Element> GetGears()
+        {
+            return Gears;
+        }
+        protected void GearSysrem()
+        {
+            if (!GearFull) 
+            { 
+                GearFull = IsGaearFull();
+                ToCreateWhichGear();
+            }
+        }
+        bool IsGaearFull()
+        {
+            if(Gears.Count>=4)
+                return true;
+            return false;
+        }
+        void ToCreateWhichGear()
+        {
+            if (Gears.Count < 2)
+            {
+                if (EntityElement.FireElement >= gearInfo.FireArmCost)
+                {
+                    EntityElement.FireElement -= gearInfo.FireArmCost;
+                    Gears.Add(Element.Fire);
+                    //todo Hp+=gearInfo.GroundArmEffect;
+                    
+                    // To - Do
+                    // attack 
+                    Attack += 10;
+                    // defense
+                    Defense += 10;
+                    // health
+                    HealthSystem.ChangeMaxHealth(10);
+                    // speed
+                    Speed += 10;
+
+                }
+                if (EntityElement.GroundElement >= gearInfo.GroundArmCost)
+                {
+                    EntityElement.GroundElement -= gearInfo.GroundArmCost;
+                    Gears.Add(Element.Ground);
+                    //todo Hp+=gearInfo.GroundArmEffect;
+                }
+                if (EntityElement.WaterElement >= gearInfo.WaterArmCost)
+                {
+                    EntityElement.WaterElement -= gearInfo.WaterArmCost;
+                    Gears.Add(Element.Water);
+                    //todo Def+=gearInfo.WaterArmEffect;
+                }
+                if (EntityElement.WindElement >= gearInfo.WindArmCost)
+                {
+                    EntityElement.WindElement -= gearInfo.WindArmCost;
+                    Gears.Add(Element.Wind);
+                    //todo Spd+=gearInfo.WindArmEffect;
+                }
+            }
+            else if (Gears.Count >= 2 && Gears.Count < 4) {
+                if (EntityElement.FireElement >= gearInfo.FireLegCost)
+                {
+                    EntityElement.FireElement -= gearInfo.FireLegCost;
+                    Gears.Add(Element.Fire);
+                    //todo attack+=gearInfo.FireLegEffect;
+                }
+                if (EntityElement.GroundElement >= gearInfo.GroundLegCost)
+                {
+                    EntityElement.GroundElement -= gearInfo.GroundLegCost;
+                    Gears.Add(Element.Ground);
+                    //todo Hp+=gearInfo.GroundLegEffect;
+                }
+                if (EntityElement.WaterElement >= gearInfo.WaterLegCost)
+                {
+                    EntityElement.WaterElement -= gearInfo.WaterLegCost;
+                    Gears.Add(Element.Water);
+                    //todo Def+=gearInfo.WaterLegEffect;
+                }
+                if (EntityElement.WindElement >= gearInfo.WindLegCost)
+                {
+                    EntityElement.WindElement -= gearInfo.WindLegCost;
+                    Gears.Add(Element.Wind);
+                    //todo Spd+=gearInfo.WindLegEffect;
+                }
+            }
+            
+        }
+        #endregion
+    
+        #region IDamagable
+        public virtual void TakeDamage(int _attack){}
+
+        public virtual void Die(){}
         #endregion
     }
 }

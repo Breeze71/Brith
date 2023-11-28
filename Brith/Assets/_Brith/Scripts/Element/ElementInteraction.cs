@@ -48,19 +48,19 @@ namespace V
             // 判別是哪屬性
             if(element == Element.Ground)
             {
-                _entityBase.entityElement.GroundElement++;
+                _entityBase.EntityElement.GroundElement++;
             }
             else if(element == Element.Fire)
             {
-                _entityBase.entityElement.FireElement++;
+                _entityBase.EntityElement.FireElement++;
             }
             else if(element == Element.Wind)
             {
-                _entityBase.entityElement.WindElement++;
+                _entityBase.EntityElement.WindElement++;
             }
             else if(element == Element.Water)
             {
-                _entityBase.entityElement.WaterElement++;
+                _entityBase.EntityElement.WaterElement++;
             }
 
             _entityBase.ElementChangeEvent();

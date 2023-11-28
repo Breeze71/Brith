@@ -7,92 +7,6 @@ namespace V
 {
     public class EntityCell : EntityBase, IDamagable
     {
-        #region GearSysytem
-        public GearInfo gearInfo;
-        private bool GearFull;
-        private List<Element> Gears = new List<Element>();
-
-        public List<Element> GetGears()
-        {
-            return Gears;
-        }
-        void GearSysrem()
-        {
-            if (!GearFull) { 
-                GearFull = IsGaearFull();
-                ToCreateWhichGear();
-            }
-        }
-        bool IsGaearFull()
-        {
-            if(Gears.Count>=4)
-                return true;
-            return false;
-        }
-        void ToCreateWhichGear()
-        {
-            if (Gears.Count < 2)
-            {
-                if (entityElement.FireElement >= gearInfo.FireArmCost)
-                {
-                    entityElement.FireElement -= gearInfo.FireArmCost;
-                    Gears.Add(Element.Fire);
-                    //todo  attack+=gearInfo.FireArmEffect;
-                }
-                if (entityElement.GroundElement >= gearInfo.GroundArmCost)
-                {
-                    entityElement.GroundElement -= gearInfo.GroundArmCost;
-                    Gears.Add(Element.Ground);
-                    //todo Hp+=gearInfo.GroundArmEffect;
-                }
-                if (entityElement.WaterElement >= gearInfo.WaterArmCost)
-                {
-                    entityElement.WaterElement -= gearInfo.WaterArmCost;
-                    Gears.Add(Element.Water);
-                    //todo Def+=gearInfo.WaterArmEffect;
-                }
-                if (entityElement.WindElement >= gearInfo.WindArmCost)
-                {
-                    entityElement.WindElement -= gearInfo.WindArmCost;
-                    Gears.Add(Element.Wind);
-                    //todo Spd+=gearInfo.WindArmEffect;
-                }
-            }
-            else if (Gears.Count >= 2 && Gears.Count < 4) {
-                if (entityElement.FireElement >= gearInfo.FireLegCost)
-                {
-                    entityElement.FireElement -= gearInfo.FireLegCost;
-                    Gears.Add(Element.Fire);
-                    //todo attack+=gearInfo.FireLegEffect;
-                }
-                if (entityElement.GroundElement >= gearInfo.GroundLegCost)
-                {
-                    entityElement.GroundElement -= gearInfo.GroundLegCost;
-                    Gears.Add(Element.Ground);
-                    //todo Hp+=gearInfo.GroundLegEffect;
-                }
-                if (entityElement.WaterElement >= gearInfo.WaterLegCost)
-                {
-                    entityElement.WaterElement -= gearInfo.WaterLegCost;
-                    Gears.Add(Element.Water);
-                    //todo Def+=gearInfo.WaterLegEffect;
-                }
-                if (entityElement.WindElement >= gearInfo.WindLegCost)
-                {
-                    entityElement.WindElement -= gearInfo.WindLegCost;
-                    Gears.Add(Element.Wind);
-                    //todo Spd+=gearInfo.WindLegEffect;
-                }
-            }
-            
-        }
-        #endregion
-        #region IDamagable
-        [field : SerializeField] public HealthBarUI HealthBarUI { get; set; }
-        public HealthSystem HealthSystem { get; set;}
-        public int HealthAmount { get; set; }
-        #endregion
-
         #region Element && Reproduce
         [SerializeField] private int elementAmountToReproduce = 200;
         [SerializeField] private GameObject element;
@@ -122,7 +36,7 @@ namespace V
             base.InitalizeEntity();
 
             HealthSystem = new HealthSystem(MaxHealth);
-            entityElement = new EntityElement();
+            EntityElement = new EntityElement();
         }
         protected override void SetEntity()
         {
@@ -150,7 +64,7 @@ namespace V
         #endregion
 
         #region Health
-        public void TakeDamage(int _attack)
+        public override void TakeDamage(int _attack)
         {
             // 生生不息
             if(isEndless)
@@ -168,10 +82,10 @@ namespace V
             }
         }
 
-        public void Die()
+        public override void Die()
         {
             // TO - DO 每有五十点元素结晶就变成一个随机方向的新元素粒子。
-            int totalElement = entityElement.GetTotalElementAmount();
+            int totalElement = EntityElement.GetTotalElementAmount();
 
             while(totalElement >= 50)
             {
@@ -187,10 +101,13 @@ namespace V
         #region Reproduce
         private void BasicEntity_ElementChange()
         {
+            // Create Gear First
+            GearSysrem();
+
             // 檢查元素總量
-            if(entityElement.GetTotalElementAmount() >= elementAmountToReproduce)
+            if(EntityElement.GetTotalElementAmount() >= elementAmountToReproduce)
             {
-                entityElement.DecreaseElement();
+                EntityElement.DecreaseElement();
 
                 // 生成同位置，並不為父子物體
                 Vector3 spawnPosition = transform.position;
@@ -249,7 +166,7 @@ namespace V
         }
         private void SetMaxHealthAmount(int _amount)
         {
-            HealthSystem.ChangeMaxHealth(MaxHealth + _amount);
+            HealthSystem.ChangeMaxHealth(_amount);
 
             Debug.Log(HealthSystem.GetHealthAmount());
         }
@@ -264,7 +181,7 @@ namespace V
         [ContextMenu("TestCollect10Element()")]
         private void TestCollect100Element()
         {
-            entityElement.FireElement += 100;
+            EntityElement.FireElement += 100;
             ElementChangeEvent();
         }
         [ContextMenu("Change Max Health")]

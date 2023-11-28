@@ -7,12 +7,6 @@ namespace V
 {
     public class EntityEnemy : EntityBase, IDamagable
     {
-        #region IDamagable
-        [field : SerializeField] public HealthBarUI HealthBarUI { get; set; }
-        public HealthSystem HealthSystem { get; set;}
-        public int HealthAmount { get; set; }
-        #endregion
-
         #region Element && Reproduce
         [SerializeField] private int elementAmountToReproduce = 200;
         [SerializeField] private GameObject element;
@@ -34,7 +28,7 @@ namespace V
             base.InitalizeEntity();
 
             HealthSystem = new HealthSystem(MaxHealth);
-            entityElement = new EntityElement();
+            EntityElement = new EntityElement();
 
         }
         protected override void SetEntity()
@@ -58,7 +52,7 @@ namespace V
         #endregion
 
         #region Health
-        public void TakeDamage(int _attack)
+        public override void TakeDamage(int _attack)
         {
             int _countDamage = _attack - Defense;
 
@@ -70,7 +64,7 @@ namespace V
             }
         }
 
-        public void Die()
+        public override void Die()
         {   
             // 生生不息
             if(isEndless)
@@ -79,7 +73,7 @@ namespace V
             }
 
             // TO - DO 每有五十点元素结晶就变成一个随机方向的新元素粒子。
-            int totalElement = entityElement.GetTotalElementAmount();
+            int totalElement = EntityElement.GetTotalElementAmount();
 
             while(totalElement >= 50)
             {
@@ -103,13 +97,16 @@ namespace V
         #endregion
     
         #region Reproduce
-
         private void BasicEntity_ElementChange()
         {
+            // Create Gear First
+            GearSysrem();
+
+
             // 檢查元素總量
-            if(entityElement.GetTotalElementAmount() >= elementAmountToReproduce)
+            if(EntityElement.GetTotalElementAmount() >= elementAmountToReproduce)
             {
-                entityElement.DecreaseElement();
+                EntityElement.DecreaseElement();
 
                 // 生成同位置，並不為父子物體
                 Vector3 spawnPosition = transform.position;
@@ -130,7 +127,7 @@ namespace V
         [ContextMenu("TestCollect10Element()")]
         private void TestCollect100Element()
         {
-            entityElement.FireElement += 100;
+            EntityElement.FireElement += 100;
             ElementChangeEvent();
         }
         [ContextMenu("Change Max Health")]

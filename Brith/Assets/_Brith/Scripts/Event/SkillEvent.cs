@@ -14,7 +14,7 @@ namespace V
         public void ElementBurstSkillEvent()
         {
             OnElementBurst?.Invoke();
-            Debug.Log("ElementBurstSkillEvent()");
+            Debug.Log("To - Do - ElementBurstSkillEvent()");
         }
 
         public event Action OnSlowdownSkill;
@@ -24,7 +24,6 @@ namespace V
         public void SlowdownSkillEvent()
         {
             OnSlowdownSkill?.Invoke();
-            Debug.Log("SlowdownSkillEvent()");
         }
 
 
@@ -35,7 +34,6 @@ namespace V
         public void EndlessSkillEvent()
         {
             OnEndlessSkill?.Invoke();
-            Debug.Log("EndlessSkillEvent()");
         }        
 
         public event Action OnSpringUpSkill;
@@ -45,7 +43,6 @@ namespace V
         public void SpringUpEvent()
         {
             OnSpringUpSkill?.Invoke();
-            Debug.Log("SpringUpEvent()");
         }        
     }
 }

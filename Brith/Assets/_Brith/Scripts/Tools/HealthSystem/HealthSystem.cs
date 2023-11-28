@@ -7,15 +7,13 @@ public class HealthSystem
 
     private int health;
     private int healthMax;  // 當前生命最大值
-    private int initHealthMax;  // 初始化生命最大值
 
 
     public HealthSystem(int _healthMax)
     {
-        initHealthMax = _healthMax;
-        healthMax = initHealthMax;
+        healthMax = _healthMax;
 
-        health = initHealthMax;
+        health = _healthMax;
     }
 
     public int GetHealthAmount()
@@ -23,24 +21,21 @@ public class HealthSystem
         return health;
     }
 
-    public int GetInitMaxHealth()
-    {
-        return initHealthMax;
-    }
-
-    public int GetCurrentMaxHealth()
+    public int GetMaxHealth()
     {
         return healthMax;
     }
+
     /// <summary>
     /// 最大生命值變化
     /// </summary>
+    /// <param name="_healthAmount"> 增加的數值 </param>
     public void ChangeMaxHealth(int _healthAmount)
     {
-        OnMaxHealthChanged?.Invoke();
-
-        healthMax = _healthAmount;
+        healthMax += _healthAmount;
         health = healthMax;
+
+        Heal(_healthAmount);
     }
 
     
@@ -61,7 +56,7 @@ public class HealthSystem
     {
         health += _healthAmount;
 
-        if(health >= healthMax) health = initHealthMax;
+        if(health >= healthMax) health = healthMax;
         if(OnHealthChanged != null) OnHealthChanged?.Invoke();
     }
 }

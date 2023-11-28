@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.30782884, g: 0.990566, b: 0.126157, a: 1}
+  m_Color: {r: 0.12549017, g: 0.16577692, b: 0.99215686, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4278139694811751463}
   - component: {fileID: 6213139788896115501}
   - component: {fileID: -3268371361653737758}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Inhibitor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ Transform:
   - {fileID: 4816920017550017177}
   - {fileID: 8349007660943232278}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4278139694811751463
 MonoBehaviour:
