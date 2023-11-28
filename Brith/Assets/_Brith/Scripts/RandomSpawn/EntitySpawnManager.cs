@@ -69,6 +69,7 @@ namespace V
                 {
                     if(((1 << _coll.gameObject.layer) & layerNotToSpawn.value) != 0)
                     {
+                        Debug.Log("valid");
                         _isInValidCollision = true;
                         break;
                     }
