@@ -1,11 +1,92 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace V
 {
     public class EntityCell : EntityBase, IDamagable
-    {   
+    {
+        #region GearSysytem
+        public GearInfo gearInfo;
+        private bool GearFull;
+        private List<Element> Gears = new List<Element>();
+
+        public List<Element> GetGears()
+        {
+            return Gears;
+        }
+        void GearSysrem()
+        {
+            if (!GearFull) { 
+                GearFull = IsGaearFull();
+                ToCreateWhichGear();
+            }
+        }
+        bool IsGaearFull()
+        {
+            if(Gears.Count>=4)
+                return true;
+            return false;
+        }
+        void ToCreateWhichGear()
+        {
+            if (Gears.Count < 2)
+            {
+                if (entityElement.FireElement >= gearInfo.FireArmCost)
+                {
+                    entityElement.FireElement -= gearInfo.FireArmCost;
+                    Gears.Add(Element.Fire);
+                    //todo  attack+=gearInfo.FireArmEffect;
+                }
+                if (entityElement.GroundElement >= gearInfo.GroundArmCost)
+                {
+                    entityElement.GroundElement -= gearInfo.GroundArmCost;
+                    Gears.Add(Element.Ground);
+                    //todo Hp+=gearInfo.GroundArmEffect;
+                }
+                if (entityElement.WaterElement >= gearInfo.WaterArmCost)
+                {
+                    entityElement.WaterElement -= gearInfo.WaterArmCost;
+                    Gears.Add(Element.Water);
+                    //todo Def+=gearInfo.WaterArmEffect;
+                }
+                if (entityElement.WindElement >= gearInfo.WindArmCost)
+                {
+                    entityElement.WindElement -= gearInfo.WindArmCost;
+                    Gears.Add(Element.Wind);
+                    //todo Spd+=gearInfo.WindArmEffect;
+                }
+            }
+            else if (Gears.Count >= 2 && Gears.Count < 4) {
+                if (entityElement.FireElement >= gearInfo.FireLegCost)
+                {
+                    entityElement.FireElement -= gearInfo.FireLegCost;
+                    Gears.Add(Element.Fire);
+                    //todo attack+=gearInfo.FireLegEffect;
+                }
+                if (entityElement.GroundElement >= gearInfo.GroundLegCost)
+                {
+                    entityElement.GroundElement -= gearInfo.GroundLegCost;
+                    Gears.Add(Element.Ground);
+                    //todo Hp+=gearInfo.GroundLegEffect;
+                }
+                if (entityElement.WaterElement >= gearInfo.WaterLegCost)
+                {
+                    entityElement.WaterElement -= gearInfo.WaterLegCost;
+                    Gears.Add(Element.Water);
+                    //todo Def+=gearInfo.WaterLegEffect;
+                }
+                if (entityElement.WindElement >= gearInfo.WindLegCost)
+                {
+                    entityElement.WindElement -= gearInfo.WindLegCost;
+                    Gears.Add(Element.Wind);
+                    //todo Spd+=gearInfo.WindLegEffect;
+                }
+            }
+            
+        }
+        #endregion
         #region IDamagable
         [field : SerializeField] public HealthBarUI HealthBarUI { get; set; }
         public HealthSystem HealthSystem { get; set;}
