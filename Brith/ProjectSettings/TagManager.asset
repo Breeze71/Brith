@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Door
+  - Enemy
   - Element
   - Marbles
   - TechTree
   - CellTag
-  - EnemyM
+  - PlayerSkill
   layers:
   - Default
   - TransparentFX

@@ -279,21 +279,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c334d0e09319804da566a5d73271a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 10
-  speed: 2
+  Attack: 20
+  Speed: 8
+  Defense: 2
+  MaxHealth: 100
   enemyIdleSOBase: {fileID: 11400000, guid: 7521c96a1d364f344b2e20786f3e0e0e, type: 2}
   enemyChaseSOBase: {fileID: 11400000, guid: 1d0f89c2f0424f244abfcfdf9f751ac6, type: 2}
   enemyAttackSOBase: {fileID: 11400000, guid: cf4700bf26f4f6440b8c60824614489d, type: 2}
   TargetTransform: {fileID: 0}
-  <defense>k__BackingField: 0
-  <maxHealth>k__BackingField: 100
+  gearInfo: {fileID: 11400000, guid: 6483c1ef157c3ea4d8e894e5898798f0, type: 2}
   <HealthBarUI>k__BackingField: {fileID: 5671006373899315964}
   elementAmountToReproduce: 200
   element: {fileID: 208937080080910159, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
+  entityOriginCell: {fileID: 2086584053871405437}
   sp_1: 5
   sp_2: 10
   hp_1: 50
   hp_2: 80
+  EndlessTimerMax: 0
 --- !u!114 &-4323880744473651614
 MonoBehaviour:
   m_ObjectHideFlags: 0
