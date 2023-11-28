@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   element: 0
   InjectElement: {fileID: 0}
 --- !u!114 &4594004309459327350
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flag: 0
   CoolingTime: 5
+  RoomID: 0
 --- !u!1 &6913821164210563557
 GameObject:
   m_ObjectHideFlags: 0

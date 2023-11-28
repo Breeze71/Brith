@@ -155,6 +155,73 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &5051380189301555931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8686738105860291050}
+  - component: {fileID: 872759988999626186}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8686738105860291050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051380189301555931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 509606378511882538}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &872759988999626186
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051380189301555931}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &6508442690050492750
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +255,7 @@ Transform:
   m_Children:
   - {fileID: 2687555819377527997}
   - {fileID: 3863005573875509252}
+  - {fileID: 8686738105860291050}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -279,28 +347,55 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.052431583, y: 0.4979798}
+  - {x: -0.12471309, y: 0.4852689}
   - {x: -0.19145095, y: 0.4624244}
+  - {x: -0.25526106, y: 0.4321218}
   - {x: -0.30853283, y: 0.39443985}
+  - {x: -0.35081783, y: 0.36049065}
   - {x: -0.39584768, y: 0.30768523}
-  - {x: -0.4586457, y: 0.21529512}
+  - {x: -0.4304467, y: 0.2597111}
+  - {x: -0.45454147, y: 0.21221967}
+  - {x: -0.47917575, y: 0.14513525}
   - {x: -0.49012148, y: 0.09994669}
+  - {x: -0.49673313, y: 0.0764777}
   - {x: -0.50249755, y: -0.023200635}
+  - {x: -0.4935755, y: -0.09969274}
   - {x: -0.47983873, y: -0.1431556}
   - {x: -0.44546664, y: -0.23476423}
-  - {x: -0.33098328, y: -0.3736838}
+  - {x: -0.3855366, y: -0.32244042}
+  - {x: -0.35725024, y: -0.3540505}
+  - {x: -0.33362338, y: -0.37632394}
+  - {x: -0.31897542, y: -0.3888791}
   - {x: -0.2665826, y: -0.42372656}
+  - {x: -0.23168519, y: -0.44511148}
   - {x: -0.18708551, y: -0.4641121}
+  - {x: -0.14605868, y: -0.48065332}
   - {x: -0.10328972, y: -0.488737}
+  - {x: -0.06056619, y: -0.4979084}
   - {x: 0.0062366724, y: -0.4991508}
+  - {x: 0.092305236, y: -0.49601647}
   - {x: 0.17569244, y: -0.47337124}
+  - {x: 0.27204645, y: -0.42379737}
   - {x: 0.32706916, y: -0.37700003}
+  - {x: 0.3440601, y: -0.36509168}
+  - {x: 0.39201057, y: -0.31424668}
   - {x: 0.4426719, y: -0.2358362}
+  - {x: 0.4710127, y: -0.17188552}
   - {x: 0.48697734, y: -0.11672272}
+  - {x: 0.499793, y: -0.04774438}
   - {x: 0.4980514, y: 0.018372353}
+  - {x: 0.49750006, y: 0.054583598}
+  - {x: 0.49294972, y: 0.08839013}
+  - {x: 0.48668993, y: 0.11833286}
   - {x: 0.4783132, y: 0.1414421}
+  - {x: 0.4744607, y: 0.16163446}
+  - {x: 0.44672126, y: 0.23138465}
   - {x: 0.39988148, y: 0.30675414}
+  - {x: 0.31167606, y: 0.39336437}
   - {x: 0.22831059, y: 0.44854772}
+  - {x: 0.15486842, y: 0.47679505}
   - {x: 0.086680055, y: 0.49440658}
+  - {x: -0.004910432, y: 0.49944085}
   - {x: -0.052425385, y: 0.4979786}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -318,6 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880c708d45bf0b742a1683c609b7ea0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneEntity: 0
   RoomNumberFromOrigin: 0
   EndRoom: 0
   Radius: 0
