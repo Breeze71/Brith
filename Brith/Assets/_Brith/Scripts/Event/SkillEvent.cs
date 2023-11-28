@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace V
 {
-    public class SkillEvent : MonoBehaviour
+    public class SkillEvent
     {
         public event Action OnElementBurst;
         /// <summary>

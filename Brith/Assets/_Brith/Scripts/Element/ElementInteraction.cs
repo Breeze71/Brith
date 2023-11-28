@@ -29,9 +29,9 @@ namespace V
 
         public override void EnterTrigger(Collider2D _other)
         {
-            EntityCell _basicEntity = _other.GetComponent<EntityCell>();
+            EntityBase _entityBase = _other.GetComponent<EntityBase>();
 
-            if(_basicEntity == null)
+            if(_entityBase == null)
             {
                 return;
             }
@@ -48,22 +48,22 @@ namespace V
             // 判別是哪屬性
             if(element == Element.Ground)
             {
-                _basicEntity.entityElement.GroundElement++;
+                _entityBase.entityElement.GroundElement++;
             }
             else if(element == Element.Fire)
             {
-                _basicEntity.entityElement.FireElement++;
+                _entityBase.entityElement.FireElement++;
             }
             else if(element == Element.Wind)
             {
-                _basicEntity.entityElement.WindElement++;
+                _entityBase.entityElement.WindElement++;
             }
             else if(element == Element.Water)
             {
-                _basicEntity.entityElement.WaterElement++;
+                _entityBase.entityElement.WaterElement++;
             }
 
-            _basicEntity.ElementChangeEvent();
+            _entityBase.ElementChangeEvent();
         }
 
         public override void ExitTrigger(Collider2D _other)

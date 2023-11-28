@@ -96,10 +96,8 @@ namespace V
         #region Element && Reproduce
         [SerializeField] private int elementAmountToReproduce = 200;
         [SerializeField] private GameObject element;
-        [SerializeField] private GameObject entityOriginCell; // 生命涌现 我方的初始细胞
-        public EntityElement entityElement{ get; set;}   // 存儲元素 
+        [SerializeField] private GameObject entityOriginCell; // 生命涌现 我方的初始细
 
-        private event Action OnElementChange; // Element Change
         public event Action OnReproduce;
         #endregion
 
@@ -187,14 +185,6 @@ namespace V
         #endregion
     
         #region Reproduce
-        /// <summary>
-        /// invoke when Collect Element
-        /// </summary>
-        public void ElementChangeEvent()
-        {
-            OnElementChange?.Invoke();
-        }
-
         private void BasicEntity_ElementChange()
         {
             // 檢查元素總量

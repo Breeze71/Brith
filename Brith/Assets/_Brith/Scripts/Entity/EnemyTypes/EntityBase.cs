@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace V
@@ -7,10 +8,20 @@ namespace V
         public Rigidbody2D Rb {get; set;}
         public bool IsFacingRight {get; set;} = true;
 
+        public EntityElement entityElement{ get; set;}   // 存儲元素 
         public int Attack;
         public float Speed;
         public int Defense;
         public int MaxHealth;
+
+        protected event Action OnElementChange; // Element Change
+        /// <summary>
+        /// invoke when Collect Element
+        /// </summary>
+        public void ElementChangeEvent()
+        {
+            OnElementChange?.Invoke();
+        }
 
         #region ScriptableObject FSM
         [SerializeField] private EnemyIdleSOBase enemyIdleSOBase;

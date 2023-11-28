@@ -17,9 +17,6 @@ namespace V
         [SerializeField] private int elementAmountToReproduce = 200;
         [SerializeField] private GameObject element;
         [SerializeField] private GameObject enemyOriginCell;
-        public EntityElement entityElement{ get; set;}   // 存儲元素 
-
-        private event Action OnElementChange; // Element Change
         #endregion
 
         #region Skill
@@ -106,13 +103,6 @@ namespace V
         #endregion
     
         #region Reproduce
-        /// <summary>
-        /// invoke when Collect Element
-        /// </summary>
-        public void ElementChangeEvent()
-        {
-            OnElementChange?.Invoke();
-        }
 
         private void BasicEntity_ElementChange()
         {
