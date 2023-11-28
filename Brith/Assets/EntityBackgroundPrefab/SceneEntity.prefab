@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720a06602380681489763b378acd2581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnAmountMax: 10
+  spawnAmountMax: 50
   currentElementAmount: 0
   elementList:
   - {fileID: 4594004309459327350, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}

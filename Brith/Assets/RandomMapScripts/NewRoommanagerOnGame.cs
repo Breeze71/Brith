@@ -197,6 +197,7 @@ namespace V
         }
         #endregion
 
+        #region MST
         void CreateMST(int number)
         {
             Graph g = new Graph(number);
@@ -217,6 +218,7 @@ namespace V
                 RoomList[e.Destination].Connect(e.Source);
             }
         }
+        #endregion
         #region CreateDoor
         void CreateDoor()
         {
@@ -248,6 +250,7 @@ namespace V
             return (B - A);
         }
         #endregion
+        #region FindEndRoom which to put target
         void FindEndRoom()
         {
             bool[] VisitedRoom = new bool[RoomList.Count];
@@ -280,6 +283,8 @@ namespace V
             }
             RoomList[temPIndex].EndRoom = true;
         }
+        #endregion
+
         void AddRoomData()
         {
             for (int i = 0; i < Rooms.Count; i++)
