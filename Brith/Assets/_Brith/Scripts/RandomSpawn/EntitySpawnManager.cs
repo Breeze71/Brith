@@ -9,18 +9,18 @@ namespace V
     /// </summary>
     public class EntitySpawnManager : MonoBehaviour
     {
-        public static EntitySpawnManager Instance { get; set;}
+        public static EntitySpawnManager Instance { get; set; }
 
         [SerializeField] private LayerMask layerNotToSpawn;
         [SerializeField, Tooltip("用於避免生成在存在的 entity 上 ")] private float entitySize;
         [SerializeField] private float offest;
 
-        private void Awake() 
+        private void Awake()
         {
-            if(Instance != null)
+            if (Instance != null)
             {
                 Debug.LogError("More than one EntitySpawnManager");
-            }    
+            }
 
             Instance = this;
         }
@@ -30,14 +30,24 @@ namespace V
         /// </summary>
         public void SpawnEntities(Collider2D _spawnArea, GameObject[] _entities)
         {
-            foreach(GameObject _entity in _entities)
+            foreach (GameObject _entity in _entities)
             {
                 Vector2 _spawnPosition = GetRandomSpawnPosition(_spawnArea);
                 GameObject spawnEntity = Instantiate(_entity, _spawnPosition, Quaternion.identity);
             }
         }
-
-        public void SpawnEntities(Collider2D _spawnArea, GameObject[] _entities,int _number)
+        //spawn target specially
+        public void SpawnEntities(Collider2D _spawnArea, GameObject[] _entities, Transform father)
+        {
+            foreach (GameObject _entity in _entities)
+            {
+                Vector2 _spawnPosition = GetRandomSpawnPosition(_spawnArea);
+                GameObject spawnEntity = Instantiate(_entity, _spawnPosition, Quaternion.identity);
+                spawnEntity.transform.SetParent(father);
+            }
+        }
+        //sapwn enemy specially
+        public void SpawnEntities(Collider2D _spawnArea, GameObject[] _entities, int _number)
         {
             foreach (GameObject _entity in _entities)
             {
@@ -46,7 +56,22 @@ namespace V
                 spawnEntity.GetComponent<TransformCooldown>().RoomID = _number;
             }
         }
-
+        //spawn scene entity specially
+        public void SpawnEntities(Collider2D _spawnArea, List<GameObject[]> _entities, Transform father, int _number)
+        {
+            int randomNumber = Random.Range(0, 4);
+            int randomNumberOutlook = Random.Range(0, 2);
+            if(randomNumberOutlook >= _entities[randomNumber].Length)
+            {
+                randomNumberOutlook= 0;
+            }
+            GameObject _entity = _entities[randomNumber][randomNumberOutlook];
+            Vector2 _spawnPosition = GetRandomSpawnPosition(_spawnArea);
+            GameObject spawnEntity = Instantiate(_entity, _spawnPosition, Quaternion.identity);
+            spawnEntity.transform.SetParent(father);
+            EntityBackGround entityBackGround = spawnEntity.GetComponent<EntityBackGround>();
+            entityBackGround.Roomid = _number;
+        }
         /// <summary>
         /// Get a Random position whitout collision with other layer
         /// </summary>
@@ -57,33 +82,33 @@ namespace V
 
             int _attempCount = 0;
             int _maxAttemp = 50;
-            
+
             // 嘗試 50 次 隨機生成點
-            while(!_isSpawnPositionValid && _attempCount < _maxAttemp)
+            while (!_isSpawnPositionValid && _attempCount < _maxAttemp)
             {
                 _spawnPosition = GetRandomPointInCollider(_spawnArea, offest);
                 Collider2D[] _colls = Physics2D.OverlapCircleAll(_spawnPosition, 2f);
 
                 bool _isInValidCollision = false;
-                foreach(Collider2D _coll in _colls)
+                foreach (Collider2D _coll in _colls)
                 {
-                    if(((1 << _coll.gameObject.layer) & layerNotToSpawn.value) != 0)
+                    if (((1 << _coll.gameObject.layer) & layerNotToSpawn.value) != 0)
                     {
                         _isInValidCollision = true;
                         break;
                     }
-                } 
+                }
 
-                if(!_isInValidCollision)
+                if (!_isInValidCollision)
                 {
                     _isSpawnPositionValid = true;
                 }
 
                 _attempCount++;
             }
-            
+
             // 50 次都沒法生成
-            if(!_isSpawnPositionValid)
+            if (!_isSpawnPositionValid)
             {
                 Debug.LogWarning("Could not find a spawn position");
             }
