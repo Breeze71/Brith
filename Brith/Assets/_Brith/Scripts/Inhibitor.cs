@@ -10,19 +10,15 @@ namespace V
     {
         [field : SerializeField] public int HealthAmount { get; set; }
         public HealthSystem HealthSystem { get; set; }
-        [field :SerializeField]public HealthBarUI HealthBarUI { get; set; }
+        public HealthBarUI HealthBarUI { get; set; }
 
 
         [SerializeField] private GameObject techTreeUI;
 
-        private void Awake() 
+        private void Start() 
         {
             HealthSystem = new HealthSystem(HealthAmount);
             techTreeUI = GameObject.FindGameObjectWithTag("TechTree");
-        }
-        private void Start() 
-        {
-            HealthBarUI.SetupHealthSystemUI(HealthSystem);
 
             techTreeUI.SetActive(false);
         }
@@ -46,11 +42,10 @@ namespace V
             techTreeUI.SetActive(true);
         }
 
-        [ContextMenu("TestMinus50Hp()")]
-        private void TestMinus50Hp()
+        [ContextMenu("test dead")]
+        private void TestDead()
         {
-            TakeDamage(50);
+            TakeDamage(200);
         }
-        
     }
 }

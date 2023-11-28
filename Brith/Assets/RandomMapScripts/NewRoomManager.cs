@@ -175,7 +175,6 @@ public class NewRoomManager : MonoBehaviour
     }
     #endregion
 
-    #region MST
     void CreateMST(int number)
     {
         Graph g = new Graph(number);
@@ -196,7 +195,6 @@ public class NewRoomManager : MonoBehaviour
             RoomList[e.Destination].Connect(e.Source);
         }
     }
-    #endregion
     #region CreateDoor
     void CreateDoor()
     {
@@ -225,7 +223,6 @@ public class NewRoomManager : MonoBehaviour
         return (B - A);
     }
     #endregion
-    #region FindEndRoom which to put target
     void FindEndRoom()
     {
         bool[] VisitedRoom = new bool[RoomList.Count];
@@ -257,7 +254,6 @@ public class NewRoomManager : MonoBehaviour
         }
         RoomList[temPIndex].EndRoom = true;
     }
-    #endregion
     #region text mst
     void IcanSeeInCameral()
     {

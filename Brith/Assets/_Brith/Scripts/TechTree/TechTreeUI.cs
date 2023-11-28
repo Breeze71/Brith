@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,14 +27,26 @@ namespace V.UI
             SetButtonUnlockTech(hp_2Button, TechType.HealthMax_2);
             SetButtonUnlockTech(sp_1Button, TechType.MoveSpeed_1);
             SetButtonUnlockTech(sp_2Button, TechType.MoveSpeed_2);
-            Debug.Log("setbutton");
+
+            cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>(); 
 
             nextSceneButton.onClick.AddListener(() =>
             {   
                 Loader.LoadScene(Loader.Scene.RandomMapTest);
-            });
 
-            cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>(); 
+                PlayerPrefs.SetInt("Current Level", PlayerPrefs.GetInt("Current Level", 0) + 1);
+                PlayerPrefs.Save();
+
+                if(PlayerPrefs.GetInt("Current Level") > 6)
+                {
+                    // To - Do Ending
+                    Debug.LogWarning("Ending Scene");
+
+                    PlayerPrefs.SetInt("Current Level", 0);
+                }
+
+                Debug.LogError("Current Level" + PlayerPrefs.GetInt("Current Level"));
+            });
         }
 
         private void SetButtonUnlockTech(Button _button, TechType _unlockTechType)

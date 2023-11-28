@@ -1,15 +1,92 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace V
 {
     public class EntityCell : EntityBase, IDamagable
-    {   
-        #region Combat Var
-        [field : SerializeField] public int defense {get; private set;}
-        [field : SerializeField] public int maxHealth {get; private set ;}
-        #endregion
+    {
+        #region GearSysytem
+        public GearInfo gearInfo;
+        private bool GearFull;
+        private List<Element> Gears = new List<Element>();
 
+        public List<Element> GetGears()
+        {
+            return Gears;
+        }
+        void GearSysrem()
+        {
+            if (!GearFull) { 
+                GearFull = IsGaearFull();
+                ToCreateWhichGear();
+            }
+        }
+        bool IsGaearFull()
+        {
+            if(Gears.Count>=4)
+                return true;
+            return false;
+        }
+        void ToCreateWhichGear()
+        {
+            if (Gears.Count < 2)
+            {
+                if (entityElement.FireElement >= gearInfo.FireArmCost)
+                {
+                    entityElement.FireElement -= gearInfo.FireArmCost;
+                    Gears.Add(Element.Fire);
+                    //todo  attack+=gearInfo.FireArmEffect;
+                }
+                if (entityElement.GroundElement >= gearInfo.GroundArmCost)
+                {
+                    entityElement.GroundElement -= gearInfo.GroundArmCost;
+                    Gears.Add(Element.Ground);
+                    //todo Hp+=gearInfo.GroundArmEffect;
+                }
+                if (entityElement.WaterElement >= gearInfo.WaterArmCost)
+                {
+                    entityElement.WaterElement -= gearInfo.WaterArmCost;
+                    Gears.Add(Element.Water);
+                    //todo Def+=gearInfo.WaterArmEffect;
+                }
+                if (entityElement.WindElement >= gearInfo.WindArmCost)
+                {
+                    entityElement.WindElement -= gearInfo.WindArmCost;
+                    Gears.Add(Element.Wind);
+                    //todo Spd+=gearInfo.WindArmEffect;
+                }
+            }
+            else if (Gears.Count >= 2 && Gears.Count < 4) {
+                if (entityElement.FireElement >= gearInfo.FireLegCost)
+                {
+                    entityElement.FireElement -= gearInfo.FireLegCost;
+                    Gears.Add(Element.Fire);
+                    //todo attack+=gearInfo.FireLegEffect;
+                }
+                if (entityElement.GroundElement >= gearInfo.GroundLegCost)
+                {
+                    entityElement.GroundElement -= gearInfo.GroundLegCost;
+                    Gears.Add(Element.Ground);
+                    //todo Hp+=gearInfo.GroundLegEffect;
+                }
+                if (entityElement.WaterElement >= gearInfo.WaterLegCost)
+                {
+                    entityElement.WaterElement -= gearInfo.WaterLegCost;
+                    Gears.Add(Element.Water);
+                    //todo Def+=gearInfo.WaterLegEffect;
+                }
+                if (entityElement.WindElement >= gearInfo.WindLegCost)
+                {
+                    entityElement.WindElement -= gearInfo.WindLegCost;
+                    Gears.Add(Element.Wind);
+                    //todo Spd+=gearInfo.WindLegEffect;
+                }
+            }
+            
+        }
+        #endregion
         #region IDamagable
         [field : SerializeField] public HealthBarUI HealthBarUI { get; set; }
         public HealthSystem HealthSystem { get; set;}
@@ -19,6 +96,7 @@ namespace V
         #region Element && Reproduce
         [SerializeField] private int elementAmountToReproduce = 200;
         [SerializeField] private GameObject element;
+        [SerializeField] private GameObject entityOriginCell; // 生命涌现 我方的初始细胞
         public EntityElement entityElement{ get; set;}   // 存儲元素 
 
         private event Action OnElementChange; // Element Change
@@ -33,31 +111,56 @@ namespace V
         public int hp_2 = 80;
         #endregion
 
+        #region Skill
+        public float EndlessTimerMax; // 生生不息 时间
+        private bool isEndless = false;
+        #endregion
+
         private CellTech cellTech;
 
+        #region Unity
         public override void InitalizeEntity()
         {
             base.InitalizeEntity();
 
-            HealthSystem = new HealthSystem(maxHealth);
+            HealthSystem = new HealthSystem(MaxHealth);
             entityElement = new EntityElement();
-
         }
         protected override void SetEntity()
         {
             HealthBarUI.SetupHealthSystemUI(HealthSystem);
 
-            OnElementChange += BasicEntity_ElementChange;  // pick up element
 
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();           
             cellTech.OnUnlockedNewTech += CellTech_OnUnlockedNewTech; // add new tech
             cellTech.CheckUnlockSkill();
+
+            OnElementChange += BasicEntity_ElementChange;  // pick up element
+
+            GameEventManager.Instance.PlayerEvent.SpawnCellEvent(); // 通知 manager 生成新細胞
+
+            GameEventManager.Instance.SkillEvent.OnEndlessSkill += SkillEvent_OnEndlessSkill;
         }
+        private void OnDestroy() 
+        {
+            GameEventManager.Instance.PlayerEvent.CellDeadEvent(); // 通知 manager 細胞死亡
+            GameEventManager.Instance.SkillEvent.OnEndlessSkill -= SkillEvent_OnEndlessSkill;
+            
+            cellTech.OnUnlockedNewTech -= CellTech_OnUnlockedNewTech; // add new tech
+            OnElementChange -= BasicEntity_ElementChange;  // pick up element
+        }
+        #endregion
 
         #region Health
         public void TakeDamage(int _attack)
         {
-            int _countDamage = _attack - defense;
+            // 生生不息
+            if(isEndless)
+            {
+                return;
+            }
+
+            int _countDamage = _attack - Defense;
 
             HealthSystem.TakeDamage(_countDamage);
 
@@ -98,10 +201,13 @@ namespace V
             if(entityElement.GetTotalElementAmount() >= elementAmountToReproduce)
             {
                 entityElement.DecreaseElement();
-                OnReproduce?.Invoke();  // 改變 move 方向
 
-                // TO - DO 生出新 Entity
-                Instantiate(gameObject);
+                // 生成同位置，並不為父子物體
+                Vector3 spawnPosition = transform.position;
+
+                GameObject newEntity = Instantiate(entityOriginCell, spawnPosition, Quaternion.identity);
+
+                newEntity.transform.parent = null;
             }
         }
 
@@ -147,13 +253,13 @@ namespace V
 
         private void SetMinStableSpeed(float _speed)
         {
-            speed += _speed;
+            Speed += _speed;
 
-            Debug.Log(speed);
+            Debug.Log(Speed);
         }
         private void SetMaxHealthAmount(int _amount)
         {
-            HealthSystem.ChangeMaxHealth(maxHealth + _amount);
+            HealthSystem.ChangeMaxHealth(MaxHealth + _amount);
 
             Debug.Log(HealthSystem.GetHealthAmount());
         }
@@ -175,6 +281,19 @@ namespace V
         private void TestChangeMaxHealth()
         {
             HealthSystem.ChangeMaxHealth(30);
+        }
+        #endregion
+    
+        #region Skill 生生不息
+        private void SkillEvent_OnEndlessSkill()
+        {
+            StartCoroutine(Coroutine_Endless());
+        }    
+        private IEnumerator Coroutine_Endless()
+        {
+            isEndless = true;
+            yield return new WaitForSeconds(EndlessTimerMax);
+            isEndless = false;
         }
         #endregion
     }

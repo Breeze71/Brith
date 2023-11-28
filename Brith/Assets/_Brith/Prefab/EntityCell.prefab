@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8867924, g: 0.824888, b: 0.079476655, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -151,7 +151,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2
 --- !u!114 &7601859631448851840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
 --- !u!1 &2086584053871405437
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,8 +196,8 @@ Transform:
   m_GameObject: {fileID: 2086584053871405437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 810661305498598317}
   - {fileID: 5382839182846998690}
@@ -227,7 +227,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -279,21 +279,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c334d0e09319804da566a5d73271a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 10
-  speed: 2
+  Attack: 20
+  Speed: 8
+  Defense: 2
+  MaxHealth: 100
   enemyIdleSOBase: {fileID: 11400000, guid: 7521c96a1d364f344b2e20786f3e0e0e, type: 2}
   enemyChaseSOBase: {fileID: 11400000, guid: 1d0f89c2f0424f244abfcfdf9f751ac6, type: 2}
   enemyAttackSOBase: {fileID: 11400000, guid: cf4700bf26f4f6440b8c60824614489d, type: 2}
   TargetTransform: {fileID: 0}
-  <defense>k__BackingField: 0
-  <maxHealth>k__BackingField: 100
+  gearInfo: {fileID: 11400000, guid: 6483c1ef157c3ea4d8e894e5898798f0, type: 2}
   <HealthBarUI>k__BackingField: {fileID: 5671006373899315964}
   elementAmountToReproduce: 200
   element: {fileID: 208937080080910159, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
+  entityOriginCell: {fileID: 2086584053871405437}
   sp_1: 5
   sp_2: 10
   hp_1: 50
   hp_2: 80
+  EndlessTimerMax: 0
 --- !u!114 &-4323880744473651614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flag: 0
   CoolingTime: 5
-  RoomID: 0
 --- !u!1 &5072783012162999744
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
 --- !u!1 &7308016773850319735
 GameObject:
   m_ObjectHideFlags: 0
