@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243c46a16663a6e459211810b0e1ae53, type: 3}
   m_Name: Task_CollectElement
   m_EditorClassIdentifier: 
-  tasks: []
+  tasks:
+  - des: ' collect 50 element'
+    id: 0

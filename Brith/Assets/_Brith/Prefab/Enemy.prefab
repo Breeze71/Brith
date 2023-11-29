@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 3637952495047432675}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: Marbles
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -771,6 +771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flag: 0
   CoolingTime: 5
+  StartCoolingTime: 0
   RoomID: 0
 --- !u!1 &8957673820172601069
 GameObject:
