@@ -14,12 +14,17 @@ namespace V
         {
             base.DoEnterState();
 
-            // To - Do 改為投放方向
-            Vector2 _randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+            if(enemyBase.Rb.velocity == Vector2.zero)
+            {
+                // To - Do 改為投放方向
+                Vector2 _randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
 
-            enemyBase.Rb.AddForce(_randomDirection * enemyBase.Speed, ForceMode2D.Impulse);
+                enemyBase.Rb.AddForce(_randomDirection * enemyBase.Speed, ForceMode2D.Impulse);
 
-            moveDiretion = enemyBase.Rb.velocity.normalized;
+                moveDiretion = enemyBase.Rb.velocity.normalized;
+
+            }
+
         }
         
 

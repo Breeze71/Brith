@@ -10,7 +10,7 @@ namespace V
         protected Transform transform;  // SO 沒有 trasnform
         protected GameObject gameObject;
 
-        protected Transform playerTransform;
+        protected Transform targetTransform;
 
         public virtual void Initialize(GameObject _gameObject, EntityBase _enemyBase)
         {
@@ -18,7 +18,7 @@ namespace V
             transform = gameObject.transform;
             enemyBase = _enemyBase;
 
-            playerTransform = enemyBase.TargetTransform; 
+            targetTransform = enemyBase.TargetTransform; 
         }
 
         public virtual void DoEnterState() {}
