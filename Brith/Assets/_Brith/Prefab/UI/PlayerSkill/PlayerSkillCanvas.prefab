@@ -33,7 +33,7 @@ RectTransform:
   m_Children:
   - {fileID: 4401684207912457509}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -156,10 +156,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d3db619cd00a447bf91c21254be76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Skill_1: {fileID: 1421531821026799640}
-  Skill_2: {fileID: 625354974705512017}
-  Skill_3: {fileID: 6321074824845642424}
-  Skill_4: {fileID: 8156598050901980253}
+  ElementBurst: {fileID: 1421531821026799640}
+  SlowDown: {fileID: 625354974705512017}
+  Endless: {fileID: 6321074824845642424}
+  SpringUp: {fileID: 8156598050901980253}
+  enemySlowdownSpeed: 1
+  slowdownTimerMax: 3
 --- !u!1001 &658064195071281614
 PrefabInstance:
   m_ObjectHideFlags: 0

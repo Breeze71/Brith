@@ -283,7 +283,7 @@ MonoBehaviour:
   <HealthBarUI>k__BackingField: {fileID: 5671006373899315964}
   CellImg: {fileID: 9032103482998338905}
   Attack: 20
-  Speed: 8
+  Speed: 2
   Defense: 2
   MaxHealth: 100
   enemyIdleSOBase: {fileID: 11400000, guid: 7521c96a1d364f344b2e20786f3e0e0e, type: 2}
@@ -295,11 +295,15 @@ MonoBehaviour:
   elementAmountToReproduce: 20
   element: {fileID: 208937080080910159, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
   entityOriginCell: {fileID: 2086584053871405437}
-  sp_1: 5
-  sp_2: 10
-  hp_1: 50
-  hp_2: 80
   EndlessTimerMax: 0
+  Hp_1: 4
+  Hp_2: 10
+  Atk_1: 2
+  Atl_2: 5
+  Spd_1: 10
+  Spd_2: 20
+  Def_1: 5
+  elementCollectPlusAmount: 5
 --- !u!114 &-4323880744473651614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flag: 0
   CoolingTime: 5
+  StartCoolingTime: 0
   RoomID: 0
 --- !u!1 &2168788410187626908
 GameObject:
@@ -333,7 +338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1038209910757974858
 RectTransform:
   m_ObjectHideFlags: 0
@@ -577,8 +582,12 @@ MonoBehaviour:
   interactLayer:
     serializedVersion: 2
     m_Bits: 384
-  runOutofSO: {fileID: 0}
-  enemyChaseSO: {fileID: 0}
+  elementMask:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &7308016773850319735
 GameObject:
   m_ObjectHideFlags: 0

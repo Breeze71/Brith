@@ -48,6 +48,8 @@ namespace V
             GameEventManager.Instance.SkillEvent.OnSlowdownSkill -= SkillEvent_OnSlowdownSkill;
             GameEventManager.Instance.SkillEvent.OnSpringUpSkill -= SkillEvent_OnSpringUpSkill;
             GameEventManager.Instance.SkillEvent.OnEndlessSkill -= SkillEvent_OnEndlessSkill;
+
+            TaskSystemManager.Instance.updateKillNumber(1);
         }
         #endregion
 

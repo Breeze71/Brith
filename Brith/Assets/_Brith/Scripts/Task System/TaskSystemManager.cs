@@ -122,18 +122,21 @@ namespace V
         }
         #endregion
         #region Update UI
-        void updateCellNumber(int cellnumber)
+        private int currentElement = 0;
+
+        public void updateCellNumber(int cellnumber)
         {
             CellNumber = cellnumber;
             Debug.Log(cellnumber);
             updateUI(ConditionType.CellNumber, cellnumber);
         }
-        void updateCollectElementNumber(int collectelementnumber)
+        public void updateCollectElementNumber(int collectelementnumber)
         {
-            CollectElementNumber = collectelementnumber;
-            updateUI(ConditionType.Element, collectelementnumber);
+            currentElement += collectelementnumber;
+
+            updateUI(ConditionType.Element, currentElement);
         }
-        void updateKillNumber(int killnumber)
+        public void updateKillNumber(int killnumber)
         {
             KillNumber = killnumber;
             updateUI(ConditionType.KillNumber, killnumber);

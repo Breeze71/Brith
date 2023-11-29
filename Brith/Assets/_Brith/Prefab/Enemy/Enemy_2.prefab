@@ -295,8 +295,12 @@ MonoBehaviour:
   interactLayer:
     serializedVersion: 2
     m_Bits: 320
-  runOutofSO: {fileID: 0}
-  enemyChaseSO: {fileID: 0}
+  elementMask:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4144197051685974773
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +747,7 @@ MonoBehaviour:
   <HealthBarUI>k__BackingField: {fileID: 2586133620568862468}
   CellImg: {fileID: 3407566059961709797}
   Attack: 20
-  Speed: 8
+  Speed: 2
   Defense: 3
   MaxHealth: 100
   enemyIdleSOBase: {fileID: 11400000, guid: 7521c96a1d364f344b2e20786f3e0e0e, type: 2}

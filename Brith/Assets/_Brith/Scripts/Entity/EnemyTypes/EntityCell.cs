@@ -40,7 +40,7 @@ namespace V
 
             OnElementChange += BasicEntity_ElementChange;  // pick up element
 
-            GameEventManager.Instance.PlayerEvent.SpawnCellEvent(); // 通知 manager 生成新細胞
+            TaskSystemManager.Instance.updateCellNumber(1);
 
             GameEventManager.Instance.SkillEvent.OnEndlessSkill += SkillEvent_OnEndlessSkill;
         }
@@ -51,6 +51,8 @@ namespace V
             
             cellTech.OnUnlockedNewTech -= CellTech_OnUnlockedNewTech; // add new tech
             OnElementChange -= BasicEntity_ElementChange;  // pick up element
+
+            TaskSystemManager.Instance.updateCellNumber(-1);
         }
         #endregion
 
@@ -100,8 +102,7 @@ namespace V
 
             // To - Do 細胞每次獲得 n 個 element
             //  += collectElementAmount;
-            Debug.Log("Kao Fish");
-
+            TaskSystemManager.Instance.updateCollectElementNumber(collectElementAmount);
 
             // 檢查元素總量
             if(EntityElement.GetTotalElementAmount() >= elementAmountToReproduce)
