@@ -410,6 +410,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4323880744473651614, guid: d28d05739891e554cabce9560c2c1bc5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2086584053871405437, guid: d28d05739891e554cabce9560c2c1bc5, type: 3}
       propertyPath: m_Name
       value: EntityCell
@@ -983,7 +987,6 @@ Transform:
   m_Children:
   - {fileID: 1549505784}
   - {fileID: 892487570}
-  - {fileID: 1967742479}
   - {fileID: 1238597059}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1807,57 +1810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1c99ae110ded74e84b37361cb89b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1967742478
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1967742479}
-  - component: {fileID: 1967742480}
-  m_Layer: 0
-  m_Name: ObjectPoolTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1967742479
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967742478}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 637667230}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1967742480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967742478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 720a06602380681489763b378acd2581, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnAmountMax: 50
-  currentElementAmount: 0
-  elementList:
-  - {fileID: 4594004309459327350, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
-  POneInject: 050000000a000000
-  InitialSpeed: 2
-  TimeOut: 5
 --- !u!1 &2014886971
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,6 +2001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TechTreeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2065452396504232133, guid: fd5cc90a48cdb3b4482abeba05684e1d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3917765606325011560, guid: fd5cc90a48cdb3b4482abeba05684e1d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2131,6 +2087,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3917765606325011560, guid: fd5cc90a48cdb3b4482abeba05684e1d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867551176967386733, guid: fd5cc90a48cdb3b4482abeba05684e1d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620954034253093979, guid: fd5cc90a48cdb3b4482abeba05684e1d, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
