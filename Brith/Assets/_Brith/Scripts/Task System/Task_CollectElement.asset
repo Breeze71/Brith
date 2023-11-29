@@ -13,5 +13,18 @@ MonoBehaviour:
   m_Name: Task_CollectElement
   m_EditorClassIdentifier: 
   tasks:
-  - des: ' collect 50 element'
+  - des: ' collect element'
     id: 0
+    taskConditions:
+      conditionType: 0
+      Count: 10
+  - des: ' collect element'
+    id: 1
+    taskConditions:
+      conditionType: 0
+      Count: 20
+  - des: ' collect element'
+    id: 2
+    taskConditions:
+      conditionType: 0
+      Count: 30

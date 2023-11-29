@@ -12,4 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243c46a16663a6e459211810b0e1ae53, type: 3}
   m_Name: Task_KillNumber
   m_EditorClassIdentifier: 
-  tasks: []
+  tasks:
+  - des: Kill number
+    id: 0
+    taskConditions:
+      conditionType: 2
+      Count: 1
+  - des: Kill number
+    id: 1
+    taskConditions:
+      conditionType: 2
+      Count: 2
+  - des: Kill number
+    id: 2
+    taskConditions:
+      conditionType: 2
+      Count: 3

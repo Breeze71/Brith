@@ -29,11 +29,12 @@ namespace V
             {ConditionType.Element, null }
         };
         List<int> StarNumber = new List<int>();
-
+        #region UI
         [SerializeField] private List<GameObject> StarObjects1;
         [SerializeField] private List<GameObject> StarObject2;
         List<List<GameObject>> StarObjects;
         [SerializeField] private List<GameObject> TaskMenu;
+        #endregion
         [SerializeField] private List<TaskData> tasks;
         [SerializeField] private List<TaskData> tasksOnGame;
         int task1_ID;
@@ -74,7 +75,7 @@ namespace V
                 tasks[task1_ID],
                 tasks[task2_ID]
             };
-            #region 
+            #region register 
             for (int i = 0; i < tasksOnGame.Count; i++)
             {
                 if (tasksOnGame[i].getConditionType() == ConditionType.TimeLimit)
@@ -106,7 +107,6 @@ namespace V
         }
         public float timer = 0f;
 
-        // Update is called once per frame
         void Update()
         {
             timer += Time.deltaTime;
@@ -121,6 +121,7 @@ namespace V
             return num;
         }
         #endregion
+        #region Update UI
         void updateCellNumber(int cellnumber)
         {
             CellNumber = cellnumber;
@@ -141,6 +142,7 @@ namespace V
         {
             updateUIForTime(ConditionType.TimeLimit, time);
         }
+        #endregion
         #region update ui for plus
         void updateUI(ConditionType condition, int number)
         {

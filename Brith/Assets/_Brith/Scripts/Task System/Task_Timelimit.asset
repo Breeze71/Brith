@@ -12,4 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243c46a16663a6e459211810b0e1ae53, type: 3}
   m_Name: Task_Timelimit
   m_EditorClassIdentifier: 
-  tasks: []
+  tasks:
+  - des: Time
+    id: 0
+    taskConditions:
+      conditionType: 3
+      Count: 10
+  - des: Time
+    id: 1
+    taskConditions:
+      conditionType: 3
+      Count: 5
+  - des: Time
+    id: 2
+    taskConditions:
+      conditionType: 3
+      Count: 2
