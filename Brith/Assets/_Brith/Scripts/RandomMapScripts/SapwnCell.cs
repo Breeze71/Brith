@@ -9,28 +9,36 @@ namespace V
         [HideInInspector]
         public GameObject OriginRoom;
         public GameObject[] CellPrefab;
-
-        public GameObject[] CellPrefab2;
+        public int SpawnCellTimeMax;
+        private int CurrentSpawnTime;
+        //public GameObject[] CellPrefab2;
 
         public int CellSpawnNumber;
         void Start()
         {
+            CurrentSpawnTime = 0;
             OriginRoom = NewRoommanagerOnGame.Instance.GetRooms()[0];
         }
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (CurrentSpawnTime>SpawnCellTimeMax)
             {
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                if (hit.collider && hit.collider.gameObject!=null && hit.collider.gameObject.transform.position == OriginRoom.transform.position)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    Debug.Log("spawncell");
-                    for (int i = 0; i < CellSpawnNumber; i++)
+                    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                    if (hit.collider && hit.collider.gameObject != null && hit.collider.gameObject.transform.position == OriginRoom.transform.position)
                     {
-                        Instantiate(CellPrefab[0],hit.point,Quaternion.identity);
+                        //Debug.Log("spawncell");
+                        CurrentSpawnTime++;
+                        for (int i = 0; i < CellSpawnNumber; i++)
+                        {
+                            int Randnum = Random.Range(0, 3);
+                            Instantiate(CellPrefab[Randnum], hit.point, Quaternion.identity);
+                        }
                     }
                 }
             }
+
             //if(Input.GetMouseButtonDown(1) )
             //{
             //    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);

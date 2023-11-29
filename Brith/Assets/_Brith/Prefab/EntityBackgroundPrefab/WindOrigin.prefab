@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1025790464725514376}
   - component: {fileID: 8351330246650241239}
-  - component: {fileID: 2569354275254561534}
   - component: {fileID: -6774113825561662021}
   - component: {fileID: 1535515408029481124}
   - component: {fileID: -3229384648190591314}
@@ -88,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2569354275254561534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181240780522633421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3985008e5f6b35d4a841036338fea296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  element: 0
-  Roomid: 0
 --- !u!60 &-6774113825561662021
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -168,7 +153,7 @@ MonoBehaviour:
   spawnAmountMax: 50
   currentElementAmount: 0
   elementList:
-  - {fileID: 4594004309459327350, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
+  - {fileID: 4594004309459327350, guid: 782abddbdd3835143b6513f53009ecc1, type: 3}
   POneInject: 050000000a000000
   InitialSpeed: 2
   TimeOut: 5

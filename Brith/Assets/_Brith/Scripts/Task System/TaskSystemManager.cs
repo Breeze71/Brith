@@ -126,9 +126,9 @@ namespace V
 
         public void updateCellNumber(int cellnumber)
         {
-            CellNumber = cellnumber;
+            CellNumber += cellnumber;
             Debug.Log(cellnumber);
-            updateUI(ConditionType.CellNumber, cellnumber);
+            updateUI(ConditionType.CellNumber, CellNumber);
         }
         public void updateCollectElementNumber(int collectelementnumber)
         {
@@ -138,8 +138,8 @@ namespace V
         }
         public void updateKillNumber(int killnumber)
         {
-            KillNumber = killnumber;
-            updateUI(ConditionType.KillNumber, killnumber);
+            KillNumber += killnumber;
+            updateUI(ConditionType.KillNumber, KillNumber);
         }
         void updateTime(int time)
         {
@@ -155,38 +155,42 @@ namespace V
                 GameObject go = Task[condition].task;
                 TaskData task = tasksOnGame[id];
                 String des = task.tasks[0].des;
-                if (number <= task.tasks[0].taskConditions.Count && StarNumber[id] == 0)
+                if (go)
                 {
-                    //StarNumber[id] = 0;
-                    go.GetComponentInChildren<TMP_Text>().text = des + " " + number + "/" + task.tasks[0].taskConditions.Count;
-                    if (number >= task.tasks[0].taskConditions.Count)
+                    if (number <= task.tasks[0].taskConditions.Count && StarNumber[id] == 0)
                     {
-                        StarNumber[id] = 1;
-                        StarObjects[id][StarNumber[id] - 1].GetComponent<UnityEngine.UI.Image>().color = Color.white;
-                        go.GetComponentInChildren<TMP_Text>().text = des + " " + number + "/" + task.tasks[1].taskConditions.Count;
-                    }
+                        //StarNumber[id] = 0;
+                        go.GetComponentInChildren<TMP_Text>().text = des + " " + number + "/" + task.tasks[0].taskConditions.Count;
+                        if (number >= task.tasks[0].taskConditions.Count)
+                        {
+                            StarNumber[id] = 1;
+                            StarObjects[id][StarNumber[id] - 1].GetComponent<UnityEngine.UI.Image>().color = Color.white;
+                            go.GetComponentInChildren<TMP_Text>().text = des + " " + number + "/" + task.tasks[1].taskConditions.Count;
+                        }
 
-                }
-                else if (number >= task.tasks[0].taskConditions.Count && number <= task.tasks[1].taskConditions.Count && (StarNumber[id] >=0 & StarNumber[id]<=1))
-                {
-                    go.GetComponentInChildren<TMP_Text>().text = des + " " + number + "/" + task.tasks[1].taskConditions.Count;
-                    if (number >= task.tasks[1].taskConditions.Count)
+                    }
+                    else if (number >= task.tasks[0].taskConditions.Count && number <= task.tasks[1].taskConditions.Count && (StarNumber[id] >= 0 & StarNumber[id] <= 1))
                     {
-                        StarNumber[id] = 2;
-                        StarObjects[id][StarNumber[id] - 1].GetComponent<UnityEngine.UI.Image>().color = Color.white;
+                        go.GetComponentInChildren<TMP_Text>().text = des + " " + number + "/" + task.tasks[1].taskConditions.Count;
+                        if (number >= task.tasks[1].taskConditions.Count)
+                        {
+                            StarNumber[id] = 2;
+                            StarObjects[id][StarNumber[id] - 1].GetComponent<UnityEngine.UI.Image>().color = Color.white;
+                            go.GetComponentInChildren<TMP_Text>().text = des + " " + number + "/" + task.tasks[2].taskConditions.Count;
+                        }
+                    }
+                    else if (StarNumber[id] >= 0)
+                    {
                         go.GetComponentInChildren<TMP_Text>().text = des + " " + number + "/" + task.tasks[2].taskConditions.Count;
+                        if (number >= task.tasks[2].taskConditions.Count && StarNumber[id] >= 0)
+                        {
+                            StarNumber[id] = 3;
+                            foreach (GameObject gameObject in StarObjects[id])
+                                gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.white;
+                        }
                     }
                 }
-                else if (StarNumber[id] >= 0)
-                {
-                    go.GetComponentInChildren<TMP_Text>().text = des + " " + number + "/" + task.tasks[2].taskConditions.Count;
-                    if (number >= task.tasks[2].taskConditions.Count && StarNumber[id] >=0)
-                    {
-                        StarNumber[id] = 3;
-                        foreach(GameObject gameObject in StarObjects[id])
-                            gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.white;
-                    }
-                }
+
             }
         }
         #endregion
@@ -199,9 +203,9 @@ namespace V
                 GameObject go = Task[condition].task;
                 TaskData task = tasksOnGame[id];
                 String des = task.tasks[0].des;
-                if (number <= task.tasks[2].taskConditions.Count&& StarNumber[id]==3)
+                if (number <= task.tasks[2].taskConditions.Count && StarNumber[id] == 3)
                 {
-                    foreach(GameObject goo in StarObjects[id])
+                    foreach (GameObject goo in StarObjects[id])
                         goo.GetComponent<UnityEngine.UI.Image>().color = Color.white;
                     //StarNumber[id] = 0;
                     go.GetComponentInChildren<TMP_Text>().text = des + " " + number + "/" + task.tasks[2].taskConditions.Count;
@@ -213,7 +217,7 @@ namespace V
                     }
 
                 }
-                else if (number >= task.tasks[2].taskConditions.Count && number <= task.tasks[1].taskConditions.Count && StarNumber[id]==2)
+                else if (number >= task.tasks[2].taskConditions.Count && number <= task.tasks[1].taskConditions.Count && StarNumber[id] == 2)
                 {
                     go.GetComponentInChildren<TMP_Text>().text = des + " " + number + "/" + task.tasks[1].taskConditions.Count;
                     if (number == task.tasks[1].taskConditions.Count)
@@ -235,7 +239,7 @@ namespace V
             }
         }
         #endregion
-        
+
 
         #region test
         [ContextMenu("cllnumber=50")]

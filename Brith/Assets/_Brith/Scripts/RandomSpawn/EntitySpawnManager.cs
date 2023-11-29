@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace V
 {
@@ -36,7 +37,7 @@ namespace V
                 GameObject spawnEntity = Instantiate(_entity, _spawnPosition, Quaternion.identity);
             }
         }
-        //spawn target specially
+        #region spawn target specially
         public void SpawnEntities(Collider2D _spawnArea, GameObject[] _entities, Transform father)
         {
             foreach (GameObject _entity in _entities)
@@ -46,24 +47,33 @@ namespace V
                 spawnEntity.transform.SetParent(father);
             }
         }
-        //sapwn enemy specially
-        public void SpawnEntities(Collider2D _spawnArea, GameObject[] _entities, int _number)
+        public void SpawnEntities(Collider2D _spawnArea, GameObject[] _entities, Transform father, Vector2 position, float radius, float offset)
         {
             foreach (GameObject _entity in _entities)
             {
-                Vector2 _spawnPosition = GetRandomSpawnPosition(_spawnArea);
+                //Vector2 _spawnPosition = GetRandomSpawnPosition(_spawnArea);
+                Vector2 _spawnPosition = GetGetRandomSpawnPosition(position, radius, offset);
                 GameObject spawnEntity = Instantiate(_entity, _spawnPosition, Quaternion.identity);
-                spawnEntity.GetComponent<TransformCooldown>().RoomID = _number;
+                spawnEntity.transform.SetParent(father);
             }
         }
-        //spawn scene entity specially
+        #endregion
+        #region sapwn enemy specially
+        public void SpawnEntities(Collider2D _spawnArea, GameObject _entity, int _number)
+        {
+            Vector2 _spawnPosition = GetRandomSpawnPosition(_spawnArea);
+            GameObject spawnEntity = Instantiate(_entity, _spawnPosition, Quaternion.identity);
+            spawnEntity.GetComponent<TransformCooldown>().RoomID = _number;
+        }
+        #endregion
+        #region spawn scene entity specially
         public void SpawnEntities(Collider2D _spawnArea, List<GameObject[]> _entities, Transform father, int _number)
         {
             int randomNumber = Random.Range(0, 4);
             int randomNumberOutlook = Random.Range(0, 2);
-            if(randomNumberOutlook >= _entities[randomNumber].Length)
+            if (randomNumberOutlook >= _entities[randomNumber].Length)
             {
-                randomNumberOutlook= 0;
+                randomNumberOutlook = 0;
             }
             GameObject _entity = _entities[randomNumber][randomNumberOutlook];
             Vector2 _spawnPosition = GetRandomSpawnPosition(_spawnArea);
@@ -72,22 +82,69 @@ namespace V
             EntityBackGround entityBackGround = spawnEntity.GetComponent<EntityBackGround>();
             entityBackGround.Roomid = _number;
         }
+        public void SpawnEntities(Collider2D _spawnArea, List<GameObject[]> _entities, Transform father, int _number, Vector2 position, float radius, float offset)
+        {
+            int randomNumber = Random.Range(0, 4);
+            int randomNumberOutlook = Random.Range(0, 2);
+            if (randomNumberOutlook >= _entities[randomNumber].Length)
+            {
+                randomNumberOutlook = 0;
+            }
+            GameObject _entity = _entities[randomNumber][randomNumberOutlook];
+            Vector2 _spawnPosition = GetGetRandomSpawnPosition(position, radius, offset);
+            GameObject spawnEntity = Instantiate(_entity, _spawnPosition, Quaternion.identity);
+            spawnEntity.transform.SetParent(father);
+            EntityBackGround entityBackGround = spawnEntity.GetComponent<EntityBackGround>();
+            entityBackGround.Roomid = _number;
+        }
+        #endregion
         /// <summary>
         /// Get a Random position whitout collision with other layer
         /// </summary>
+        private Vector2 GetGetRandomSpawnPosition(Vector2 spawnPosition, float radius, float offset = 0.3f)
+        {
+            int key = 0;
+            int maxkey = 500;
+            Vector2 Position;
+            while (true)
+            {
+                bool _isInValidCollision = true;
+                float x = spawnPosition.x + Random.Range(-radius + offset, radius - offset);
+                float y = spawnPosition.y + Random.Range(-radius + offset, radius - offset);
+                Position = new Vector2(x, y);
+                Collider2D[] _colls = Physics2D.OverlapCircleAll(Position, 0.8f);
+                foreach (Collider2D _coll in _colls)
+                {
+                    if (((1 << _coll.gameObject.layer) & layerNotToSpawn.value) != 0)
+                    {
+                        _isInValidCollision = false;
+                        break;
+                    }
+                }
+                key++;
+                if (key > maxkey | _isInValidCollision)
+                {
+                    Debug.LogWarning(key);
+                    break;
+                }
+
+            }
+
+            return Position;
+        }
         private Vector2 GetRandomSpawnPosition(Collider2D _spawnArea)
         {
             Vector2 _spawnPosition = Vector2.zero;
             bool _isSpawnPositionValid = false;
 
             int _attempCount = 0;
-            int _maxAttemp = 50;
+            int _maxAttemp = 500;
 
-            // 嘗試 50 次 隨機生成點
+            // 嘗試 500 次 隨機生成點
             while (!_isSpawnPositionValid && _attempCount < _maxAttemp)
             {
                 _spawnPosition = GetRandomPointInCollider(_spawnArea, offest);
-                Collider2D[] _colls = Physics2D.OverlapCircleAll(_spawnPosition, 2f);
+                Collider2D[] _colls = Physics2D.OverlapCircleAll(_spawnPosition, 1f);
 
                 bool _isInValidCollision = false;
                 foreach (Collider2D _coll in _colls)
@@ -102,12 +159,12 @@ namespace V
                 if (!_isInValidCollision)
                 {
                     _isSpawnPositionValid = true;
+                    break;
                 }
-
                 _attempCount++;
             }
 
-            // 50 次都沒法生成
+            // 500 次都沒法生成
             if (!_isSpawnPositionValid)
             {
                 Debug.LogWarning("Could not find a spawn position");
@@ -120,7 +177,7 @@ namespace V
         /// <summary>
         /// Cacu the offest, prevent spawn on wall
         /// </summary>
-        private Vector2 GetRandomPointInCollider(Collider2D _coll, float _offest = 1f)
+        private Vector2 GetRandomPointInCollider(Collider2D _coll, float _offest)
         {
             Bounds _collBounds = _coll.bounds;
 

@@ -18,31 +18,35 @@ namespace V
         public void CreateEntity()
         {
             //Debug.Log(FireOrigin[1].name);
-            entities = new List<GameObject[]>();
-            entities.Add(FireOrigin);
-            entities.Add(WaterOrigin);
-            entities.Add(WindOrigin);
-            entities.Add(GroundOrigin);
+            entities = new List<GameObject[]>
+            {
+                FireOrigin,
+                WaterOrigin,
+                WindOrigin,
+                GroundOrigin
+            };
             room = gameObject.GetComponentInParent<RoomInfo>();
             //spawn target
+
             if (room.EndRoom)
             {
-                EntitySpawnManager.Instance.SpawnEntities(coll, TargetEntity, gameObject.transform.parent);
+                //EntitySpawnManager.Instance.SpawnEntities(coll, TargetEntity, gameObject.transform.parent, new Vector2(room.transform.position.x, room.transform.position.y), room.Radius, 1f);
+                GameObject go = Instantiate(TargetEntity[0], room.transform.position, Quaternion.identity);
+                go.transform.SetParent(transform);
             }
-
             #region Spawn SceneEntity
             int randomNumber = Random.Range(0, 2);
-            EntitySpawnManager.Instance.SpawnEntities(coll, entities, gameObject.transform.parent, room.Number);
+            EntitySpawnManager.Instance.SpawnEntities(coll, entities, gameObject.transform.parent, room.Number, new Vector2(room.transform.position.x, room.transform.position.y), room.Radius, 1f);
             Room roomdata = NewRoommanagerOnGame.Instance.GetRoomList()[room.Number];
             roomdata.SceneEntityNumber = room.SceneEntity = roomdata.SceneEntityNumber + 1;
             #endregion
-            //spawn scene entity
+
+            Debug.Log("Todo: spawn by lv");
             if (room.RoomNumberFromOrigin != 0)
             {
-                EntitySpawnManager.Instance.SpawnEntities(coll, Enemy, room.Number);
+                int randnum = Random.Range(0, 2);
+                EntitySpawnManager.Instance.SpawnEntities(coll, Enemy[randnum], room.Number);
             }
-
-
         }
     }
 }

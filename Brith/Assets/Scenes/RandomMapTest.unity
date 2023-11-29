@@ -154,9 +154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerNotToSpawn:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 3520
   entitySize: 2
-  offest: 0.1
+  offest: 0.2
 --- !u!4 &141633066
 Transform:
   m_ObjectHideFlags: 0
@@ -863,6 +863,18 @@ PrefabInstance:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 2054051608}
+    - target: {fileID: -4757127807227022854, guid: 25a970c323418184889c0cffecac2967, type: 3}
+      propertyPath: BigRoomCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4757127807227022854, guid: 25a970c323418184889c0cffecac2967, type: 3}
+      propertyPath: BigRoomRadius.Array.data[0]
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4757127807227022854, guid: 25a970c323418184889c0cffecac2967, type: 3}
+      propertyPath: BigRoomRadius.Array.data[1]
+      value: 2.4
+      objectReference: {fileID: 0}
     - target: {fileID: 5231531510108378610, guid: 25a970c323418184889c0cffecac2967, type: 3}
       propertyPath: m_Name
       value: RoomCreateManager

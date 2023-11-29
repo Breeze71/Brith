@@ -95,7 +95,7 @@ namespace V
             {
                 GameObject _element = SpawnRandomElement().gameObject;
                 _element.transform.position = gameObject.transform.position+ Quaternion.AngleAxis(Particleangle * i, Vector3.forward) * new Vector2(0, 0.1f);
-                _element.GetComponent<ElementInteraction>().elementType = entityBackGround.Getelement();
+               // _element.GetComponent<ElementInteraction>().elementType = entityBackGround.Getelement();
                 SetSpeed(Quaternion.AngleAxis(Particleangle*i,Vector3.forward)*new Vector2(0,1), _element);
             }
             flag = false;

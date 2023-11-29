@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3863005573875509252}
   - component: {fileID: 4076883728168117464}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SpawnEntity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,21 +46,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coll: {fileID: 8800710556545841600}
   FireOrigin:
-  - {fileID: 1181240780522633421, guid: eb5e6e89358972f48b509aa732357e2c, type: 3}
-  - {fileID: 1181240780522633421, guid: 8c66ae1a1b3329845a92cb5cdc1536c9, type: 3}
+  - {fileID: 6251465053023269237, guid: afbbd20ef2a46b34cb9f4f947eb7f6f0, type: 3}
+  - {fileID: 745202312553656232, guid: efb29f492e85c904e9cdea7ef8d21930, type: 3}
   WaterOrigin:
-  - {fileID: 1181240780522633421, guid: 9f69c581bcb085440be82b1dafbd1076, type: 3}
-  - {fileID: 1181240780522633421, guid: 1924ef43d43951d48b13242da8a840c2, type: 3}
+  - {fileID: 5737680080755531644, guid: ea19a4a2b084c294bb82e46b445db152, type: 3}
+  - {fileID: 2819771373122163398, guid: d69663298adb1ce42b8b01951aa3d2ee, type: 3}
   WindOrigin:
-  - {fileID: 1181240780522633421, guid: 0df16939da3f4384988cb2b116d600fc, type: 3}
-  - {fileID: 1181240780522633421, guid: c03ebbd1f6fd0a04d930590aa11ee19a, type: 3}
+  - {fileID: 6937927534156557119, guid: 9f2df5842a7f4294aa57bdc19274039b, type: 3}
+  - {fileID: 8384787935197682183, guid: 1b062b8b7a11a32488560a6933bebd66, type: 3}
   GroundOrigin:
-  - {fileID: 1181240780522633421, guid: 354c6581d595c0b48b8c54d4b6b05557, type: 3}
-  - {fileID: 1181240780522633421, guid: 02e80d8b8a106fe4a933edf200770731, type: 3}
+  - {fileID: 7875224995149872757, guid: 65c6c151bd8750c4b96c1f0c37857958, type: 3}
   TargetEntity:
   - {fileID: 4584915725564916842, guid: 45d8b77897c9dea42b4ab4bdd6b32857, type: 3}
   Enemy:
   - {fileID: 8189151295235615877, guid: 4cd832b64e043df40a9e880a26d2e8c0, type: 3}
+  - {fileID: 8189151295235615877, guid: 8a3230ec153fe114f872e35a0d87082f, type: 3}
   room: {fileID: 0}
 --- !u!1 &1856438302859682984
 GameObject:
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 8802434874849005807}
   - component: {fileID: 5337131893356615490}
   - component: {fileID: 5038286837425033951}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8686738105860291050}
   - component: {fileID: 872759988999626186}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 7491004058374371698}
   - component: {fileID: 8800710556545841600}
   - component: {fileID: 6187176340090161889}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Room__1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 882685260964260368}
   - component: {fileID: 4356696113577399036}
   - component: {fileID: 5374761353825642668}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
