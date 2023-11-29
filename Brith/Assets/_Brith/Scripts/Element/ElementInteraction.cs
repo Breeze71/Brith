@@ -7,7 +7,7 @@ namespace V
     /// <summary>
     /// 地 火 風 水
     /// </summary>
-    public enum ElementType
+    public enum Element
     {
         Ground,
         Fire,
@@ -17,7 +17,7 @@ namespace V
 
     public class ElementInteraction : InteractableBase
     {
-        public ElementType elementType;   // 屬性
+        public Element elementType;   // 屬性
         public InjectElement InjectElement;
 
         private bool isCollected;

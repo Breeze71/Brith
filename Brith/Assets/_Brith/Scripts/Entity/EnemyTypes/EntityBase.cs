@@ -177,9 +177,9 @@ namespace V
         #region GearSysytem
         public GearInfo gearInfo;
         private bool GearFull;
-        private List<ElementType> Gears = new List<ElementType>();
+        private List<Element> Gears = new List<Element>();
 
-        public List<ElementType> GetGears()
+        public List<Element> GetGears()
         {
             return Gears;
         }
@@ -204,28 +204,28 @@ namespace V
                 if (EntityElement.FireElement >= gearInfo.FireArmCost)
                 {
                     EntityElement.FireElement -= gearInfo.FireArmCost;
-                    Gears.Add(ElementType.Fire);
+                    Gears.Add(Element.Fire);
 
                     Attack += gearInfo.FireArmEffect;
                 }
                 if (EntityElement.GroundElement >= gearInfo.GroundArmCost)
                 {
                     EntityElement.GroundElement -= gearInfo.GroundArmCost;
-                    Gears.Add(ElementType.Ground);
+                    Gears.Add(Element.Ground);
 
                     HealthSystem.ChangeMaxHealth(gearInfo.GroundArmEffect);
                 }
                 if (EntityElement.WaterElement >= gearInfo.WaterArmCost)
                 {
                     EntityElement.WaterElement -= gearInfo.WaterArmCost;
-                    Gears.Add(ElementType.Water);
+                    Gears.Add(Element.Water);
 
                     Defense += gearInfo.WaterArmEffect;
                 }
                 if (EntityElement.WindElement >= gearInfo.WindArmCost)
                 {
                     EntityElement.WindElement -= gearInfo.WindArmCost;
-                    Gears.Add(ElementType.Wind);
+                    Gears.Add(Element.Wind);
                     
                     Speed += gearInfo.WindArmEffect;
                 }
@@ -234,28 +234,28 @@ namespace V
                 if (EntityElement.FireElement >= gearInfo.FireLegCost)
                 {
                     EntityElement.FireElement -= gearInfo.FireLegCost;
-                    Gears.Add(ElementType.Fire);
+                    Gears.Add(Element.Fire);
 
                     Attack += gearInfo.FireLegEffect;
                 }
                 if (EntityElement.GroundElement >= gearInfo.GroundLegCost)
                 {
                     EntityElement.GroundElement -= gearInfo.GroundLegCost;
-                    Gears.Add(ElementType.Ground);
+                    Gears.Add(Element.Ground);
 
                     HealthSystem.ChangeMaxHealth(gearInfo.GroundLegEffect);
                 }
                 if (EntityElement.WaterElement >= gearInfo.WaterLegCost)
                 {
                     EntityElement.WaterElement -= gearInfo.WaterLegCost;
-                    Gears.Add(ElementType.Water);
+                    Gears.Add(Element.Water);
 
                     Defense += gearInfo.WaterLegEffect;
                 }
                 if (EntityElement.WindElement >= gearInfo.WindLegCost)
                 {
                     EntityElement.WindElement -= gearInfo.WindLegCost;
-                    Gears.Add(ElementType.Wind);
+                    Gears.Add(Element.Wind);
 
                     Speed += gearInfo.WindLegEffect;
                 }
@@ -277,21 +277,21 @@ namespace V
     
         #region Get Element
         protected int collectElementAmount = 1;
-        public virtual void GetElement(ElementType _elementType)
+        public virtual void GetElement(Element _elementType)
         {
-            if (_elementType == ElementType.Ground)
+            if (_elementType == Element.Ground)
             {
                 EntityElement.GroundElement += collectElementAmount;
             }
-            else if (_elementType == ElementType.Fire)
+            else if (_elementType == Element.Fire)
             {
                 EntityElement.FireElement += collectElementAmount;
             }
-            else if (_elementType == ElementType.Wind)
+            else if (_elementType == Element.Wind)
             {
                 EntityElement.WindElement += collectElementAmount;
             }
-            else if(_elementType  == ElementType.Water)
+            else if(_elementType  == Element.Water)
             {
                 EntityElement.WaterElement += collectElementAmount;
             }
