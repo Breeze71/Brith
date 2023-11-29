@@ -1,21 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace V
 {
-    public class TaskData : MonoBehaviour
+    public enum ConditionType
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        Element,
+        CellNumber,
+        KillNumber,
+        TimeLimit
+    }
+    [Serializable]
+    public struct TaskConditions
+    {
+        ConditionType conditionType;
+        int Count;
+    }
+    [Serializable]
+    public struct Task
+    {
+        [Header("task description")]
+        public string des;
+        [Header("ID")]
+        public string id;
+        [Header("condition to complete task")]
+        TaskConditions taskConditions;
+    }
+    [Serializable]
+    [CreateAssetMenu(fileName ="NewTaskDatabase",menuName ="CreateNewTaskDatabase/NewTaskDatabase")]
+    public class TaskData : ScriptableObject
+    {
+        public List<Task> tasks;
     }
 }

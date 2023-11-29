@@ -6,6 +6,7 @@ namespace V
 {
     public class TaskSystemManager : MonoBehaviour
     {
+        [SerializeField] private List<TaskData> tasks;
         public static TaskSystemManager Instance { get; set; }
         private void Awake()
         {
@@ -16,6 +17,14 @@ namespace V
 
             Instance = this;
         }
-
+        private void Start()
+        {
+            int task1_ID = Random.Range(0, 4);
+            int task2_ID = Random.Range(0, 4);
+            while (task1_ID==task2_ID)
+            {
+                task2_ID=Random.Range(0, 4);
+            }
+        }
     }
 }
