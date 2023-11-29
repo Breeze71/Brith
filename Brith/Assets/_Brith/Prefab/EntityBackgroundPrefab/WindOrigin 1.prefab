@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6774113825561662021}
   - component: {fileID: 1535515408029481124}
   - component: {fileID: -3229384648190591314}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WindOrigin 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

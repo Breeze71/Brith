@@ -29,11 +29,6 @@ namespace V
             {
                 EntitySpawnManager.Instance.SpawnEntities(coll, TargetEntity, gameObject.transform.parent);
             }
-            //spawn scene entity
-            if (room.RoomNumberFromOrigin != 0)
-            {
-                EntitySpawnManager.Instance.SpawnEntities(coll, Enemy, room.Number);
-            }
 
             #region Spawn SceneEntity
             int randomNumber = Random.Range(0, 2);
@@ -41,6 +36,13 @@ namespace V
             Room roomdata = NewRoommanagerOnGame.Instance.GetRoomList()[room.Number];
             roomdata.SceneEntityNumber = room.SceneEntity = roomdata.SceneEntityNumber + 1;
             #endregion
+            //spawn scene entity
+            if (room.RoomNumberFromOrigin != 0)
+            {
+                EntitySpawnManager.Instance.SpawnEntities(coll, Enemy, room.Number);
+            }
+
+
         }
     }
 }
