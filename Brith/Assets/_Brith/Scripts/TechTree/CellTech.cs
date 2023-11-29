@@ -8,11 +8,54 @@ namespace V
     public enum TechType
     {
         None,
-        Follow,
-        MoveSpeed_1,
-        MoveSpeed_2,
-        HealthMax_1,
-        HealthMax_2,
+
+        // Cell Init Amount
+        /// <summary>
+        /// 等接口
+        /// </summary>
+        Init_1_Plus1,
+        Init_2_Plus1,
+        Init_3_Plus2,
+        Init_4_Plus4,
+
+        #region 數值 Finish
+        // Cell Max Health
+        Hp_1_Plus4,
+        Hp_2_Plus10,
+        
+        // Cell Atk
+        Atk_1_Plus2,
+        Atk_2_Plus5,
+
+        // Speed
+        Spd_1_Plus10,
+        Spd_2_Plus20,
+
+        // Defense
+        Def_1_Plus5,
+        #endregion
+
+        // Collect Element Amount
+        #region Finish
+        Element_1_Plus5,
+        #endregion
+        
+        // Player Skill
+        /// <summary>
+        /// 開關 button 即可
+        /// </summary>
+        #region Player Skill Finish
+        ElementBurst,
+        Slowdown,
+        Endless,
+        SpringUp,
+        #endregion
+
+        // Cell State
+        #region Finish
+        CellChaseEnemy,
+        CellChaseElement,
+        #endregion
     }
 
     /// <summary>
@@ -44,7 +87,7 @@ namespace V
         }
 
         /// <summary>
-        /// Check if is Unlock
+        /// 判別是否能使用該科技技能
         /// </summary>
         public bool IsTechUnlocked(TechType _techType)
         {
@@ -54,15 +97,38 @@ namespace V
         /// <summary>
         /// 前置需求
         /// </summary>
-        public TechType GetTechRequirement(TechType _techType)
+        private TechType GetTechRequirement(TechType _techType)
         {
             switch(_techType)
             {
-                case TechType.MoveSpeed_2: 
-                    return TechType.MoveSpeed_1;
+                // 1 
+                case TechType.Hp_1_Plus4: return TechType.Init_1_Plus1;
 
-                case TechType.HealthMax_2: 
-                    return TechType.HealthMax_1;
+                // 2 
+                case TechType.Atk_1_Plus2: return TechType.Hp_1_Plus4;
+                case TechType.CellChaseElement: return TechType.Hp_1_Plus4;
+                case TechType.Spd_1_Plus10: return TechType.Hp_1_Plus4;
+
+                // 3
+                case TechType.Init_2_Plus1: return TechType.Atk_1_Plus2;
+                case TechType.CellChaseEnemy: return TechType.Atk_1_Plus2;
+
+                case TechType.Hp_2_Plus10: return TechType.CellChaseElement;
+
+                case TechType.Slowdown: return TechType.Spd_1_Plus10;
+                case TechType.Spd_2_Plus20: return TechType.Spd_1_Plus10;
+
+                // 4
+                case TechType.Atk_2_Plus5: return TechType.CellChaseEnemy;
+                case TechType.Init_3_Plus2: return TechType.Spd_2_Plus20;
+                case TechType.Endless: return TechType.Atk_2_Plus5;
+
+                // 5
+                case TechType.Def_1_Plus5: return TechType.Atk_2_Plus5;
+
+                case TechType.Element_1_Plus5: return TechType.Spd_2_Plus20;
+                case TechType.Init_4_Plus4: return TechType.Hp_2_Plus10;
+                case TechType.SpringUp: return TechType.Init_4_Plus4;
             }
 
             return TechType.None;
@@ -75,9 +141,9 @@ namespace V
         {
             TechType techTypeRequirement = GetTechRequirement(_techType);
 
+            // 檢查是否滿足前置需求
             if(techTypeRequirement != TechType.None)
             {
-                // 檢查是否滿足前置需求
                 if(IsTechUnlocked(techTypeRequirement))
                 {
                     UnlockNewTech(_techType);
@@ -100,6 +166,9 @@ namespace V
             }
         }
 
+        /// <summary>
+        /// 讀存檔時，解鎖全部已解鎖科技
+        /// </summary>
         public void CheckUnlockSkill()
         {
             foreach(TechType techType in unlockTechList)

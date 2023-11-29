@@ -5,38 +5,46 @@ namespace V
 {
     public class ChaseInteraction : InteractableBase
     {
-        private EntityBase enemyBase;
+        private EntityBase entityBase;
 
-        [SerializeField] private EnemyChaseSOBase runOutofSO;
-        [SerializeField] private EnemyChaseSOBase enemyChaseSO;
+        [SerializeField] private LayerMask elementMask;
+        [SerializeField] private LayerMask enemyMask;
         
         private void Awake() 
         {
-            enemyBase = GetComponentInParent<EntityBase>();    
+            entityBase = GetComponentInParent<EntityBase>();    
         }
 
         public override void EnterTrigger(Collider2D _other)
-        {
-            // if(enemyBase.CurrentEntityState == EntityState.Collecting && enemyBase.CurrentEntityState == EntityState.Chasing)
-            // {
-            //     enemyBase.TargetTransform = _other.gameObject.transform;
-            //     // enemyBase.ChaseState = new EnemyChaseSOBase(); // 將行為變成逃離
-            //     enemyBase.SetAggroStatus(true); // 轉至下個狀態
-            // }
-            // else if(enemyBase.CurrentEntityState == EntityState.Running)
-            // {
-            //     enemyBase.TargetTransform = _other.gameObject.transform;
-            //     // enemyBase.ChaseState = new EnemyChaseSOBase(); // 將行為變成逃離
-            //     enemyBase.SetAggroStatus(true); // 
-            // }
+        {   
+            // 是我方，判別是否點科技能否追逐或採集
+            entityBase.TryGetComponent(out EntityCell _entityCell);
+            if(_entityCell)
+            {
+                if(_entityCell.CanChaseElement() && (elementMask.value & (1 << _other.gameObject.layer)) > 0)
+                {
+                    entityBase.TargetTransform = _other.GetComponent<IDetectable>().GetTransform();
+                    entityBase.SetAggroStatus(true);
+                }
+                
+                else if(_entityCell.CanChaseEnemy() && (enemyMask.value & (1 << _other.gameObject.layer)) > 0)
+                {
+                    entityBase.TargetTransform = _other.GetComponent<IDetectable>().GetTransform();
+                    entityBase.SetAggroStatus(true);
+                }
+            }
 
-            enemyBase.TargetTransform = _other.GetComponent<IDetectable>().GetTransform();
-            enemyBase.SetAggroStatus(true);
+            // 是敵人
+            else
+            {
+                entityBase.TargetTransform = _other.GetComponent<IDetectable>().GetTransform();
+                entityBase.SetAggroStatus(true);
+            }
         }
 
         public override void ExitTrigger(Collider2D _other)
         {
-            enemyBase.SetAggroStatus(false);
+            entityBase.SetAggroStatus(false);
         }
 
         public override void Interact()

@@ -15,14 +15,6 @@ namespace V
         public event Action OnReproduce;
         #endregion
 
-        #region Tech
-        [Header("Tech")]
-        public float sp_1 = 5;
-        public float sp_2 = 10;
-        public int hp_1 = 50;
-        public int hp_2 = 80;
-        #endregion
-
         #region Skill
         public float EndlessTimerMax; // 生生不息 时间
         private bool isEndless = false;
@@ -41,7 +33,6 @@ namespace V
         protected override void SetEntity()
         {
             HealthBarUI.SetupHealthSystemUI(HealthSystem);
-
 
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();           
             cellTech.OnUnlockedNewTech += CellTech_OnUnlockedNewTech; // add new tech
@@ -100,12 +91,17 @@ namespace V
             Destroy(gameObject);
         }
         #endregion
-    
+
         #region Reproduce
         private void BasicEntity_ElementChange()
         {
             // Create Gear First
             GearSysrem();
+
+            // To - Do 細胞每次獲得 n 個 element
+            //  += collectElementAmount;
+            Debug.Log("Kao Fish");
+
 
             // 檢查元素總量
             if(EntityElement.GetTotalElementAmount() >= elementAmountToReproduce)
@@ -124,6 +120,16 @@ namespace V
         #endregion
     
         #region Tech
+        [Header("Tech")]
+        public int Hp_1 = 4;
+        public int Hp_2 = 10;
+        public int Atk_1 = 2;
+        public int Atl_2 = 5;
+        public int Spd_1 = 10;
+        public int Spd_2 = 20;
+        public int Def_1 = 5;
+
+        public int elementCollectPlusAmount = 5;
         /// <summary>
         /// Recive Add Tech Event 
         /// </summary>
@@ -131,19 +137,47 @@ namespace V
         {
             // To - Do Lot of Tech
             switch(techType)
-            {
-                case TechType.MoveSpeed_1:
-                    SetMinStableSpeed(sp_1);
+            {   
+                #region 數值
+                case TechType.Hp_1_Plus4:
+                    SetMaxHealthAmount(Hp_1);
+                    Debug.Log(HealthSystem.GetHealthAmount());
                     break;
-                case TechType.MoveSpeed_2:
-                    SetMinStableSpeed(sp_2);
+
+                case TechType.Hp_2_Plus10:
+                    SetMaxHealthAmount(Hp_2);
+                    Debug.Log(HealthSystem.GetHealthAmount());
                     break;
-                case TechType.HealthMax_1:
-                    SetMaxHealthAmount(hp_1);
+
+                case TechType.Atk_1_Plus2:
+                    Attack += Atk_1;
+                    Debug.Log("atk" + Attack);
                     break;
-                case TechType.HealthMax_2:
-                    SetMaxHealthAmount(hp_2);
-                    break;                
+
+                case TechType.Atk_2_Plus5:
+                    Attack += Atl_2;
+                    Debug.Log("atk" + Attack);
+                    break;    
+
+                case TechType.Spd_1_Plus10:
+                    Speed += Spd_1;
+                    Debug.Log("spd" + Speed);
+                    break;
+
+                case TechType.Spd_2_Plus20:
+                    Speed += Spd_2;
+                    Debug.Log("spd" + Speed);
+                    break; 
+
+                case TechType.Def_1_Plus5:
+                    Defense += Def_1;
+                    Debug.Log("def" + Defense);
+                    break;
+                #endregion
+
+                case TechType.Element_1_Plus5:
+                    collectElementAmount += elementCollectPlusAmount;
+                    break;
             }
         }
 
@@ -156,17 +190,24 @@ namespace V
         {
             return cellTech;
         }
-        public bool CanUseFollow()
+
+        /// <summary>
+        /// 會不會追逐敵人
+        /// </summary>
+        /// <returns></returns>
+        public bool CanChaseEnemy()
         {
-            return cellTech.IsTechUnlocked(TechType.Follow);
+            return cellTech.IsTechUnlocked(TechType.CellChaseEnemy);
+        }
+        /// <summary>
+        /// 會不會追元素
+        /// </summary>
+        /// <returns></returns>
+        public bool CanChaseElement()
+        {
+            return cellTech.IsTechUnlocked(TechType.CellChaseElement);
         }
 
-        private void SetMinStableSpeed(float _speed)
-        {
-            Speed += _speed;
-
-            Debug.Log(Speed);
-        }
         private void SetMaxHealthAmount(int _amount)
         {
             HealthSystem.ChangeMaxHealth(_amount);

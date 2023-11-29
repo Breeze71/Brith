@@ -3,10 +3,8 @@ using UnityEngine.UI;
 
 namespace V.UI
 {
-    public class TechTreeUI : MonoBehaviour
+    public class TechTreeButtonUI : MonoBehaviour
     {
-        [SerializeField] private Material techUnlockMaterial;
-        [SerializeField] private Material techUnlockableMaterial;
         [SerializeField] private Button nextSceneButton;
         
         #region TechButtonUI
@@ -75,11 +73,11 @@ namespace V.UI
             });
         }
 
-        private void SetButtonUnlockTech(Button _button, TechType _unlockTechType)
+        private void SetButtonUnlockTech(TechButtonUI _techButtonUI, TechType _unlockTechType)
         {
             // To - Do PointerEnter 顯示細節 
 
-            _button.onClick.AddListener(() =>
+            _techButtonUI.ButtonMask.onClick.AddListener(() =>
             {
                 if(!cellTech.TryUnlockNewTech(_unlockTechType))
                 {
