@@ -5,7 +5,14 @@ using System.Collections.Generic;
 
 namespace V
 {
-    public class EntityBase : MonoBehaviour, IEnemyMoveable, ITriggerCheckable, IDamagable
+    public enum EntityState
+    {
+        Collecting,
+        Chasing,
+        Running,
+    }
+
+    public class EntityBase : MonoBehaviour, IEnemyMoveable, ITriggerCheckable, IDamagable, IDetectable
     {
         public Rigidbody2D Rb {get; set;}
         public bool IsFacingRight {get; set;} = true;
@@ -24,6 +31,7 @@ namespace V
         public int MaxHealth;
 
         protected event Action OnElementChange; // Element Change
+
         /// <summary>
         /// invoke when Collect Element
         /// </summary>
@@ -36,6 +44,8 @@ namespace V
         [SerializeField] private EnemyIdleSOBase enemyIdleSOBase;
         [SerializeField] private EnemyChaseSOBase enemyChaseSOBase;
         [SerializeField] private EnemyAttackSOBase enemyAttackSOBase;
+        // 在這裡多幾個 state 
+        // 需要時，把 Instance = state
 
         public EnemyIdleSOBase EnemyIdleBaseInstance {get; set;}
         public EnemyChaseSOBase EnemyChaseBaseInstance {get; set;}
@@ -57,11 +67,10 @@ namespace V
         #region Unity
         private void Awake() 
         {
-            // PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
-            EnemyIdleBaseInstance = Instantiate(enemyIdleSOBase);
-            EnemyChaseBaseInstance = Instantiate(enemyChaseSOBase);
-            EnemyAttackBaseInstance = Instantiate(enemyAttackSOBase);
+            // 初始狀態
+            EnemyIdleBaseInstance = enemyIdleSOBase = Instantiate(enemyIdleSOBase);
+            EnemyChaseBaseInstance = enemyChaseSOBase = Instantiate(enemyChaseSOBase);
+            EnemyAttackBaseInstance = enemyAttackSOBase = Instantiate(enemyAttackSOBase);
 
             StateMachine = new EnemyStateMachine();
 
@@ -92,16 +101,24 @@ namespace V
         {
             StateMachine.CurrentEnemyState.PhysicsUpdate();
         }
-        #endregion
 
         /// <summary>
         /// Call at Awake
         /// </summary>
         public virtual void InitalizeEntity() {}
+
         /// <summary>
         /// Call at Start
         /// </summary>
         protected virtual void SetEntity(){}
+        #endregion
+
+        #region Ai Behaviour
+        // currentRoom
+        public EntityState CurrentEntityState;
+
+        
+        #endregion
 
         #region Movement
         public void SetVelocity(Vector2 _velocity)
@@ -188,36 +205,29 @@ namespace V
                 {
                     EntityElement.FireElement -= gearInfo.FireArmCost;
                     Gears.Add(Element.Fire);
-                    //todo Hp+=gearInfo.GroundArmEffect;
-                    
-                    // To - Do
-                    // attack 
-                    Attack += 10;
-                    // defense
-                    Defense += 10;
-                    // health
-                    HealthSystem.ChangeMaxHealth(10);
-                    // speed
-                    Speed += 10;
 
+                    Attack += gearInfo.FireArmEffect;
                 }
                 if (EntityElement.GroundElement >= gearInfo.GroundArmCost)
                 {
                     EntityElement.GroundElement -= gearInfo.GroundArmCost;
                     Gears.Add(Element.Ground);
-                    //todo Hp+=gearInfo.GroundArmEffect;
+
+                    HealthSystem.ChangeMaxHealth(gearInfo.GroundArmEffect);
                 }
                 if (EntityElement.WaterElement >= gearInfo.WaterArmCost)
                 {
                     EntityElement.WaterElement -= gearInfo.WaterArmCost;
                     Gears.Add(Element.Water);
-                    //todo Def+=gearInfo.WaterArmEffect;
+
+                    Defense += gearInfo.WaterArmEffect;
                 }
                 if (EntityElement.WindElement >= gearInfo.WindArmCost)
                 {
                     EntityElement.WindElement -= gearInfo.WindArmCost;
                     Gears.Add(Element.Wind);
-                    //todo Spd+=gearInfo.WindArmEffect;
+                    
+                    Speed += gearInfo.WindArmEffect;
                 }
             }
             else if (Gears.Count >= 2 && Gears.Count < 4) {
@@ -225,25 +235,29 @@ namespace V
                 {
                     EntityElement.FireElement -= gearInfo.FireLegCost;
                     Gears.Add(Element.Fire);
-                    //todo attack+=gearInfo.FireLegEffect;
+
+                    Attack += gearInfo.FireLegEffect;
                 }
                 if (EntityElement.GroundElement >= gearInfo.GroundLegCost)
                 {
                     EntityElement.GroundElement -= gearInfo.GroundLegCost;
                     Gears.Add(Element.Ground);
-                    //todo Hp+=gearInfo.GroundLegEffect;
+
+                    HealthSystem.ChangeMaxHealth(gearInfo.GroundLegEffect);
                 }
                 if (EntityElement.WaterElement >= gearInfo.WaterLegCost)
                 {
                     EntityElement.WaterElement -= gearInfo.WaterLegCost;
                     Gears.Add(Element.Water);
-                    //todo Def+=gearInfo.WaterLegEffect;
+
+                    Defense += gearInfo.WaterLegEffect;
                 }
                 if (EntityElement.WindElement >= gearInfo.WindLegCost)
                 {
                     EntityElement.WindElement -= gearInfo.WindLegCost;
                     Gears.Add(Element.Wind);
-                    //todo Spd+=gearInfo.WindLegEffect;
+
+                    Speed += gearInfo.WindLegEffect;
                 }
             }
             
@@ -254,6 +268,34 @@ namespace V
         public virtual void TakeDamage(int _attack){}
 
         public virtual void Die(){}
+
+        public Transform GetTransform()
+        {
+            return transform;
+        }
+        #endregion
+    
+        #region Get Element
+        protected int collectElementAmount = 1;
+        public virtual void GetElement(Element _elementType)
+        {
+            if (_elementType == Element.Ground)
+            {
+                EntityElement.GroundElement += collectElementAmount;
+            }
+            else if (_elementType == Element.Fire)
+            {
+                EntityElement.FireElement += collectElementAmount;
+            }
+            else if (_elementType == Element.Wind)
+            {
+                EntityElement.WindElement += collectElementAmount;
+            }
+            else if(_elementType  == Element.Water)
+            {
+                EntityElement.WaterElement += collectElementAmount;
+            }
+        }
         #endregion
     }
 }

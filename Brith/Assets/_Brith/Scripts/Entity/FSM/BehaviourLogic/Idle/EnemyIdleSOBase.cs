@@ -30,8 +30,7 @@ namespace V
         {
             if(enemyBase.IsAggroed)
             {
-                Debug.Log("fix attack to chase");
-                enemyBase.StateMachine.ChangeState(enemyBase.AttackState);
+                enemyBase.StateMachine.ChangeState(enemyBase.ChaseState);
             }
         }
         public virtual void DoPhysicsUpdate() {}
