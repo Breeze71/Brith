@@ -245,13 +245,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2613130754222047173, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
+      propertyPath: Endless
+      value: 
+      objectReference: {fileID: 1784100964}
+    - target: {fileID: 2613130754222047173, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
+      propertyPath: SlowDown
+      value: 
+      objectReference: {fileID: 406432342}
+    - target: {fileID: 2613130754222047173, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
+      propertyPath: SpringUp
+      value: 
+      objectReference: {fileID: 444717582}
+    - target: {fileID: 2613130754222047173, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
+      propertyPath: ElementBurst
+      value: 
+      objectReference: {fileID: 633348586}
     - target: {fileID: 4978267545194802806, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
       propertyPath: m_Name
       value: PlayerSkillCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 4978267545194802806, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9166048901805516525, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
       propertyPath: m_Pivot.x
@@ -451,6 +467,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d28d05739891e554cabce9560c2c1bc5, type: 3}
+--- !u!114 &406432342 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 625354974705512017, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
+  m_PrefabInstance: {fileID: 208474348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1c99ae110ded74e84b37361cb89b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &439658065
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +608,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &444717582 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8156598050901980253, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
+  m_PrefabInstance: {fileID: 208474348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1c99ae110ded74e84b37361cb89b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &459450596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -890,6 +928,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &633348586 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1421531821026799640, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
+  m_PrefabInstance: {fileID: 208474348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1c99ae110ded74e84b37361cb89b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &637667228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,6 +1796,17 @@ MonoBehaviour:
   coll: {fileID: 60923730}
   entities:
   - {fileID: 208937080080910159, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
+--- !u!114 &1784100964 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6321074824845642424, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
+  m_PrefabInstance: {fileID: 208474348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1c99ae110ded74e84b37361cb89b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1967742478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2245,7 +2305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5785864514946930052, guid: 89a07889701daf244b401a1fa451fe07, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

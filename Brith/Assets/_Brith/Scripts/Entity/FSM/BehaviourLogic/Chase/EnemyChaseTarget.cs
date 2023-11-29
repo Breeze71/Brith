@@ -19,7 +19,6 @@ namespace V
         public override void DoFrameUpdate()
         {
             base.DoFrameUpdate();
-            Debug.Log("Chase");
 
             if(enemyBase.TargetTransform != null)
             {
