@@ -15,8 +15,8 @@ namespace V
     [Serializable]
     public struct TaskConditions
     {
-        ConditionType conditionType;
-        int Count;
+        public ConditionType conditionType;
+        public int Count;
     }
     [Serializable]
     public struct Task
@@ -26,12 +26,16 @@ namespace V
         [Header("ID")]
         public string id;
         [Header("condition to complete task")]
-        TaskConditions taskConditions;
+        public TaskConditions taskConditions;
     }
     [Serializable]
     [CreateAssetMenu(fileName ="NewTaskDatabase",menuName ="CreateNewTaskDatabase/NewTaskDatabase")]
     public class TaskData : ScriptableObject
     {
         public List<Task> tasks;
+        public ConditionType getConditionType()
+        {
+            return tasks[0].taskConditions.conditionType;
+        }
     }
 }
