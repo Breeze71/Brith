@@ -94,6 +94,9 @@ namespace V
                 totalElement -= 50;
             }
 
+            // To - Do Cell Dead
+
+
             Destroy(gameObject);
         }
         #endregion

@@ -9,24 +9,50 @@ namespace V.UI
         [SerializeField] private Material techUnlockableMaterial;
         [SerializeField] private Button nextSceneButton;
         
-        #region Button
-        [Header("Button")]
-        [SerializeField] private Button followButton;
-        [SerializeField] private Button hp_1Button;
-        [SerializeField] private Button hp_2Button;
-        [SerializeField] private Button sp_1Button;
-        [SerializeField] private Button sp_2Button;
+        #region TechButtonUI
+        [Header("TechButtonUI")]
+        [Space(5)]
+        [Header("Init Amount")]
+        [SerializeField] private TechButtonUI init_1_Plus1;
+        [SerializeField] private TechButtonUI init_2_Plus1;
+        [SerializeField] private TechButtonUI init_3_Plus2;
+        [SerializeField] private TechButtonUI init_4_Plus4;
+
+        [Header("Hp")]
+        [SerializeField] private TechButtonUI hp_1_Plus4;
+        [SerializeField] private TechButtonUI hp_2_Plus10;
+        
+        [Header("Atk")]
+        [SerializeField] private TechButtonUI atk_1_Plus2;
+        [SerializeField] private TechButtonUI atk_2_Plus5;
+
+        [Header("Speed")]
+        [SerializeField] private TechButtonUI spd_1_Plus10;
+        [SerializeField] private TechButtonUI spd_2_Plus20;
+
+        [Header("Defense")]
+        [SerializeField] private TechButtonUI def_1_Plus5;
+
+        [Header("PlayerSkill")]
+        [SerializeField] private TechButtonUI elementBurst;
+        [SerializeField] private TechButtonUI slowdown;
+        [SerializeField] private TechButtonUI endless;
+        [SerializeField] private TechButtonUI springUp;
+
+        [Header("Cell State")]
+        [SerializeField] private TechButtonUI cellChaseEnemy;
+        [SerializeField] private TechButtonUI cellChaseElement;
         #endregion
 
         private CellTech cellTech;
 
         private void Awake() 
         {
-            SetButtonUnlockTech(followButton, TechType.Follow);
-            SetButtonUnlockTech(hp_1Button, TechType.HealthMax_1);
-            SetButtonUnlockTech(hp_2Button, TechType.HealthMax_2);
-            SetButtonUnlockTech(sp_1Button, TechType.MoveSpeed_1);
-            SetButtonUnlockTech(sp_2Button, TechType.MoveSpeed_2);
+            // SetButtonUnlockTech(followButton, TechType.Follow);
+            // SetButtonUnlockTech(hp_1Button, TechType.HealthMax_1);
+            // SetButtonUnlockTech(hp_2Button, TechType.HealthMax_2);
+            // SetButtonUnlockTech(sp_1Button, TechType.MoveSpeed_1);
+            // SetButtonUnlockTech(sp_2Button, TechType.MoveSpeed_2);
 
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>(); 
 
