@@ -7,7 +7,7 @@ namespace V
     /// <summary>
     /// 地 火 風 水
     /// </summary>
-    public enum Element
+    public enum ElementType
     {
         Ground,
         Fire,
@@ -17,7 +17,7 @@ namespace V
 
     public class ElementInteraction : InteractableBase
     {
-        public Element element;   // 屬性
+        public ElementType elementType;   // 屬性
         public InjectElement InjectElement;
 
         private bool isCollected;
@@ -45,23 +45,7 @@ namespace V
             isCollected = true;
             InjectElement.currentElementAmount--;
 
-            // 判別是哪屬性
-            if(element == Element.Ground)
-            {
-                _entityBase.EntityElement.GroundElement++;
-            }
-            else if(element == Element.Fire)
-            {
-                _entityBase.EntityElement.FireElement++;
-            }
-            else if(element == Element.Wind)
-            {
-                _entityBase.EntityElement.WindElement++;
-            }
-            else if(element == Element.Water)
-            {
-                _entityBase.EntityElement.WaterElement++;
-            }
+            _entityBase.GetElement(elementType);
 
             _entityBase.ElementChangeEvent();
         }

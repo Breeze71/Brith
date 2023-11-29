@@ -51,6 +51,10 @@ namespace V
         {
             TakeDamage(50);
         }
-        
+
+        public Transform GetTransform()
+        {
+            return transform;
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace V
         public HealthSystem HealthSystem {get; set;}
         public HealthBarUI HealthBarUI{get; set;}
 
+        public Transform GetTransform();
         public void TakeDamage(int damageAmount);
         public void Die();
     }

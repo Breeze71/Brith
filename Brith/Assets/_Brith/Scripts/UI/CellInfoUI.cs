@@ -56,20 +56,20 @@ namespace V
             // cell img
             cellImg = _entityBase.CellImg;
             // Gear
-            foreach(Element _element in _entityBase.GetGears())
+            foreach(ElementType _element in _entityBase.GetGears())
             {
                 switch(_element)
                 {
-                    case Element.Fire:
+                    case ElementType.Fire:
                         gearImgList[0].enabled = true;
                         break;
-                    case Element.Wind:
+                    case ElementType.Wind:
                         gearImgList[1].enabled = true;
                         break;
-                    case Element.Ground:
+                    case ElementType.Ground:
                         gearImgList[2].enabled = true;
                         break;
-                    case Element.Water:
+                    case ElementType.Water:
                         gearImgList[3].enabled = true;
                         break;                                            
                 }

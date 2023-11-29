@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using System;
 
 namespace V
 {
@@ -28,37 +29,74 @@ namespace V
 
     public class SkillUI : MonoBehaviour
     {
-        public SkillButtonUI Skill_1;
-        public SkillButtonUI Skill_2;
-        public SkillButtonUI Skill_3;
-        public SkillButtonUI Skill_4;
+        public SkillButtonUI ElementBurst;
+        public SkillButtonUI SlowDown;
+        public SkillButtonUI Endless;
+        public SkillButtonUI SpringUp;
 
         public float enemySlowdownSpeed = 1f;   // 钟慢效应 敌方细胞的移速
         public float slowdownTimerMax = 3f; // 钟慢效应 时间
 
+        private CellTech cellTech;
+        
 
+        #region Unity
         private void Start() 
         {
-            InitSkill(Skill_1, SkillType.ElementBurst);
-            InitSkill(Skill_2, SkillType.Slowdown);
-            InitSkill(Skill_3, SkillType.Endless);
-            InitSkill(Skill_4, SkillType.SpringUp);
+            InitSkill(ElementBurst, SkillType.ElementBurst);
+            InitSkill(SlowDown, SkillType.Slowdown);
+            InitSkill(Endless, SkillType.Endless);
+            InitSkill(SpringUp, SkillType.SpringUp);
+
+            cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();  
+
+            cellTech.OnUnlockedNewTech += CellTech_OnUnlockedNewTech; // add new tech
+            cellTech.CheckUnlockSkill();    // 讀存檔
         }
 
         private void Update() 
         {
-            AbilityCooldown(ref Skill_1.CurrentCooldownTimer, Skill_1.SkillCooldownTimerMax, 
-                ref Skill_1.IsCooldown, Skill_1.IconMaskImage, Skill_1.CooldownTimeText);    
+            AbilityCooldown(ref ElementBurst.CurrentCooldownTimer, ElementBurst.SkillCooldownTimerMax, 
+                ref ElementBurst.IsCooldown, ElementBurst.IconMaskImage, ElementBurst.CooldownTimeText);    
 
-            AbilityCooldown(ref Skill_2.CurrentCooldownTimer, Skill_2.SkillCooldownTimerMax, 
-                ref Skill_2.IsCooldown, Skill_2.IconMaskImage, Skill_2.CooldownTimeText);   
+            AbilityCooldown(ref SlowDown.CurrentCooldownTimer, SlowDown.SkillCooldownTimerMax, 
+                ref SlowDown.IsCooldown, SlowDown.IconMaskImage, SlowDown.CooldownTimeText);   
 
-            AbilityCooldown(ref Skill_3.CurrentCooldownTimer, Skill_3.SkillCooldownTimerMax, 
-                ref Skill_3.IsCooldown, Skill_3.IconMaskImage, Skill_3.CooldownTimeText);
+            AbilityCooldown(ref Endless.CurrentCooldownTimer, Endless.SkillCooldownTimerMax, 
+                ref Endless.IsCooldown, Endless.IconMaskImage, Endless.CooldownTimeText);
 
-            AbilityCooldown(ref Skill_4.CurrentCooldownTimer, Skill_4.SkillCooldownTimerMax, 
-                ref Skill_4.IsCooldown, Skill_4.IconMaskImage, Skill_4.CooldownTimeText);   
+            AbilityCooldown(ref SpringUp.CurrentCooldownTimer, SpringUp.SkillCooldownTimerMax, 
+                ref SpringUp.IsCooldown, SpringUp.IconMaskImage, SpringUp.CooldownTimeText);   
         }
+        
+        private void OnDestroy() 
+        {
+            cellTech.OnUnlockedNewTech -= CellTech_OnUnlockedNewTech; // add new tech    
+        }
+        #endregion
+
+        /// <summary>
+        /// 技能解鎖
+        /// </summary>
+        private void CellTech_OnUnlockedNewTech(TechType type)
+        {
+            switch(type)
+            {
+                case TechType.ElementBurst:
+                    ElementBurst.SkillButton.gameObject.SetActive(true);
+                    break;
+                case TechType.Slowdown:
+                    SlowDown.SkillButton.gameObject.SetActive(true);
+                    break;
+                case TechType.Endless:
+                    Endless.SkillButton.gameObject.SetActive(true);
+                    break;
+                case TechType.SpringUp:
+                    SpringUp.SkillButton.gameObject.SetActive(true);
+                    break;
+            }
+        }
+
 
         /// <summary>
         /// 按鈕按下邏輯
@@ -115,7 +153,9 @@ namespace V
 
             _skillButtonUI.CooldownTimeText.text = "";
 
-            SetSkillButton(_skillButtonUI, _skillType);            
+            SetSkillButton(_skillButtonUI, _skillType);  
+
+            _skillButtonUI.gameObject.SetActive(false); // 設置完按鈕後關閉          
         }
 
         /// <summary>

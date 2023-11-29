@@ -72,6 +72,8 @@ namespace V
                 return;
             }
 
+            // To - Do Enemy Dead
+
             // TO - DO 每有五十点元素结晶就变成一个随机方向的新元素粒子。
             int totalElement = EntityElement.GetTotalElementAmount();
 
@@ -114,6 +116,8 @@ namespace V
                 GameObject newEntity = Instantiate(enemyOriginCell, spawnPosition, Quaternion.identity);
 
                 newEntity.transform.parent = null;
+
+                // To - Do Re
             }
         }
         #endregion
