@@ -29,5 +29,7 @@ namespace V
         /// 介紹文字
         /// </summary>
         public string techIntroText;
+
+
     }
 }

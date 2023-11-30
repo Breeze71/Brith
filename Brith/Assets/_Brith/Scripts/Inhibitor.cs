@@ -23,8 +23,6 @@ namespace V
         private void Start() 
         {
             HealthBarUI.SetupHealthSystemUI(HealthSystem);
-
-            techTreeUI.SetActive(false);
         }
 
         public void TakeDamage(int damageAmount)
