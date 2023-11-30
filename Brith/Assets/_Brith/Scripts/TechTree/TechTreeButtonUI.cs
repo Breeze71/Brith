@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using V.Tool.SaveLoadSystem;
 
 namespace V.UI
 {
-    public class TechTreeButtonUI : MonoBehaviour
+    public class TechTreeButtonUI : MonoBehaviour, IDataPersistable
     {
         [SerializeField] private GameObject techPointNotEnoughPannel;
 
@@ -78,6 +79,8 @@ namespace V.UI
 
         private void Awake() 
         {
+            Time.timeScale = 0f;
+
             #region SetButtonUnlockTech
             SetButtonUnlockTech(init_1_Plus1, TechType.Init_1_Plus1);
             SetButtonUnlockTech(init_2_Plus1, TechType.Init_2_Plus1);
@@ -109,6 +112,8 @@ namespace V.UI
             nextSceneButton.onClick.AddListener(() =>
             {   
                 TechCanvas.SetActive(false);
+
+                Time.timeScale = 1f;
             });
             
             resetTechPointButton.onClick.AddListener(() =>
@@ -142,11 +147,14 @@ namespace V.UI
             techPointNotEnoughPannel.SetActive(false);
             techInfoPannel.SetActive(false);
             
-            currentTechPointText.text = cellTech.currentTechPoint.ToString();
 
             cellTech.OnChangeCurrentTechPoint += CellTech_OnChangeCurrentTechPoint;
 
-            
+            currentTechPointText.text = cellTech.currentTechPoint.ToString();
+            foreach(TechButtonUI techButtonUI in unlocktechButtonUIList)
+            {
+                techButtonUI.ButtonMask.gameObject.SetActive(false);
+            }
         }
 
         /// <summary>
@@ -205,6 +213,16 @@ namespace V.UI
             techPointNotEnoughPannel.SetActive(true);
             yield return new WaitForSeconds(1.5f);
             techPointNotEnoughPannel.SetActive(false);
+        }
+
+        public void LoadData(GameData _gameData)
+        {
+            unlocktechButtonUIList = _gameData.UnlocktechButtonUIList;
+        }
+
+        public void SaveData(ref GameData _gameData)
+        {
+            _gameData.UnlocktechButtonUIList = unlocktechButtonUIList;
         }
     }
 }

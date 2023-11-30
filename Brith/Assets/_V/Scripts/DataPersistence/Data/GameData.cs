@@ -10,6 +10,7 @@ namespace V.Tool.SaveLoadSystem
         public int CurrentTechPoint;
         public int MaxTechPoint;
         public int CurrentLevel;
+        public List<TechButtonUI> UnlocktechButtonUIList;
 
         public GameData()
         {
@@ -18,6 +19,7 @@ namespace V.Tool.SaveLoadSystem
             CurrentTechPoint = 1;
             MaxTechPoint = 1;
             CurrentLevel = 1;
+            UnlocktechButtonUIList = new List<TechButtonUI>();
         }
     }
 }

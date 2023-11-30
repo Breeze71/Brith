@@ -409,6 +409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2668279425091998227, guid: 89a07889701daf244b401a1fa451fe07, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5785864514946930052, guid: 89a07889701daf244b401a1fa451fe07, type: 3}
       propertyPath: m_Name
       value: CellInformationCanvas
@@ -510,7 +514,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d8df1f03820064393b296334abddd9, type: 3}
---- !u!1001 &1918170238
+--- !u!1001 &1886298383
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -520,35 +524,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 593319988703416045, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
       propertyPath: m_Name
-      value: TechTreeCanvas_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 788575707829101908, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: TechCanvas
-      value: 
-      objectReference: {fileID: 1918170239}
-    - target: {fileID: 1726418323301526138, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 1726418323301526138, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4515098383345966555, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 1726418323301526138, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881918426090723076, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 2881918426090723076, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4515098383345966555, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 2881918426090723076, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
+      value: TechTreeCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 3917765606325011560, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
       propertyPath: m_Pivot.x
@@ -560,7 +536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3917765606325011560, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3917765606325011560, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -634,40 +610,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5609955462160969435, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 5609955462160969435, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4515098383345966555, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 5609955462160969435, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8564197989759236468, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 8564197989759236468, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4515098383345966555, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 8564197989759236468, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
---- !u!1 &1918170239 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 593319988703416045, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-  m_PrefabInstance: {fileID: 1918170238}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1971007619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -694,7 +641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9166048901805516525, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9166048901805516525, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
       propertyPath: m_AnchorMax.x

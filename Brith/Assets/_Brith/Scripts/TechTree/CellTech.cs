@@ -213,6 +213,8 @@ namespace V
 
             maxTechPoint = _gameData.MaxTechPoint;
             currentLevel = _gameData.CurrentLevel;
+
+            CheckUnlockSkill();
         }
 
         public void SaveData(ref GameData _gameData)
