@@ -17,10 +17,10 @@ public class RoomInfo : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private void Start()
     {
-        if (RoomNumberFromOrigin == 0) { 
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-            spriteRenderer.color = Color.cyan;
-        }
-            
+        //if (RoomNumberFromOrigin == 0) { 
+        //spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        //    spriteRenderer.color = Color.cyan;
+        //}
+
     }
 }

@@ -13,7 +13,7 @@ namespace V
         List<Vector3> RoomPosition;
         //Transform OriginPoint;
         Vector3 OriginPosition;
-        public GameObject RoomPrefab;
+        public GameObject[] RoomPrefab;
         public GameObject DoorPrefab;
         float BaseRadius;//Basic radius��standard radius��
 
@@ -174,7 +174,8 @@ namespace V
                 {
                     Room tempRoom = new(tempPos, radius, i);
                     RoomList.Add(tempRoom);
-                    GameObject go = Instantiate(RoomPrefab, tempPos, Quaternion.identity);
+                    int radomnum = Random.Range(0, 4);
+                    GameObject go = Instantiate(RoomPrefab[radomnum], tempPos, Quaternion.identity);
                     go.transform.localScale *= radius / 0.5f;
                     Rooms.Add(go);
                 }
