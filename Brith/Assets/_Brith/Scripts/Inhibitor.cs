@@ -14,11 +14,13 @@ namespace V
 
 
         [SerializeField] private GameObject techTreeUI;
+        private CellTech cellTech;
 
         private void Awake() 
         {
             HealthSystem = new HealthSystem(HealthAmount);
             techTreeUI = GameObject.FindGameObjectWithTag("TechTree");
+            cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();
         }
         private void Start() 
         {
@@ -42,6 +44,10 @@ namespace V
         public void Die()
         {
             techTreeUI.SetActive(true);
+
+            cellTech.GetTechPoint(TaskSystemManager.Instance.GetAllstarNum());
+
+            cellTech.currentLevel += 1;
         }
 
         [ContextMenu("TestMinus50Hp()")]

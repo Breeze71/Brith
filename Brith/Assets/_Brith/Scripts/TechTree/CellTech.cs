@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using V.Tool.SaveLoadSystem;
 
 namespace V
 {
@@ -61,12 +62,13 @@ namespace V
     /// <summary>
     ///  The Technology Tree of Cell
     /// </summary>
-    public class CellTech : MonoBehaviour
+    public class CellTech : MonoBehaviour, IDataPersistable
     {
         public event Action<TechType> OnUnlockedNewTech;
         public event Action<int> OnChangeCurrentTechPoint;
 
         public List<TechType> unlockTechList;
+        public int currentLevel;
 
 
         public CellTech()
@@ -200,7 +202,28 @@ namespace V
         [ContextMenu("TestGetTechPoint5")]
         private void GetTechPoint()
         {
-            GetTechPoint(5 );
+            GetTechPoint(5);
+        }
+
+        public void LoadData(GameData _gameData)
+        {
+            unlockTechList = _gameData.UnlockTechList;
+
+            currentTechPoint = _gameData.CurrentTechPoint;
+
+            maxTechPoint = _gameData.MaxTechPoint;
+            currentLevel = _gameData.CurrentLevel;
+        }
+
+        public void SaveData(ref GameData _gameData)
+        {
+            _gameData.UnlockTechList = unlockTechList;
+
+            _gameData.CurrentTechPoint = currentTechPoint;
+
+            _gameData.MaxTechPoint = maxTechPoint; 
+
+            _gameData.CurrentLevel = currentLevel;           
         }
     }
 }

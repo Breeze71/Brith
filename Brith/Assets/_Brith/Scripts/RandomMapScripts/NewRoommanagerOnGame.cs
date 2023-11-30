@@ -41,6 +41,14 @@ namespace V
         public float[] SmallRoomRadius = new float[2];
         #endregion
 
+        /// <summary>
+        /// todo
+        /// </summary>
+        private CellTech cellTech;
+        public int GetCurrentLevel()
+        {
+            return cellTech.currentLevel;
+        }
 
         #region IsVisableInCamera
         public Camera Camera;
@@ -69,7 +77,7 @@ namespace V
         }
         private void Start()
         {
-
+            cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();
         }
         //private void Update()
         //{
