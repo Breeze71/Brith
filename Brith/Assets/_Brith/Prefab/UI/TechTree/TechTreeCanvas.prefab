@@ -421,6 +421,7 @@ MonoBehaviour:
   springUp: {fileID: 8741312555651972970}
   cellChaseEnemy: {fileID: 2388399402309107971}
   cellChaseElement: {fileID: 6558058393554606588}
+  unlocktechButtonUIList: []
 --- !u!1 &1740308317791866385
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3219485013331009870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -892,10 +893,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u653B\u6027\u5B17\u53D8"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
+  m_sharedMaterial: {fileID: 4515098383345966555, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1029,8 +1030,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: x1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
+  m_sharedMaterial: {fileID: 4515098383345966555, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1691,7 +1692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2084204789969390228
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1780,10 +1781,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u6211\u662F\u706B\u8F66\u738B\uFF01"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
+  m_sharedMaterial: {fileID: 4515098383345966555, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1993,8 +1994,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: UnlockTech
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
+  m_sharedMaterial: {fileID: 4515098383345966555, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3215,7 +3216,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1837749713367431470, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: m_text
-      value: Hp_1
+      value: "\u751F\u547D\u539F\u70B9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u751F\u547D\u539F\u70B9"
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
@@ -3364,12 +3369,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1837749713367431470, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: m_text
-      value: Def_1
+      value: "\u5FA1\u6027\u5B17\u53D8"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u5FA1\u6027\u5B17\u53D8"
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
       objectReference: {fileID: 2952600839428781321}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techIntroText
+      value: "\u56E0\u4E3A\u592A\u6015\u75BC\u5C31\u5168\u70B9\u9632\u5FA1\u4E86\u3002"
+      objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -3513,12 +3526,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1837749713367431470, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: m_text
-      value: CellChaseEnemy
+      value: "\u9010\u730E\u5347\u683C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u9010\u730E\u5347\u683C"
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
       objectReference: {fileID: 2737935702527734788}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techIntroText
+      value: "I've got you in my sights\uFF01"
+      objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -3960,7 +3981,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1837749713367431470, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: m_text
-      value: Spd_1
+      value: "\u901F\u6027\u5B17\u53D8"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u901F\u6027\u5B17\u53D8"
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
@@ -4109,12 +4134,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1837749713367431470, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: m_text
-      value: Atk_1
+      value: "\u653B\u6027\u5B17\u53D8"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u653B\u6027\u5B17\u53D8"
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
       objectReference: {fileID: 1729897636427500968}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techIntroText
+      value: "\u6211\u662F\u706B\u8F66\u738B\uFF01"
+      objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -4407,7 +4440,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1837749713367431470, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: m_text
-      value: Endless
+      value: "\u751F\u751F\u4E0D\u606F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u751F\u751F\u4E0D\u606F"
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
@@ -4556,7 +4593,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1837749713367431470, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: m_text
-      value: SpringUp
+      value: "\u751F\u547D\u6D8C\u73B0"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u751F\u547D\u6D8C\u73B0"
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
@@ -5006,6 +5047,10 @@ PrefabInstance:
       value: Init_1
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u751F\u547D\u539F\u70B9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
       objectReference: {fileID: 8283133017080110273}
@@ -5152,7 +5197,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1837749713367431470, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: m_text
-      value: SlowDown
+      value: "\u949F\u6162\u6548\u5E94"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u949F\u6162\u6548\u5E94"
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
@@ -5304,9 +5353,17 @@ PrefabInstance:
       value: CellChaseElement
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u5BFB\u89C5\u5347\u683C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
       objectReference: {fileID: 6906465488901172475}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techIntroText
+      value: "\u9F3B\u5B50\u597D\u624D\u662F\u771F\u7684\u597D!"
+      objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -5450,7 +5507,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1837749713367431470, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: m_text
-      value: ElementBurst
+      value: "\u5143\u7D20\u8FF8\u53D1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u5143\u7D20\u8FF8\u53D1"
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
@@ -5751,9 +5812,17 @@ PrefabInstance:
       value: CollectElement +5
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: "\u6387\u53D6\u5347\u683C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
       objectReference: {fileID: 5872225235498964457}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techIntroText
+      value: "\u767E\u5428\u738B\u5C31\u662F\u6211,\u6211\u5C31\u662F\u767E\u5428\u738B!"
+      objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
