@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7775a9d6b7a481d4c8c2376065dc64f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tip: {fileID: 5965146532303827146, guid: 279ef0e4be5c8b247b6940a5cea3942b, type: 3}
   coll: {fileID: 8800710556545841600}
   FireOrigin:
   - {fileID: 6251465053023269237, guid: afbbd20ef2a46b34cb9f4f947eb7f6f0, type: 3}
@@ -278,7 +279,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 6508442690050492750}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 932a7f2626ec0124997619070f0cda0c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

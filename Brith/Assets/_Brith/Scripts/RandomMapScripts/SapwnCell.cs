@@ -21,7 +21,7 @@ namespace V
         }
         void Update()
         {
-            if (CurrentSpawnTime>SpawnCellTimeMax)
+            if (CurrentSpawnTime<SpawnCellTimeMax)
             {
                 if (Input.GetMouseButtonDown(0))
                 {

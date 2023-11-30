@@ -6,6 +6,7 @@ namespace V
 {
     public class SpawnEntity : MonoBehaviour
     {
+        public GameObject Tip;
         [SerializeField] private Collider2D coll;
         [SerializeField] private GameObject[] FireOrigin;
         [SerializeField] private GameObject[] WaterOrigin;
@@ -47,6 +48,26 @@ namespace V
                 int randnum = Random.Range(0, 2);
                 EntitySpawnManager.Instance.SpawnEntities(coll, Enemy[randnum], room.Number);
             }
+            if (room.RoomNumberFromOrigin == 0)
+            {
+                GameObject go = Instantiate(Tip, room.transform.position, Quaternion.identity);
+                go.transform.Translate(0,0.3f,0);
+                go.transform.localScale *= room.Radius / 0.6f;
+                StartCoroutine(twinkle(go));
+            }
+        }
+        IEnumerator twinkle(GameObject go)
+        {
+            //SpriteRenderer renderer = go.GetComponent<SpriteRenderer>();
+            for (int i = 0; i <=10; i++)
+            {
+                Debug.Log("aaaaa");
+                go.transform.localScale *= 2f;
+                yield return new WaitForSeconds(0.2f);
+                go.transform.localScale /= 2f;
+                yield return new WaitForSeconds(0.2f);
+            }
+            Destroy(go);
         }
     }
 }
