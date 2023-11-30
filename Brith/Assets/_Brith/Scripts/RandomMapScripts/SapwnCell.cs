@@ -29,6 +29,12 @@ namespace V
                     if (hit.collider && hit.collider.gameObject != null && hit.collider.gameObject.transform.position == OriginRoom.transform.position)
                     {
                         //Debug.Log("spawncell");
+                        if (CurrentSpawnTime == 0) {
+                            GameObject go = GameObject.Find("Tip(Clone)");
+                            go.SetActive(false);
+                            Destroy(go);
+                        }
+
                         CurrentSpawnTime++;
                         for (int i = 0; i < CellSpawnNumber; i++)
                         {

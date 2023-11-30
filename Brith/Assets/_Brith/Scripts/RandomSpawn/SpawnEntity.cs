@@ -56,12 +56,13 @@ namespace V
                 StartCoroutine(twinkle(go));
             }
         }
+
         IEnumerator twinkle(GameObject go)
         {
             //SpriteRenderer renderer = go.GetComponent<SpriteRenderer>();
-            for (int i = 0; i <=10; i++)
+            for (int i = 0; i <=500; i++)
             {
-                Debug.Log("aaaaa");
+                //Debug.Log("aaaaa");
                 go.transform.localScale *= 2f;
                 yield return new WaitForSeconds(0.2f);
                 go.transform.localScale /= 2f;
