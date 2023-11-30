@@ -64,6 +64,8 @@ namespace V
     public class CellTech : MonoBehaviour
     {
         public event Action<TechType> OnUnlockedNewTech;
+        public event Action<int> OnChangeCurrentTechPoint;
+
         public List<TechType> unlockTechList;
 
 
@@ -72,7 +74,7 @@ namespace V
             unlockTechList = new List<TechType>();
         }
 
-        private void UnlockNewTech(TechType _techType)
+        public void UnlockNewTech(TechType _techType)
         {
             if(IsTechUnlocked(_techType))
             {   
@@ -146,13 +148,12 @@ namespace V
             {
                 if(IsTechUnlocked(techTypeRequirement))
                 {
-                    UnlockNewTech(_techType);
-
                     return true;
                 }
 
                 else
                 {
+                    Debug.Log("Require" + techTypeRequirement);
                     return false;
                 }
             }
@@ -160,8 +161,6 @@ namespace V
             // 沒有前置需求
             else
             {
-                UnlockNewTech(_techType);
-
                 return true;
             }
         }
@@ -175,6 +174,33 @@ namespace V
             {
                 TryUnlockNewTech(techType);
             }
+        }
+
+        public int currentTechPoint = 1;
+        public int maxTechPoint = 1;
+
+        /// <summary>
+        /// 重置所有科技
+        /// </summary>
+        public void ResetTechPoint()
+        {
+            currentTechPoint = maxTechPoint;
+
+            OnChangeCurrentTechPoint?.Invoke(currentTechPoint);
+        }
+        public void GetTechPoint(int _amount)
+        {
+            currentTechPoint += _amount;
+            maxTechPoint += _amount;
+
+            OnChangeCurrentTechPoint?.Invoke(currentTechPoint);
+        }
+
+
+        [ContextMenu("TestGetTechPoint5")]
+        private void GetTechPoint()
+        {
+            GetTechPoint(5 );
         }
     }
 }
