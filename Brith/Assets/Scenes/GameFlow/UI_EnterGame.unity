@@ -1822,6 +1822,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3425200304830737752, guid: 6dddb177a143b244dabac6c1912491d0, type: 3}
+      propertyPath: FirstLv
+      value: RandomMapTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425200304830737752, guid: 6dddb177a143b244dabac6c1912491d0, type: 3}
+      propertyPath: TechtreeScene
+      value: RandomMapTest
+      objectReference: {fileID: 0}
     - target: {fileID: 3794041716081125343, guid: 6dddb177a143b244dabac6c1912491d0, type: 3}
       propertyPath: m_Name
       value: UIManager

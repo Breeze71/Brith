@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 8920824779614179418}
   - component: {fileID: 6418239604924492724}
   m_Layer: 5
-  m_Name: TechTreeCanvas
+  m_Name: TechTreeCanvas_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,6 +421,7 @@ MonoBehaviour:
   springUp: {fileID: 8741312555651972970}
   cellChaseEnemy: {fileID: 2388399402309107971}
   cellChaseElement: {fileID: 6558058393554606588}
+  TechCanvas: {fileID: 0}
   unlocktechButtonUIList: []
 --- !u!1 &1740308317791866385
 GameObject:
@@ -513,7 +514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3219485013331009870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1692,7 +1693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2084204789969390228
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2076,7 +2077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6296303985116406411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3220,12 +3221,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: techName
-      value: "\u751F\u547D\u539F\u70B9"
+      value: hp1
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 2929850191595727876}
+      objectReference: {fileID: 2565414115493560505}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techIntroText
+      value: hp+
+      objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -3338,11 +3343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2929850191595727876 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 553568276883323903}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3202830780582189315 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -3378,7 +3378,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 2952600839428781321}
+      objectReference: {fileID: 2579290879705749940}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: techIntroText
       value: "\u56E0\u4E3A\u592A\u6015\u75BC\u5C31\u5168\u70B9\u9632\u5FA1\u4E86\u3002"
@@ -3495,11 +3495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2952600839428781321 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 576459112566383346}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3180641158439731214 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -3535,7 +3530,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 2737935702527734788}
+      objectReference: {fileID: 3372597650291316921}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: techIntroText
       value: "I've got you in my sights\uFF01"
@@ -3652,11 +3647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8a4275841a7aa40925d6bd5af89b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2737935702527734788 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 790762510207951871}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3372597650291316921 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2608857287871855430, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -3688,7 +3678,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 4157876426053243493}
+      objectReference: {fileID: 3639325380625039064}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -3801,11 +3791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &4157876426053243493 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 1636494171873052062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4425323252503177058 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -3835,9 +3820,17 @@ PrefabInstance:
       value: Init_2
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: init_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 3861615987482456865}
+      objectReference: {fileID: 4514281338747248540}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techIntroText
+      value: init + 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -3950,11 +3943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8a4275841a7aa40925d6bd5af89b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3861615987482456865 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 1914442245289682138}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4514281338747248540 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2608857287871855430, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -3990,7 +3978,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 863796323543495743}
+      objectReference: {fileID: 58009819754338434}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -4103,11 +4091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &863796323543495743 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 2664603199989310404}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1091705869327696184 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -4138,15 +4121,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: techName
-      value: "\u653B\u6027\u5B17\u53D8"
+      value: atk1
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 1729897636427500968}
+      objectReference: {fileID: 1383468264270897429}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: techIntroText
-      value: "\u6211\u662F\u706B\u8F66\u738B\uFF01"
+      value: atk+
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
@@ -4260,11 +4243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1729897636427500968 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 3965301755313314387}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2079398752252672175 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -4296,7 +4274,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 7123210699298276015}
+      objectReference: {fileID: 7631490107073605138}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -4403,11 +4381,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4992734285899926102, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
   m_PrefabInstance: {fileID: 5610634320437695828}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7123210699298276015 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 5610634320437695828}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7350135151370319784 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -4449,7 +4422,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 6924936883887787146}
+      objectReference: {fileID: 7721585206440353847}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -4556,11 +4529,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4992734285899926102, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
   m_PrefabInstance: {fileID: 5700450144143776625}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6924936883887787146 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 5700450144143776625}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7259811387684452749 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -4602,7 +4570,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 9049200519283313261}
+      objectReference: {fileID: 8550068907988330192}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -4731,11 +4699,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8a4275841a7aa40925d6bd5af89b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &9049200519283313261 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 5950231193441787286}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6687147745803782742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4751,7 +4714,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 8343979484463111597}
+      objectReference: {fileID: 8716999173644890384}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -4858,11 +4821,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4992734285899926102, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
   m_PrefabInstance: {fileID: 6687147745803782742}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8343979484463111597 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 6687147745803782742}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8579801199773460650 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -4900,7 +4858,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 8238253727905610715}
+      objectReference: {fileID: 8747940650708752230}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -5007,11 +4965,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4992734285899926102, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
   m_PrefabInstance: {fileID: 6724551877045496864}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8238253727905610715 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 6724551877045496864}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8542904664914153180 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -5048,12 +5001,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: techName
-      value: "\u751F\u547D\u539F\u70B9"
+      value: init_1
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 8283133017080110273}
+      objectReference: {fileID: 8773394865270993020}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techIntroText
+      value: init+1
+      objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -5160,11 +5117,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4992734285899926102, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
   m_PrefabInstance: {fileID: 6770557050859342650}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8283133017080110273 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 6770557050859342650}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8514564229913323974 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -5206,7 +5158,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 5044768505511296622}
+      objectReference: {fileID: 5562046181321478867}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -5324,11 +5276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8a4275841a7aa40925d6bd5af89b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5044768505511296622 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 7567417820279368085}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5562046181321478867 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2608857287871855430, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -5359,7 +5306,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 6906465488901172475}
+      objectReference: {fileID: 6118831100125691974}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: techIntroText
       value: "\u9F3B\u5B50\u597D\u624D\u662F\u771F\u7684\u597D!"
@@ -5492,11 +5439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8a4275841a7aa40925d6bd5af89b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &6906465488901172475 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 8133203607833066240}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8202025323337954057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5516,7 +5458,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 6833423812268352754}
+      objectReference: {fileID: 6190188285149268047}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -5645,11 +5587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8a4275841a7aa40925d6bd5af89b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &6833423812268352754 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 8202025323337954057}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8819515570577539386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5663,9 +5600,17 @@ PrefabInstance:
       value: Hp_2
       objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techName
+      value: hp2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 6152892344362292929}
+      objectReference: {fileID: 6796410462583356028}
+    - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
+      propertyPath: techIntroText
+      value: hp+
+      objectReference: {fileID: 0}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: UnlockTechButton
       value: 
@@ -5783,11 +5728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8a4275841a7aa40925d6bd5af89b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &6152892344362292929 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 8819515570577539386}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6796410462583356028 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2608857287871855430, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
@@ -5818,7 +5758,7 @@ PrefabInstance:
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: ButtonMask
       value: 
-      objectReference: {fileID: 5872225235498964457}
+      objectReference: {fileID: 6506733956143528276}
     - target: {fileID: 3160426095862866684, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
       propertyPath: techIntroText
       value: "\u767E\u5428\u738B\u5C31\u662F\u6211,\u6211\u5C31\u662F\u767E\u5428\u738B!"
@@ -5927,11 +5867,6 @@ PrefabInstance:
 --- !u!224 &4265424037009213508 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4992734285899926102, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
-  m_PrefabInstance: {fileID: 9113057960592032274}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5872225235498964457 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3388466498587744251, guid: 3b08dda92bc6bcd4dbf5bf3f0b8d4d5e, type: 3}
   m_PrefabInstance: {fileID: 9113057960592032274}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6171060844712272110 stripped

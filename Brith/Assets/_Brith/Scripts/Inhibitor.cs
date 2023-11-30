@@ -43,11 +43,14 @@ namespace V
         /// </summary>
         public void Die()
         {
-            techTreeUI.SetActive(true);
+            // techTreeUI.SetActive(true);
 
             cellTech.GetTechPoint(TaskSystemManager.Instance.GetAllstarNum());
 
             cellTech.currentLevel += 1;
+
+
+            Loader.LoadScene(Loader.Scene.RandomMapTest);
         }
 
         [ContextMenu("TestMinus50Hp()")]

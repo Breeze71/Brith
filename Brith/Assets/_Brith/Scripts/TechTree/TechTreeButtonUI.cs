@@ -68,6 +68,8 @@ namespace V.UI
         [SerializeField] private TechButtonUI cellChaseElement;
         #endregion
 
+        [SerializeField] private GameObject TechCanvas;
+
         /// <summary>
         /// To - Do DataPersis
         /// </summary>
@@ -106,20 +108,7 @@ namespace V.UI
 
             nextSceneButton.onClick.AddListener(() =>
             {   
-                Loader.LoadScene(Loader.Scene.RandomMapTest);
-
-                PlayerPrefs.SetInt("Current Level", PlayerPrefs.GetInt("Current Level", 0) + 1);
-                PlayerPrefs.Save();
-
-                if(PlayerPrefs.GetInt("Current Level") > 6)
-                {
-                    // To - Do Ending
-                    Debug.LogWarning("Ending Scene");
-
-                    PlayerPrefs.SetInt("Current Level", 0);
-                }
-
-                Debug.LogError("Current Level" + PlayerPrefs.GetInt("Current Level"));
+                TechCanvas.SetActive(false);
             });
             
             resetTechPointButton.onClick.AddListener(() =>
@@ -152,9 +141,12 @@ namespace V.UI
             resetTechPannel.SetActive(false);
             techPointNotEnoughPannel.SetActive(false);
             techInfoPannel.SetActive(false);
-
+            
+            currentTechPointText.text = cellTech.currentTechPoint.ToString();
 
             cellTech.OnChangeCurrentTechPoint += CellTech_OnChangeCurrentTechPoint;
+
+            // TechCanvas.SetActive(false);
         }
 
         /// <summary>
