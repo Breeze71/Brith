@@ -146,7 +146,7 @@ namespace V.UI
 
             cellTech.OnChangeCurrentTechPoint += CellTech_OnChangeCurrentTechPoint;
 
-            // TechCanvas.SetActive(false);
+            
         }
 
         /// <summary>
