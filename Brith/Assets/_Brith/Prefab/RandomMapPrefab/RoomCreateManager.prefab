@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5498520812504278618}
   - component: {fileID: -4757127807227022854}
+  - component: {fileID: 1088761909877089985}
   m_Layer: 0
   m_Name: RoomCreateManager
   m_TagString: Untagged
@@ -69,3 +70,15 @@ MonoBehaviour:
   - 0
   - 0
   Camera: {fileID: 0}
+--- !u!114 &1088761909877089985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5231531510108378610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa224d801ce0d542a54e6787dd4c61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
