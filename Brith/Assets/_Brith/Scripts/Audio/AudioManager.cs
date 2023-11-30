@@ -6,16 +6,37 @@ namespace V
 {
     public class AudioManager : MonoBehaviour
     {
-        // Start is called before the first frame update
+        public static AudioManager instance;
+        public AudioType[] AudioTypes;
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+            DontDestroyOnLoad(gameObject);
+        }
         void Start()
         {
-        
-        }
+            foreach (AudioType type in AudioTypes)
+            {
+                type.Source=gameObject.AddComponent<AudioSource>();
+                type.Source.clip = type.Clip;
+                type.Source.name = type.Name;
+                type.Source.volume = type.Volume;
+                type.Source.pitch = type.Pitch;
+                type.Source.loop = type.Loop;
 
-        // Update is called once per frame
-        void Update()
-        {
-        
+                if(type.MixerGroup != null)
+                {
+                    type.Source.outputAudioMixerGroup = type.MixerGroup;
+                }
+            }
         }
     }
 }
