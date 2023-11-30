@@ -410,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &709405480
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1530,7 +1530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6423593629201064820, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
       propertyPath: AudioTypes.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6423593629201064820, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
       propertyPath: AudioTypes.Array.data[0].Loop
@@ -1545,6 +1545,14 @@ PrefabInstance:
       value: clickButton
       objectReference: {fileID: 0}
     - target: {fileID: 6423593629201064820, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
+      propertyPath: AudioTypes.Array.data[2].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 817fa193a626f00409cb82ca408c759f, type: 3}
+    - target: {fileID: 6423593629201064820, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
+      propertyPath: AudioTypes.Array.data[2].Name
+      value: Music01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423593629201064820, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
       propertyPath: AudioTypes.Array.data[0].Volume
       value: 1
       objectReference: {fileID: 0}
@@ -1553,9 +1561,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6423593629201064820, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
+      propertyPath: AudioTypes.Array.data[2].Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423593629201064820, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
       propertyPath: AudioTypes.Array.data[1].MixerGroup
       value: 
       objectReference: {fileID: 7734980985728130301, guid: 279ce6a58953a7945ba91ef8d29babbe, type: 2}
+    - target: {fileID: 6423593629201064820, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
+      propertyPath: AudioTypes.Array.data[2].MixerGroup
+      value: 
+      objectReference: {fileID: 725922706850168596, guid: 279ce6a58953a7945ba91ef8d29babbe, type: 2}
+    - target: {fileID: 6423593629201064820, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
+      propertyPath: AudioTypes.Array.data[2].playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7096954386044737423, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -1799,7 +1819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1752371599
 RectTransform:
   m_ObjectHideFlags: 0

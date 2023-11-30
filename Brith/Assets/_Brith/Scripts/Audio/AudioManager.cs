@@ -10,8 +10,11 @@ namespace V
     {
         [SerializeField] AudioMixer audioMixer;
         public static AudioManager instance;
-        public AudioType[] AudioTypes;
-        public Dictionary<string, AudioType> Audios = new Dictionary<string, AudioType>();
+        public AudioSource SoundEffectaudio;
+        public AudioSource Musicaudio;
+        //public AudioType[] AudioTypes;
+        public AudioClip[] audioClips;
+        public Dictionary<string, AudioClip> Audios = new Dictionary<string, AudioClip>();
         private void Awake()
         {
             if (instance == null)
@@ -24,51 +27,54 @@ namespace V
                 return;
             }
             DontDestroyOnLoad(gameObject);
-            foreach (AudioType type in AudioTypes)
+            foreach (AudioClip clip in audioClips)
             {
-                type.Source = gameObject.AddComponent<AudioSource>();
-                type.Source.clip = type.Clip;
-                type.Source.name = type.Name;
-                type.Source.volume = type.Volume;
-                type.Source.pitch = type.Pitch;
-                type.Source.loop = type.Loop;
-                type.Source.playOnAwake = type.playOnAwake;
-                if (type.MixerGroup != null)
-                {
-                    type.Source.outputAudioMixerGroup = type.MixerGroup;
-                }
-                Audios.Add(type.Name, type);
+                Audios.Add(clip.name, clip);
             }
+            #region 
+            //foreach (AudioType type in AudioTypes)
+            //{
+            //    type.Source = gameObject.AddComponent<AudioSource>();
+            //    type.Source.clip = type.Clip;
+            //    type.Source.name = type.Name;
+            //    type.Source.volume = type.Volume;
+            //    type.Source.pitch = type.Pitch;
+            //    type.Source.loop = type.Loop;
+            //    type.Source.playOnAwake = type.playOnAwake;
+            //    if (type.MixerGroup != null)
+            //    {
+            //        type.Source.outputAudioMixerGroup = type.MixerGroup;
+            //    }
+            //    Audios.Add(type.Name, type);
+            //}
+            #endregion
         }
         #region load Audio
-        void Start()
-        {
-           
-        }
         #endregion
         #region base void
-        public void StartP(string name)
+        public void PlayOne(string name)
         {
-            if (Audios.TryGetValue(name, out AudioType audioType))
+            if (Audios.TryGetValue(name, out AudioClip audioType))
             {
-                audioType.Source.Play();
-                Debug.Log(audioType.Source.clip.name);
+                Debug.Log(audioType.name);
+                SoundEffectaudio.PlayOneShot(audioType);
+
             }
         }
-        public void Pasuse(string name)
-        {
-            if (Audios.TryGetValue(name, out AudioType audioType))
-            {
-                audioType.Source.Pause();
-            }
-        }
-        public void Stop(string name)
-        {
-            if (Audios.TryGetValue(name, out AudioType audioType))
-            {
-                audioType.Source.Stop();
-            }
-        }
+        //public void Pasuse(string name)
+        //{
+        //    if (Audios.TryGetValue(name, out AudioClip audioType))
+        //    {
+        //        audioType.Source.Pause();
+        //    }
+        //}
+        //public void Stop(string name)
+        //{
+        //    if (Audios.TryGetValue(name, out AudioType audioType))
+        //    {
+        //        audioType.Source.Stop();
+        //    }
+        //}
         #endregion
         #region UI option
         public void MusicSlider(Slider slider)
@@ -80,13 +86,21 @@ namespace V
             audioMixer.SetFloat("SoundEffect", slider.value);
         }
         #endregion
-        public void HoverButton()
+        //public void HoverButton()
+        //{
+        //    StartP("hoverButton");
+        //}
+        //public void ClickButton()
+        //{
+        //    StartP("clickButton");
+        //}
+        public void PlayUIClickButton()
         {
-            StartP("hoverButton");
+            PlayOne("UIClickButton");
         }
-        public void ClickButton()
+        public void PlayUIHoverButton()
         {
-            StartP("clickButton");
+            PlayOne("UIHoverButton");
         }
     }
 }
