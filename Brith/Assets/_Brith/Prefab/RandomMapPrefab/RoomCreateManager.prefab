@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-4757127807227022854
 MonoBehaviour:
@@ -44,8 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f80d1d123da98146a30922246af468a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomPrefab: {fileID: 6508442690050492750, guid: 56e943dfcc8cfe148b8d9bf28d848f26, type: 3}
-  DoorPrefab: {fileID: 6952011490494198062, guid: c73b9dfcc420efd47b914e15240de019, type: 3}
+  RoomPrefab:
+  - {fileID: 6508442690050492750, guid: 8956678924b4dd94bb6b57c6d9a72158, type: 3}
+  - {fileID: 6508442690050492750, guid: 9411d27812012ab40bf0f608ccb78f2a, type: 3}
+  - {fileID: 6508442690050492750, guid: b8575bd1c71d67e45af675067d95066f, type: 3}
+  - {fileID: 6508442690050492750, guid: dec87119a4b3afd42aaf882cd3c3a270, type: 3}
+  DoorPrefab: {fileID: 8963321059277679126, guid: 2976ff48c9638eb4a86e8d1e46791271, type: 3}
   MaxFindTime: 10000
   XOffsetMAX: 9
   YOffsetMAX: 5
@@ -54,8 +58,8 @@ MonoBehaviour:
   RoomIntervalMIN: 0
   BigRoomCount: 5
   BigRoomRadius:
-  - 0.8
-  - 2
+  - 1.6
+  - 2.4
   MediumRoomCount: 0
   MediumRoomRadius:
   - 0

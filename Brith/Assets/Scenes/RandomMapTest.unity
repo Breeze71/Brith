@@ -215,6 +215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TechTreeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 593319988703416045, guid: fd5cc90a48cdb3b4482abeba05684e1d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3917765606325011560, guid: fd5cc90a48cdb3b4482abeba05684e1d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -475,6 +479,10 @@ PrefabInstance:
     - target: {fileID: 4978267545194802806, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
       propertyPath: m_Name
       value: PlayerSkillCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978267545194802806, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9166048901805516525, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
       propertyPath: m_Pivot.x
@@ -846,6 +854,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TaskSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 7104726989160507293, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -867,6 +879,26 @@ PrefabInstance:
       propertyPath: BigRoomCount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -4757127807227022854, guid: 25a970c323418184889c0cffecac2967, type: 3}
+      propertyPath: RoomPrefab.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -4757127807227022854, guid: 25a970c323418184889c0cffecac2967, type: 3}
+      propertyPath: RoomPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 6508442690050492750, guid: 8956678924b4dd94bb6b57c6d9a72158, type: 3}
+    - target: {fileID: -4757127807227022854, guid: 25a970c323418184889c0cffecac2967, type: 3}
+      propertyPath: RoomPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 6508442690050492750, guid: 9411d27812012ab40bf0f608ccb78f2a, type: 3}
+    - target: {fileID: -4757127807227022854, guid: 25a970c323418184889c0cffecac2967, type: 3}
+      propertyPath: RoomPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 6508442690050492750, guid: b8575bd1c71d67e45af675067d95066f, type: 3}
+    - target: {fileID: -4757127807227022854, guid: 25a970c323418184889c0cffecac2967, type: 3}
+      propertyPath: RoomPrefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 6508442690050492750, guid: dec87119a4b3afd42aaf882cd3c3a270, type: 3}
     - target: {fileID: -4757127807227022854, guid: 25a970c323418184889c0cffecac2967, type: 3}
       propertyPath: BigRoomRadius.Array.data[0]
       value: 1.6
