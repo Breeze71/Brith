@@ -18,5 +18,6 @@ namespace V
         public float Volume;
         public float Pitch;
         public bool Loop;
+        public bool playOnAwake;
     }
 }

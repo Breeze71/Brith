@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2981370065371993203}
   - component: {fileID: 6423593629201064820}
   m_Layer: 0
-  m_Name: AudioManger
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,11 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4376058ac889f943a85e46ff513325b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 279ce6a58953a7945ba91ef8d29babbe, type: 2}
   AudioTypes:
   - Source: {fileID: 0}
-    Clip: {fileID: 0}
-    MixerGroup: {fileID: 0}
-    Name: 
+    Clip: {fileID: 8300000, guid: dff1a24c333cad4499b0cdc2f7f87040, type: 3}
+    MixerGroup: {fileID: 7734980985728130301, guid: 279ce6a58953a7945ba91ef8d29babbe, type: 2}
+    Name: hoverButton
     Volume: 0
     Pitch: 0
     Loop: 0
