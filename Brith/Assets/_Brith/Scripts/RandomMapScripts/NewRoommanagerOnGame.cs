@@ -44,12 +44,13 @@ namespace V
         /// <summary>
         /// todo
         /// </summary>
+        #region LV
         private CellTech cellTech;
         public int GetCurrentLevel()
         {
             return cellTech.currentLevel;
         }
-
+        #endregion
         #region IsVisableInCamera
         public Camera Camera;
         #endregion
