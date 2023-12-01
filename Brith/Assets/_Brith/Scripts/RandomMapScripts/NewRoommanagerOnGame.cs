@@ -21,23 +21,15 @@ namespace V
         public int MaxFindTime;
         public float XOffsetMAX;
         public float YOffsetMAX;
-        [Header("����������")]
-        public int RoomNumber;
-        [Header("���������")]
+        //public int RoomNumber;
         public float RoomIntervalMAX;//max interval between two rooms
-        [Header("������С���")]
         public float RoomIntervalMIN;
         [HideInInspector]
         public int[] BigRoomCount;
-        [Header("�󷿼�뾶��Χ")]
         public float[] BigRoomRadius = new float[2];
-        [Header("�з�������")]
         public int MediumRoomCount;
-        [Header("�з���뾶��Χ")]
         public float[] MediumRoomRadius = new float[2];
-        [Header("С��������")]
         public int SmallRoomCount;
-        [Header("С����뾶��Χ")]
         public float[] SmallRoomRadius = new float[2];
         #endregion
 
