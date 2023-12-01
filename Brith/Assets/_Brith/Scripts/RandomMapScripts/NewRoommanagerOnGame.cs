@@ -27,8 +27,8 @@ namespace V
         public float RoomIntervalMAX;//max interval between two rooms
         [Header("������С���")]
         public float RoomIntervalMIN;
-        [Header("�󷿼�����")]
-        public int BigRoomCount;
+        [HideInInspector]
+        public int[] BigRoomCount;
         [Header("�󷿼�뾶��Χ")]
         public float[] BigRoomRadius = new float[2];
         [Header("�з�������")]
@@ -44,13 +44,7 @@ namespace V
         /// <summary>
         /// todo
         /// </summary>
-        #region LV
-        private CellTech cellTech;
-        public int GetCurrentLevel()
-        {
-            return cellTech.currentLevel;
-        }
-        #endregion
+       
         #region IsVisableInCamera
         public Camera Camera;
         #endregion
@@ -74,12 +68,12 @@ namespace V
             Instance = this;
             BaseRadius = 0.5f;
             OriginPosition = gameObject.transform.position;
+            #region ReadLV
+            BigRoomCount = ReadLv.Instance.lvData.RoomNumber;
+            #endregion
             CreateNewRoom();
         }
-        private void Start()
-        {
-            cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();
-        }
+        
         //private void Update()
         //{
         //    if (Input.GetKeyDown(KeyCode.B))
@@ -144,8 +138,8 @@ namespace V
             RoomList = new List<Room>();
 
             CreateDifferentRoom(BigRoomCount, BigRoomRadius);
-            CreateDifferentRoom(MediumRoomCount, MediumRoomRadius);
-            CreateDifferentRoom(SmallRoomCount, SmallRoomRadius);
+            //CreateDifferentRoom(MediumRoomCount, MediumRoomRadius);
+            //CreateDifferentRoom(SmallRoomCount, SmallRoomRadius);
 
             CreateMST(RoomList.Count);
             CreateDoor();
@@ -153,8 +147,9 @@ namespace V
             AddRoomData();
             RoomCreateEntity();
         }
-        void CreateDifferentRoom(int number, float[] range)
+        void CreateDifferentRoom(int[] numbers, float[] range)
         {
+            int number = Random.Range(numbers[0], numbers[1] + 1);
             for (int i = 0; i < number; i++)
             {
                 #region to prevent stucking

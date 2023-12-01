@@ -4,18 +4,14 @@ using UnityEngine;
 
 namespace V
 {
-    public class NewBehaviourScript : MonoBehaviour
-    {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+    [CreateAssetMenu(fileName = "LvProfile", menuName = "Lv/LvProfile")]
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+    public class LvProfile : ScriptableObject
+    {
+        public int[] RoomNumber;
+        public int[] OneRoomEnemyNumber;
+        public int EndRoomEnemy;
+        public int StartRoomSceneEntity;
+        public int[] OneRoomSceneEntity;
     }
 }
