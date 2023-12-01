@@ -66,7 +66,7 @@ namespace V
             #region ReadLV
             BigRoomCount = ReadLv.Instance.lvData.RoomNumber;
             #endregion
-            // CreateNewRoom();
+             //CreateNewRoom();
         }
         
         //private void Update()
@@ -140,6 +140,8 @@ namespace V
             CreateDoor();
             FindEndRoom();
             AddRoomData();
+            SapwnCell sapwnCell = gameObject.GetComponent<SapwnCell>();
+            sapwnCell.OriginRoom = Rooms[0];
             RoomCreateEntity();
         }
         void CreateDifferentRoom(int[] numbers, float[] range)
