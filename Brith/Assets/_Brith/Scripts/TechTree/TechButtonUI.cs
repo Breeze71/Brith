@@ -17,6 +17,8 @@ namespace V
         /// </summary>
         public GameObject TechImg;
 
+        public TechType techType;
+
         /// <summary>
         /// 花費
         /// </summary>

@@ -8,7 +8,7 @@ using V.Tool.SaveLoadSystem;
 
 namespace V.UI
 {
-    public class TechTreeButtonUI : MonoBehaviour, IDataPersistable
+    public class TechTreeButtonUI : MonoBehaviour
     {
         [SerializeField] private GameObject techPointNotEnoughPannel;
 
@@ -74,7 +74,8 @@ namespace V.UI
         /// <summary>
         /// To - Do DataPersis
         /// </summary>
-        [SerializeField]private List<TechButtonUI> unlocktechButtonUIList;
+        [SerializeField]private List<TechButtonUI> techButtonUIList;
+
         private CellTech cellTech;
         private Coroutine TechPointNotEnoughCoroutine;
 
@@ -131,7 +132,7 @@ namespace V.UI
                 Debug.LogError("Clear");
                 cellTech.ResetTechPoint();
 
-                foreach(TechButtonUI _techButtonUI in unlocktechButtonUIList)
+                foreach(TechButtonUI _techButtonUI in techButtonUIList)
                 {
                     if(_techButtonUI != null)
                     {
@@ -141,7 +142,6 @@ namespace V.UI
 
                 comfirmTechButton.onClick.RemoveAllListeners();
                 cellTech.unlockTechList.Clear();
-                unlocktechButtonUIList.Clear();
                 resetTechPannel.SetActive(false);
             });
         }
@@ -154,10 +154,20 @@ namespace V.UI
             
 
             cellTech.OnChangeCurrentTechPoint += CellTech_OnChangeCurrentTechPoint;
+            cellTech.OnUnlockedNewTech += CellTech_OnUnlockedNewTech;
 
-            foreach(TechButtonUI techButtonUI in unlocktechButtonUIList)
+            currentTechPointText.text = cellTech.currentTechPoint.ToString();
+        }
+
+        private void CellTech_OnUnlockedNewTech(TechType type)
+        {
+            foreach(TechButtonUI techButtonUI in techButtonUIList)
             {
-                techButtonUI.ButtonMask.gameObject.SetActive(false);
+                if(techButtonUI.techType == type)
+                {
+                    // Debug.Log(techButtonUI + "unlock");
+                    techButtonUI.ButtonMask.gameObject.SetActive(false);
+                }
             }
         }
 
@@ -172,7 +182,13 @@ namespace V.UI
 
         private void SetButtonUnlockTech(TechButtonUI _techButtonUI, TechType _unlockTechType)
         {
-            // To - Do PointerEnter 顯示細節 
+            _techButtonUI.techType = _unlockTechType;
+
+            
+            if(!techButtonUIList.Contains(_techButtonUI))
+            {
+                techButtonUIList.Add(_techButtonUI);
+            }
 
             _techButtonUI.ButtonMask.onClick.AddListener(() =>
             {
@@ -187,6 +203,7 @@ namespace V.UI
                 }
 
                 // Comfirm Unlock Tech
+                comfirmTechButton.onClick.RemoveAllListeners();
                 comfirmTechButton.onClick.AddListener(() =>
                 {
                     if(cellTech.TryUnlockNewTech(_unlockTechType))
@@ -199,16 +216,16 @@ namespace V.UI
                             }
                             TechPointNotEnoughCoroutine = StartCoroutine(TechPointNotEnoughPannel());
 
-                            Debug.Log("TechPoint Not Enough");
+                            // Debug.Log("TechPoint Not Enough");
 
                             return;
                         }
 
-                        if(!unlocktechButtonUIList.Contains(_techButtonUI))
+                        if(techButtonUIList.Contains(_techButtonUI))
                         {
                             _techButtonUI.ButtonMask.gameObject.SetActive(false);
                             cellTech.UnlockNewTech(_unlockTechType);
-                            unlocktechButtonUIList.Add(_techButtonUI);
+                            // Debug.LogError(_unlockTechType + "comfirm");
                             cellTech.currentTechPoint -= _techButtonUI.TechCount;
                             currentTechPointText.text = cellTech.currentTechPoint.ToString();
                         }
@@ -224,26 +241,6 @@ namespace V.UI
             techPointNotEnoughPannel.SetActive(true);
             yield return new WaitForSeconds(1.5f);
             techPointNotEnoughPannel.SetActive(false);
-        }
-
-        public void LoadData(GameData _gameData)
-        {
-            unlocktechButtonUIList = _gameData.UnlocktechButtonUIList;
-            currentTechPointText.text = cellTech.currentTechPoint.ToString();
-
-            foreach(TechButtonUI _techButtonUI in unlocktechButtonUIList)
-            {
-                if(_techButtonUI != null)
-                {
-                    _techButtonUI.ButtonMask.gameObject.SetActive(false);
-                }
-            }
-        }
-
-        public void SaveData(ref GameData _gameData)
-        {
-
-            _gameData.UnlocktechButtonUIList = unlocktechButtonUIList;
         }
     }
 }
