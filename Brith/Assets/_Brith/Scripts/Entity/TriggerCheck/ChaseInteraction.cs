@@ -37,8 +37,8 @@ namespace V
             // 是敵人
             else
             {
-                entityBase.TargetTransform = _other.GetComponent<IDetectable>().GetTransform();
-                entityBase.SetAggroStatus(true);
+                // entityBase.TargetTransform = _other.GetComponent<IDetectable>().GetTransform();
+                // entityBase.SetAggroStatus(true);
             }
         }
 
