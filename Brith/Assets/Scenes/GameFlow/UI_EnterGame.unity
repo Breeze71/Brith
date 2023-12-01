@@ -1945,7 +1945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3425200304830737752, guid: 6dddb177a143b244dabac6c1912491d0, type: 3}
       propertyPath: FirstLv
-      value: RandomMapTest
+      value: StartDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 3425200304830737752, guid: 6dddb177a143b244dabac6c1912491d0, type: 3}
       propertyPath: TechtreeScene

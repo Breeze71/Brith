@@ -9,7 +9,10 @@ public static class Loader
     
     public enum Scene
     {
+        UI_EnterGame,
+        StartDialogue,
         RandomMapTest,
+        ThankForPlayingScene,
         LoadingScene,
     }
     private static void Update() 
@@ -19,7 +22,7 @@ public static class Loader
     }
 
     // 每次換場景都 Loading 
-    public static void LoadScene(Scene scene)
+    public static void LoadScene(string scene)
     {
         // recieved callback then Load to target scene
         onLoaderCallback = () =>

@@ -18,8 +18,8 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     #region Ink External
-    private const string PlayEmote = "PlayEmote";
     private const string LoadNextScene = "LoadNextScene";
+    private const string LoadScene = "LoadScene";
     #endregion
 
     #region Event
@@ -43,13 +43,6 @@ public class DialogueManager : MonoBehaviour
     private Coroutine canSkipCorutine;
     private Coroutine typeEffectCoroutine;
 
-    [Header("Choices UI")]
-    // [SerializeField] private GameObject[] choiceList;
-    // private TextMeshProUGUI[] choicesTextList;
-
-    // [Header("Animator")]
-    // [SerializeField] private Animator portraitAnim;
-    // [SerializeField] private Animator emoteAnim;
 
     [Header("Audio")]
     [SerializeField] private bool makePredictable;
@@ -104,11 +97,15 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     #region  ExternalFuction
-    private void SetUpExternalFuction(Animator _emoteAnim)
+    private void SetUpExternalFuction()
     {
         currentStory.BindExternalFunction(LoadNextScene, ()=>
         {
             Loader.LoadNextScene();
+        });
+        currentStory.BindExternalFunction(LoadScene, (string _sceneName)=>
+        {
+            Loader.LoadScene(_sceneName);
         });
     }
     #endregion
@@ -121,11 +118,7 @@ public class DialogueManager : MonoBehaviour
         IsDialoguePlaying = true;
         OnDialogueStart?.Invoke(this, EventArgs.Empty); // DialoguePanel
 
-        //SetUpExternalFuction(_emoteAnim);   // External Fuc
-
-        // reset dialogue
-        //portraitAnim.Play("Default");
-        //layoutAnim.Play("Right");
+        SetUpExternalFuction();
 
 
         ContinueStory();
@@ -184,6 +177,7 @@ public class DialogueManager : MonoBehaviour
             if(isAuto && canSkip)
             {
                 Debug.Log("Skip");
+                isAuto = false;
                 dialogueText.maxVisibleCharacters = _line.Length;
                 break;
             }
@@ -224,7 +218,8 @@ public class DialogueManager : MonoBehaviour
     {
         OnDialogueClose?.Invoke(this, EventArgs.Empty);
 
-        //currentStory.UnbindExternalFunction(PlayEmote);   ExternalFuc
+        // currentStory.UnbindExternalFunction(LoadNextScene);
+        // currentStory.UnbindExternalFunction(LoadScene);
 
         IsDialoguePlaying = false;
         dialogueText.text = ""; // 清空

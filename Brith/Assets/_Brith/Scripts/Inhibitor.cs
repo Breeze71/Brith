@@ -50,7 +50,7 @@ namespace V
             cellTech.currentLevel += 1;
 
 
-            Loader.LoadScene(Loader.Scene.RandomMapTest);
+            Loader.LoadScene(Loader.Scene.RandomMapTest.ToString());
         }
 
         [ContextMenu("TestMinus50Hp()")]
