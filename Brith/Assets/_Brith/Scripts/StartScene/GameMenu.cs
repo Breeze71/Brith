@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using V.Tool.SaveLoadSystem;
 
 public class GameMenu : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class GameMenu : MonoBehaviour
     {
         //todo
         SceneManager.LoadScene(FirstLv);
+
+        DataPersistenceManager.Instance.StartNewGame();
+        Debug.Log("New");
     }
     public void OnOption()
     {

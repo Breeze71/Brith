@@ -12,7 +12,6 @@ namespace V.Tool.SaveLoadSystem
 
         [Header("File Storage")]
         [SerializeField] private string fileName;  
-        [SerializeField] private bool isUseEncryption;
 
 
         private GameData gameData;
@@ -34,7 +33,7 @@ namespace V.Tool.SaveLoadSystem
 
         private void Start() 
         {
-            fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileName, isUseEncryption);
+            fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
 
             dataPersistableList = FindAllDataPersistance();
             

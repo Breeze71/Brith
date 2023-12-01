@@ -19,17 +19,10 @@ namespace V.Tool.SaveLoadSystem
         /// </summary>
         private string dataFileName = "";
 
-        /// <summary>
-        /// XOR (Exclusive Or) Encryption
-        /// </summary>
-        private bool isUseEncryption = false;
-        private readonly string encryptionCode = "Lucy";
-
-        public FileDataHandler(string _dataDirectoryPath, string _dataFileName, bool _isUseEncryption)
+        public FileDataHandler(string _dataDirectoryPath, string _dataFileName)
         {
             dataDirectoryPath = _dataDirectoryPath;
             dataFileName = _dataFileName;
-            isUseEncryption = _isUseEncryption;
         }
 
         public GameData LoadJson()
@@ -59,12 +52,6 @@ namespace V.Tool.SaveLoadSystem
                     }
                 }
 
-                // Encryption
-                if(isUseEncryption)
-                {
-                    _dataToLoad = EncryptDecrypt(_dataToLoad);
-                }
-
                 // Deserialize the data from Json to C# object
                 _loadedData = JsonUtility.FromJson<GameData>(_dataToLoad);
             }
@@ -91,12 +78,6 @@ namespace V.Tool.SaveLoadSystem
                 // Serialize the C# data into Json
                 string _dataToStore = JsonUtility.ToJson(_gameData, true);  // format true
 
-                // Encryption
-                if(isUseEncryption)
-                {
-                    _dataToStore = EncryptDecrypt(_dataToStore);
-                }
-
                 // Write the Serialize data to the file
                 using(FileStream _strem = new FileStream(_fullPath, FileMode.Create))
                 {
@@ -110,24 +91,6 @@ namespace V.Tool.SaveLoadSystem
             {
                 Debug.LogError("Error when Save the file: " + _fullPath + "\n" + _e);
             }
-        }
-
-
-        /// <summary>
-        /// XOR Encryption
-        /// </summary>
-        private string EncryptDecrypt(string _data)
-        {
-            string _modifyData = "";
-
-            for(int i = 0; i < _data.Length; i++)
-            {
-                int _currentIndex = i % encryptionCode.Length;
-
-                _modifyData += (char) (_data[i] ^ encryptionCode[_currentIndex]);
-            }
-
-            return _modifyData;
         }
     }
 }
