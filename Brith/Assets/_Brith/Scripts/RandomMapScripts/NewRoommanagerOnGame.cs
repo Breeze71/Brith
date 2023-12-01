@@ -58,6 +58,9 @@ namespace V
             }
 
             Instance = this;
+        }
+        private void Start()
+        { 
             BaseRadius = 0.5f;
             OriginPosition = gameObject.transform.position;
             #region ReadLV
