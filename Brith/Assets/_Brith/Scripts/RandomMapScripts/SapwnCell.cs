@@ -17,10 +17,11 @@ namespace V
         void Start()
         {
             CurrentSpawnTime = 0;
-            OriginRoom = NewRoommanagerOnGame.Instance.GetRooms()[0];
+           // OriginRoom = NewRoommanagerOnGame.Instance.GetRooms()[0];
         }
         void Update()
         {
+            //Debug.Log("jkljkj");
             if (CurrentSpawnTime<SpawnCellTimeMax)
             {
                 if (Input.GetMouseButtonDown(0))

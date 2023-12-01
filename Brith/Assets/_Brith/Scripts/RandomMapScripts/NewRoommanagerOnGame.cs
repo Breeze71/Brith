@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace V
 {
@@ -56,16 +57,22 @@ namespace V
             {
                 Debug.LogError("More than one NewRoomManager");
             }
-
             Instance = this;
+        }
+        private void Start()
+        {
             BaseRadius = 0.5f;
             OriginPosition = gameObject.transform.position;
             #region ReadLV
+            Debug.Log("need data");
             BigRoomCount = ReadLv.Instance.lvData.RoomNumber;
             #endregion
             CreateNewRoom();
+            SapwnCell sapwnCell = gameObject.GetComponent<SapwnCell>();
+            sapwnCell.OriginRoom = Rooms[0];
         }
         
+
         //private void Update()
         //{
         //    if (Input.GetKeyDown(KeyCode.B))

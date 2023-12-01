@@ -1178,6 +1178,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+<<<<<<< Updated upstream
         - m_Target: {fileID: 976999862}
           m_TargetAssemblyTypeName: V.Tool.JuicyFeeling.SquashAndStretch, Assembly-CSharp
           m_MethodName: PlaySquashAndStretch
@@ -1191,11 +1192,32 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &976999862
+=======
+--- !u!1 &1144113035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1144113037}
+  - component: {fileID: 1144113036}
+  m_Layer: 0
+  m_Name: OpenBGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1144113036
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 976999856}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1204,6 +1226,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectTransfrom: {fileID: 976999857}
   so: {fileID: 11400000, guid: 0501900f59de0624e8c6c1dec0c2e40e, type: 2}
+=======
+  m_GameObject: {fileID: 1144113035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52723b6e18b1ad449a4fd052c1c8431e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1144113037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144113035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1294.8959, y: 748.90607, z: -11.29374}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
 --- !u!1 &1160234425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,14 +1788,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2809824442678264349, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809824442678264349, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2981370065371993203, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1793,10 +1830,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2981370065371993203, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6548107474168367301, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}
-      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7096954386044737423, guid: ef9c172058cb4594ab44881bd09e4095, type: 3}

@@ -14,6 +14,7 @@ namespace V
             public int StartRoomSceneEntity;
             public int[] OneRoomSceneEntity;
         }
+        [HideInInspector]
         public LvData lvData = new LvData();
         public static ReadLv Instance { get; set; }
         [SerializeField]
@@ -31,8 +32,11 @@ namespace V
                 Debug.LogError("More than one ReadLv");
             }
             Instance = this;
+            Debug.Log("read");
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();
+            
             ReadLvData(GetCurrentLevel());
+
         }
         public int GetCurrentLevel()
         {

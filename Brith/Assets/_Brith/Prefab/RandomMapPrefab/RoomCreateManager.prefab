@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5498520812504278618}
-  - component: {fileID: 3034298950846315090}
-  - component: {fileID: -4757127807227022854}
   - component: {fileID: 1088761909877089985}
+  - component: {fileID: -4757127807227022854}
+  - component: {fileID: 5749588866222378656}
   m_Layer: 0
   m_Name: RoomCreateManager
   m_TagString: Untagged
@@ -32,9 +32,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3034298950846315090
+--- !u!114 &1088761909877089985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,15 +43,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5231531510108378610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 659a3f1fb9cce1f4d943c43c053f899f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fa224d801ce0d542a54e6787dd4c61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvProfiles:
-  - {fileID: 11400000, guid: cacd94e538724e34d9f4dadda740b90d, type: 2}
-  - {fileID: 11400000, guid: 2bfca622b56ad3d4bb624ad24e0ed009, type: 2}
-  - {fileID: 11400000, guid: c41fd13331ac69c43b35841f28fd171a, type: 2}
-  - {fileID: 11400000, guid: 5a869272584f72b41ad3affa762a527b, type: 2}
-  - {fileID: 11400000, guid: 475fb785e64ad7546aa1200c981d8ed1, type: 2}
 --- !u!114 &-4757127807227022854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,10 +67,9 @@ MonoBehaviour:
   MaxFindTime: 10000
   XOffsetMAX: 9
   YOffsetMAX: 5
-  RoomNumber: 5
   RoomIntervalMAX: 18
   RoomIntervalMIN: 0
-  BigRoomCount: 5
+  BigRoomCount: 
   BigRoomRadius:
   - 1.6
   - 2.4
@@ -89,7 +82,7 @@ MonoBehaviour:
   - 0
   - 0
   Camera: {fileID: 0}
---- !u!114 &1088761909877089985
+--- !u!114 &5749588866222378656
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,6 +91,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5231531510108378610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa224d801ce0d542a54e6787dd4c61d, type: 3}
+  m_Script: {fileID: 11500000, guid: 82a2ff882be1ffc46b88e7b0b3b3e7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OriginRoom: {fileID: 0}
+  CellPrefab:
+  - {fileID: 2086584053871405437, guid: d28d05739891e554cabce9560c2c1bc5, type: 3}
+  - {fileID: 2086584053871405437, guid: c1c3435995349ae478927e1185d521c5, type: 3}
+  - {fileID: 2086584053871405437, guid: 4443bffe23307e14fab70e28e2dd484a, type: 3}
+  SpawnCellTimeMax: 3
+  CellSpawnNumber: 1
