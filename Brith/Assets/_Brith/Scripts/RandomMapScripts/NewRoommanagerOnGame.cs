@@ -64,7 +64,7 @@ namespace V
             BaseRadius = 0.5f;
             OriginPosition = gameObject.transform.position;
             #region ReadLV
-            Debug.Log("need data");
+            //Debug.Log("need data");
             BigRoomCount = ReadLv.Instance.lvData.RoomNumber;
             #endregion
             CreateNewRoom();
