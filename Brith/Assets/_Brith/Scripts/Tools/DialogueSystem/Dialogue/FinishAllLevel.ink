@@ -1,4 +1,4 @@
-EXTERNAL LoadScene()
+EXTERNAL LoadScene(string sceneName)
 
 我知道你会成功。
 
@@ -16,7 +16,5 @@ EXTERNAL LoadScene()
 
 由无数生命汇聚而成的，那个前所未见的世界。
 
-trun to thank playing
-// thank
-
+~ LoadScene("ThankForPlayingScene")
 -> END

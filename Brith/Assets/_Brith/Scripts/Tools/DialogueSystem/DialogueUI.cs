@@ -20,7 +20,7 @@ public class DialogueUI : MonoBehaviour
 
         skipButton.onClick.AddListener(() =>
         {
-            Loader.LoadNextScene();
+            Loader.LoadScene(Loader.Scene.RandomMapTest.ToString());
         });
 
         autoButton.onClick.AddListener(() =>

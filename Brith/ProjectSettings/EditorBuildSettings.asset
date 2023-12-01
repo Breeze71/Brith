@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/GameFlow/ThankForPlayingScene.unity
     guid: 54adbd203a0fcd84aa16045291d17858
   - enabled: 1
+    path: Assets/Scenes/GameFlow/LossDialogue.unity
+    guid: 6ade62e0e2e98174694a866af1c9e7f0
+  - enabled: 1
+    path: Assets/Scenes/GameFlow/WinDialogue.unity
+    guid: 6e0252c2cab68de46b1e0e9dced99a43
+  - enabled: 1
     path: Assets/Scenes/GameFlow/UI_Settings.unity
     guid: f681966e67def474ea0ee8c090769552
   - enabled: 1

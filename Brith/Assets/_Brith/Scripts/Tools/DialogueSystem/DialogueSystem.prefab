@@ -50,6 +50,7 @@ MonoBehaviour:
   defaultAudioSO: {fileID: 11400000, guid: 4466f4a41ab2f9b42ae4eb5ab7f22c55, type: 2}
   audioSOList:
   - {fileID: 11400000, guid: e61dd744e049b704b87652f239121893, type: 2}
+  isAuto: 0
 --- !u!1 &2253105520958960447
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +462,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5274833134018374878}
   - {fileID: 301022537040229333}
   m_Father: {fileID: 1560141868934605533}
   m_RootOrder: -1
@@ -1035,7 +1037,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7454508930393970387}
-  m_Father: {fileID: 301022537040229333}
+  m_Father: {fileID: 7746103296411694397}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1226,7 +1228,7 @@ Transform:
   - {fileID: 5485104414796327614}
   - {fileID: 7746103296411694397}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7746177523275667040
 GameObject:
@@ -1257,7 +1259,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5274833134018374878}
   - {fileID: 3763882277794853150}
   - {fileID: 3906503565652821066}
   - {fileID: 2978030957714632209}

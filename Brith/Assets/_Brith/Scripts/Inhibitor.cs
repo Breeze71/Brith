@@ -49,8 +49,15 @@ namespace V
 
             cellTech.currentLevel += 1;
 
+            if(cellTech.currentLevel <= 5)
+            {
+                Loader.LoadScene(Loader.Scene.RandomMapTest.ToString());
 
-            Loader.LoadScene(Loader.Scene.RandomMapTest.ToString());
+            }
+            else if(cellTech.currentLevel > 5)
+            {
+                Loader.LoadScene(Loader.Scene.ThankForPlayingScene.ToString());
+            }
         }
 
         [ContextMenu("TestMinus50Hp()")]
