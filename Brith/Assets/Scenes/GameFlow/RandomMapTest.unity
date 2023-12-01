@@ -697,9 +697,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: TechTreeCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 593319988703416045, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 1726418323301526138, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f8dddc3943badbb42a25924c2121ad41, type: 2}
+    - target: {fileID: 1726418323301526138, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
+      propertyPath: m_fontStyle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726418323301526138, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4273187669864432065, guid: f8dddc3943badbb42a25924c2121ad41, type: 2}
+    - target: {fileID: 1726418323301526138, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3917765606325011560, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
       propertyPath: m_Pivot.x
@@ -785,70 +797,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5609955462160969435, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fd5d374e66dc6c1429f5c385d2f7ed1f, type: 2}
+    - target: {fileID: 5609955462160969435, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609955462160969435, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6382735472086647509, guid: fd5d374e66dc6c1429f5c385d2f7ed1f, type: 2}
+    - target: {fileID: 5609955462160969435, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9206820770611049394, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1886298387}
-    - targetCorrespondingSourceObject: {fileID: 9206820770611049394, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1886298386}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
---- !u!224 &1886298384 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2418164229173310597, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-  m_PrefabInstance: {fileID: 1886298383}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1886298385 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9206820770611049394, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
-  m_PrefabInstance: {fileID: 1886298383}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1886298386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886298385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1886298387}
-          m_TargetAssemblyTypeName: V.Tool.JuicyFeeling.SquashAndStretch, Assembly-CSharp
-          m_MethodName: PlaySquashAndStretch
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1886298387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886298385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5a182be6dd5e58468f38bbc96f8ffce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  affectTransfrom: {fileID: 1886298384}
-  so: {fileID: 11400000, guid: 0501900f59de0624e8c6c1dec0c2e40e, type: 2}
 --- !u!1001 &1971007619
 PrefabInstance:
   m_ObjectHideFlags: 0
