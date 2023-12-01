@@ -33,7 +33,7 @@ RectTransform:
   m_Children:
   - {fileID: 4401684207912457509}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -61,7 +61,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &824559263528429111
 MonoBehaviour:
@@ -173,11 +173,11 @@ PrefabInstance:
     - target: {fileID: 547787122801579403, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c46d83f2b73aaa141bd5015819342d81, type: 3}
+      objectReference: {fileID: -1363750983, guid: 30b9c4624e5243e4fadb3ac894e18523, type: 3}
     - target: {fileID: 614864044113083631, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c46d83f2b73aaa141bd5015819342d81, type: 3}
+      objectReference: {fileID: -1363750983, guid: 30b9c4624e5243e4fadb3ac894e18523, type: 3}
     - target: {fileID: 1066756851661187025, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: m_Name
       value: Skill_4
@@ -298,11 +298,11 @@ PrefabInstance:
     - target: {fileID: 547787122801579403, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8d95bcf261f259f4786a397bc66e3705, type: 3}
+      objectReference: {fileID: 270294990, guid: 5757f32789b2a654e829df8897259386, type: 3}
     - target: {fileID: 614864044113083631, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8d95bcf261f259f4786a397bc66e3705, type: 3}
+      objectReference: {fileID: 270294990, guid: 5757f32789b2a654e829df8897259386, type: 3}
     - target: {fileID: 1066756851661187025, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: m_Name
       value: Skill_3
@@ -420,6 +420,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4401684207912457509}
     m_Modifications:
+    - target: {fileID: 547787122801579403, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 189d68144b208014abd10e8bf4a039ad, type: 3}
+    - target: {fileID: 614864044113083631, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 189d68144b208014abd10e8bf4a039ad, type: 3}
     - target: {fileID: 1066756851661187025, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: m_Name
       value: Skill_1
@@ -559,11 +567,11 @@ PrefabInstance:
     - target: {fileID: 547787122801579403, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 824a48daf7b55394e80e1df5048db839, type: 3}
+      objectReference: {fileID: 21300000, guid: f954eb4c8a6b71e44bfa031109672a53, type: 3}
     - target: {fileID: 614864044113083631, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 824a48daf7b55394e80e1df5048db839, type: 3}
+      objectReference: {fileID: 21300000, guid: f954eb4c8a6b71e44bfa031109672a53, type: 3}
     - target: {fileID: 1066756851661187025, guid: e22e43262fee9cc49add6f720f779d5c, type: 3}
       propertyPath: m_Name
       value: Skill_2
