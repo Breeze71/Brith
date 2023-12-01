@@ -79,7 +79,7 @@ namespace V.UI
 
         private void Awake() 
         {
-            Time.timeScale = 0f;
+            
 
             #region SetButtonUnlockTech
             SetButtonUnlockTech(init_1_Plus1, TechType.Init_1_Plus1);
@@ -113,7 +113,7 @@ namespace V.UI
             {   
                 TechCanvas.SetActive(false);
 
-                Time.timeScale = 1f;
+                NewRoommanagerOnGame.Instance.CreateNewRoom();
             });
             
             resetTechPointButton.onClick.AddListener(() =>

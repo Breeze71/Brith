@@ -66,7 +66,7 @@ namespace V
             #region ReadLV
             BigRoomCount = ReadLv.Instance.lvData.RoomNumber;
             #endregion
-            CreateNewRoom();
+            // CreateNewRoom();
         }
         
         //private void Update()
@@ -128,7 +128,7 @@ namespace V
         }
         #endregion
         #region CreateNewRoom
-        void CreateNewRoom()
+        public void CreateNewRoom()
         {
             RoomList = new List<Room>();
 
