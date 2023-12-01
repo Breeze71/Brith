@@ -1,17 +1,16 @@
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 
 public class DialogueUI : MonoBehaviour
 {
     [Header("Dialogue UI")]
-    [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject dialogueText;
-    [SerializeField] private GameObject nameUI;
-    [SerializeField] private GameObject continueIcon;
-    [SerializeField] private GameObject portraitUI;
-    [SerializeField] private GameObject choiceUI;
+
+    [SerializeField] private Button skipButton;
+    [SerializeField] private Button autoButton;
 
 
     private void Start() 
@@ -19,37 +18,33 @@ public class DialogueUI : MonoBehaviour
         DialogueManager.Instance.OnDialogueStart += DialogueManager_OnDialogueStart;
         DialogueManager.Instance.OnDialogueClose += DialogueManager_OnDialogueClose;
 
-        DialogueManager.Instance.OnCanContinueTrue += DialogueManager_OnCanContinueTrue;
-        DialogueManager.Instance.OnCanContinueFalse += DialogueManager_OnCanContinueFalse;
+        skipButton.onClick.AddListener(() =>
+        {
+            Loader.LoadNextScene();
+        });
+
+        autoButton.onClick.AddListener(() =>
+        {
+            if(DialogueManager.Instance.isAuto)
+            {
+                DialogueManager.Instance.isAuto = false;
+            }
+            else
+            {
+                DialogueManager.Instance.isAuto = true;
+            }
+        });
     }
 
-    private void DialogueManager_OnCanContinueTrue(object sender, EventArgs e)
-    {
-        continueIcon.SetActive(true);
-    }
-    private void DialogueManager_OnCanContinueFalse(object sender, EventArgs e)
-    {
-        continueIcon.SetActive(false);
-    }
 
 
     private void DialogueManager_OnDialogueStart(object sender, EventArgs e)
     {
-        dialoguePanel.SetActive(true);
         dialogueText.SetActive(true);
-        nameUI.SetActive(true);
-        continueIcon.SetActive(true);
-        portraitUI.SetActive(true);
-        choiceUI.SetActive(true);
     }
     private void DialogueManager_OnDialogueClose(object sender, EventArgs e)
     {
-        dialoguePanel.SetActive(false);
-        dialogueText.SetActive(false);
-        nameUI.SetActive(false);
-        continueIcon.SetActive(false);     
-        portraitUI.SetActive(false);   
-        choiceUI.SetActive(false);
+        dialogueText.SetActive(false); 
     }
 
 }

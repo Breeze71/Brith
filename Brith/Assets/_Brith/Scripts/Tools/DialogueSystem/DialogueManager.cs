@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     #region Ink External
     private const string PlayEmote = "PlayEmote";
-    private const string LoadScene = "LoadScene";
+    private const string LoadNextScene = "LoadNextScene";
     #endregion
 
     #region Event
@@ -32,7 +32,6 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Dialogue")]
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private float typeDelay = .05f;
     
     public bool IsDialoguePlaying{get; private set;}
@@ -45,12 +44,12 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typeEffectCoroutine;
 
     [Header("Choices UI")]
-    [SerializeField] private GameObject[] choiceList;
-    private TextMeshProUGUI[] choicesTextList;
+    // [SerializeField] private GameObject[] choiceList;
+    // private TextMeshProUGUI[] choicesTextList;
 
-    [Header("Animator")]
-    [SerializeField] private Animator portraitAnim;
-    [SerializeField] private Animator emoteAnim;
+    // [Header("Animator")]
+    // [SerializeField] private Animator portraitAnim;
+    // [SerializeField] private Animator emoteAnim;
 
     [Header("Audio")]
     [SerializeField] private bool makePredictable;
@@ -60,6 +59,8 @@ public class DialogueManager : MonoBehaviour
     private AudioSource audioSource;
 
     private Dictionary<string, DialogueAudioSO> audioSODictionary;
+
+    public bool isAuto;
 
 
     #region Unity Fuction
@@ -88,15 +89,6 @@ public class DialogueManager : MonoBehaviour
     {
         OnDialogueClose?.Invoke(this, EventArgs.Empty); // DialoguePanel
         IsDialoguePlaying = false;
-
-        // 生成相應數量的選項   
-        choicesTextList = new TextMeshProUGUI[choiceList.Length];  // 生成和　choice 一樣多的　text
-        int _index = 0;
-        foreach(GameObject choice in choiceList)
-        {
-            choicesTextList[_index] = choice.GetComponentInChildren<TextMeshProUGUI>();
-            _index++;
-        }     
     }
 
     private void Update()
@@ -104,7 +96,7 @@ public class DialogueManager : MonoBehaviour
         if(!IsDialoguePlaying)  return;
 
         // 避免選選項時，會一直刷新
-        if(currentStory.currentChoices.Count == 0 && canContinue && Input.GetKeyDown(KeyCode.E))
+        if(currentStory.currentChoices.Count == 0 && canContinue && Input.GetKeyDown(KeyCode.Mouse0))
         {
             ContinueStory();
         }
@@ -114,27 +106,15 @@ public class DialogueManager : MonoBehaviour
     #region  ExternalFuction
     private void SetUpExternalFuction(Animator _emoteAnim)
     {
-        currentStory.BindExternalFunction(PlayEmote, (string _emoteName) =>
+        currentStory.BindExternalFunction(LoadNextScene, ()=>
         {
-            if (_emoteAnim != null)
-            {
-                _emoteAnim.Play(_emoteName);
-            }
-            else
-            {
-                Debug.LogError("Emote Anim Error" + _emoteName);
-            }
-        });     
-
-        currentStory.BindExternalFunction(LoadScene, ()=>
-        {
-            //Loader.LoadNextScene();
+            Loader.LoadNextScene();
         });
     }
     #endregion
 
     #region Dialogue
-    public void StartDialogue(TextAsset _inkJson, Animator _emoteAnim)
+    public void StartDialogue(TextAsset _inkJson)
     {
         currentStory = new Story(_inkJson.text);
         
@@ -144,7 +124,6 @@ public class DialogueManager : MonoBehaviour
         //SetUpExternalFuction(_emoteAnim);   // External Fuc
 
         // reset dialogue
-        nameText.text = "";
         //portraitAnim.Play("Default");
         //layoutAnim.Play("Right");
 
@@ -191,7 +170,6 @@ public class DialogueManager : MonoBehaviour
     {
         WaitForSeconds _typeDelay = new WaitForSeconds(typeDelay);
 
-        HideChoice();
         canContinue = false;
         dialogueText.text = _line;
         dialogueText.maxVisibleCharacters = 0;
@@ -203,7 +181,7 @@ public class DialogueManager : MonoBehaviour
         foreach(char _letter in _line.ToCharArray())
         {
             // Skip Dialogue(避免同一禎同時開始對話及跳過)
-            if(Input.GetKeyDown(KeyCode.E) && canSkip)
+            if(isAuto && canSkip)
             {
                 Debug.Log("Skip");
                 dialogueText.maxVisibleCharacters = _line.Length;
@@ -231,7 +209,6 @@ public class DialogueManager : MonoBehaviour
 
         }
 
-        DisplayChoices();
         canContinue = true;
         OnCanContinueTrue?.Invoke(this, EventArgs.Empty);
     }
@@ -274,12 +251,9 @@ public class DialogueManager : MonoBehaviour
     {
         switch(_tagKey)
         {
-            case Speaker_Tag:
-                nameText.text = _tagValue;
-                break;
-            case Portrait_Tag:
-                portraitAnim.Play(_tagValue);
-                break;
+            // case Portrait_Tag:
+            //     portraitAnim.Play(_tagValue);
+            //     break;
             case Layout_Tag:
                 Debug.Log("Layout = " + _tagValue);
                 break;
@@ -290,61 +264,6 @@ public class DialogueManager : MonoBehaviour
                 Debug.LogError("tag name error" + _tagValue);
                 break;
         }
-    }
-    #endregion
-
-    #region Choice
-    private void DisplayChoices()
-    {
-        List<Choice> currentChoiceList = currentStory.currentChoices;
-
-        // defensive check
-        if(currentChoiceList.Count > choiceList.Length)
-        {
-            Debug.LogError("超出 UI 容納最大數量" + currentChoiceList.Count);
-        }
-
-        int _index = 0;
-        // enable the choice and fill in text
-        foreach(Choice choice in currentChoiceList)
-        {
-            choiceList[_index].gameObject.SetActive(true);  
-            choicesTextList[_index].text = choice.text;
-
-            _index++;
-        }
-        for(int i = _index; i < choiceList.Length; i++)
-        {
-            choiceList[i].gameObject.SetActive(false); // 將剩餘沒用到 ui 隱藏
-        }
-
-        StartCoroutine(DefaultSelect());
-    }
-
-    private void HideChoice()
-    {
-        foreach(GameObject _choice in choiceList)
-        {
-            _choice.SetActive(false);
-        }
-    }
-    
-    public void MakeChoice(int _choiceIndex)
-    {
-        if(canContinue)
-        {
-            currentStory.ChooseChoiceIndex(_choiceIndex);
-            ContinueStory();
-        }
-    }
-
-    private IEnumerator DefaultSelect()
-    {
-        EventSystem.current.SetSelectedGameObject(null);
-
-        yield return new WaitForEndOfFrame();
-
-        EventSystem.current.SetSelectedGameObject(choiceList[0].gameObject);
     }
     #endregion
 
