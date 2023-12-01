@@ -155,7 +155,7 @@ namespace V
 
             SetSkillButton(_skillButtonUI, _skillType);  
 
-            _skillButtonUI.gameObject.SetActive(false); // 設置完按鈕後關閉          
+            // _skillButtonUI.gameObject.SetActive(false); // 設置完按鈕後關閉          
         }
 
         /// <summary>

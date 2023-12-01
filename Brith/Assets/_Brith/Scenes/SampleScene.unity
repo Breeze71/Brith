@@ -307,6 +307,10 @@ PrefabInstance:
       propertyPath: ElementBurst
       value: 
       objectReference: {fileID: 633348586}
+    - target: {fileID: 3474037404068134090, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4978267545194802806, guid: 066d1a2d0dde8854397ea832912fa2d9, type: 3}
       propertyPath: m_Name
       value: PlayerSkillCanvas
@@ -1870,6 +1874,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3917765606325011560, guid: fd5cc90a48cdb3b4482abeba05684e1d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429973985902205674, guid: fd5cc90a48cdb3b4482abeba05684e1d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fd5d374e66dc6c1429f5c385d2f7ed1f, type: 2}
+    - target: {fileID: 4429973985902205674, guid: fd5cc90a48cdb3b4482abeba05684e1d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6382735472086647509, guid: fd5d374e66dc6c1429f5c385d2f7ed1f, type: 2}
+    - target: {fileID: 4429973985902205674, guid: fd5cc90a48cdb3b4482abeba05684e1d, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
