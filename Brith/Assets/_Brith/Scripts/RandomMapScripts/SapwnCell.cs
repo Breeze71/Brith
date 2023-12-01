@@ -17,7 +17,7 @@ namespace V
         void Start()
         {
             CurrentSpawnTime = 0;
-            OriginRoom = NewRoommanagerOnGame.Instance.GetRooms()[0];
+            //OriginRoom = NewRoommanagerOnGame.Instance.GetRooms()[0];
         }
         void Update()
         {

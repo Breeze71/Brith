@@ -98,6 +98,8 @@ namespace V
                 go.transform.localScale *= 2f;
                 yield return new WaitForSeconds(0.2f);
                 go.transform.localScale /= 2f;
+                if (go!)
+                    yield break;
                 yield return new WaitForSeconds(0.2f);
             }
             go.SetActive(false);
