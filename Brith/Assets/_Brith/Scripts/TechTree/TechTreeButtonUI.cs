@@ -181,6 +181,10 @@ namespace V.UI
                 techNameText.text = _techButtonUI.techName;
                 techCostAmountText.text = _techButtonUI.TechCount.ToString();
 
+                if(!cellTech.TryUnlockNewTech(_unlockTechType))
+                {
+                    return;
+                }
 
                 // Comfirm Unlock Tech
                 comfirmTechButton.onClick.AddListener(() =>

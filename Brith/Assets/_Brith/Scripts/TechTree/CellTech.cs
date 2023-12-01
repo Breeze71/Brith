@@ -175,6 +175,7 @@ namespace V
             foreach(TechType techType in unlockTechList)
             {
                 TryUnlockNewTech(techType);
+                OnUnlockedNewTech?.Invoke(techType);
             }
         }
 
@@ -214,7 +215,7 @@ namespace V
             maxTechPoint = _gameData.MaxTechPoint;
             currentLevel = _gameData.CurrentLevel;
 
-            CheckUnlockSkill();
+            Invoke(nameof(CheckUnlockSkill), .1f);
         }
 
         public void SaveData(ref GameData _gameData)

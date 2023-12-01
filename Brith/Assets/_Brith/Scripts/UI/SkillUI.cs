@@ -41,17 +41,27 @@ namespace V
         
 
         #region Unity
-        private void Start() 
+        private void Awake() 
         {
             InitSkill(ElementBurst, SkillType.ElementBurst);
             InitSkill(SlowDown, SkillType.Slowdown);
             InitSkill(Endless, SkillType.Endless);
             InitSkill(SpringUp, SkillType.SpringUp);
+            
+        }
+        private void Start() 
+        {
 
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();  
 
             cellTech.OnUnlockedNewTech += CellTech_OnUnlockedNewTech; // add new tech
+            Invoke(nameof(CheckUnlockSkill), .1f);
+        }
+
+        private void CheckUnlockSkill()
+        {
             cellTech.CheckUnlockSkill();    // 讀存檔
+
         }
 
         private void Update() 
@@ -83,15 +93,19 @@ namespace V
             switch(type)
             {
                 case TechType.ElementBurst:
+                    Debug.Log("Unlock Burst");
                     ElementBurst.SkillButton.gameObject.SetActive(true);
                     break;
                 case TechType.Slowdown:
+                    Debug.Log("Slow Down");
                     SlowDown.SkillButton.gameObject.SetActive(true);
                     break;
                 case TechType.Endless:
+                    Debug.Log("Endless");
                     Endless.SkillButton.gameObject.SetActive(true);
                     break;
                 case TechType.SpringUp:
+                    Debug.Log("SpringUp");
                     SpringUp.SkillButton.gameObject.SetActive(true);
                     break;
             }
@@ -155,7 +169,7 @@ namespace V
 
             SetSkillButton(_skillButtonUI, _skillType);  
 
-            _skillButtonUI.gameObject.SetActive(false); // 設置完按鈕後關閉          
+            _skillButtonUI.SkillButton.gameObject.SetActive(false); // 設置完按鈕後關閉          
         }
 
         /// <summary>
