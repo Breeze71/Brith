@@ -925,6 +925,8 @@ GameObject:
   - component: {fileID: 2978030957714632209}
   - component: {fileID: 7285879523502761753}
   - component: {fileID: 237105538501933733}
+  - component: {fileID: 5327018156546888290}
+  - component: {fileID: 1851528018017523297}
   m_Layer: 5
   m_Name: Button_Auto
   m_TagString: Untagged
@@ -1006,6 +1008,49 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5327018156546888290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5881731864222898361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1851528018017523297}
+          m_TargetAssemblyTypeName: V.Tool.JuicyFeeling.SquashAndStretch, Assembly-CSharp
+          m_MethodName: PlaySquashAndStretch
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1851528018017523297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5881731864222898361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a182be6dd5e58468f38bbc96f8ffce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affectTransfrom: {fileID: 0}
+  so: {fileID: 11400000, guid: 0501900f59de0624e8c6c1dec0c2e40e, type: 2}
 --- !u!1 &6874348867559973437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,7 +1273,7 @@ Transform:
   - {fileID: 5485104414796327614}
   - {fileID: 7746103296411694397}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7746177523275667040
 GameObject:
@@ -1298,6 +1343,8 @@ GameObject:
   - component: {fileID: 6796117820861228637}
   - component: {fileID: 6040135590153027481}
   - component: {fileID: 7890722087051999821}
+  - component: {fileID: 1019509061229219378}
+  - component: {fileID: 8749552583256611813}
   m_Layer: 5
   m_Name: Button_Skip
   m_TagString: Untagged
@@ -1379,6 +1426,49 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1019509061229219378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806282233496710908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8749552583256611813}
+          m_TargetAssemblyTypeName: V.Tool.JuicyFeeling.SquashAndStretch, Assembly-CSharp
+          m_MethodName: PlaySquashAndStretch
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &8749552583256611813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806282233496710908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a182be6dd5e58468f38bbc96f8ffce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affectTransfrom: {fileID: 0}
+  so: {fileID: 11400000, guid: 0501900f59de0624e8c6c1dec0c2e40e, type: 2}
 --- !u!1 &7964622192917271289
 GameObject:
   m_ObjectHideFlags: 0

@@ -545,14 +545,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 458261759718730271, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 712443840260798744, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1560141868934605533, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -597,49 +589,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2455252097303613481, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2727280012575492025, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 2727280012575492025, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4515098383345966555, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 2727280012575492025, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2794411051162796659, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278176797031190772, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6435839014183818550, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7267152658402486347, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
       propertyPath: m_Name
       value: DialogueSystem
-      objectReference: {fileID: 0}
-    - target: {fileID: 7673930223004257105, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 7673930223004257105, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4515098383345966555, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-    - target: {fileID: 7673930223004257105, guid: a91e34abd0a05ec4dbbfb5c47d35c2e7, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -746,6 +698,7 @@ GameObject:
   - component: {fileID: 941457488}
   - component: {fileID: 941457487}
   - component: {fileID: 941457490}
+  - component: {fileID: 941457491}
   m_Layer: 5
   m_Name: Button_ExitGame
   m_TagString: Untagged
@@ -897,6 +850,32 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 941457491}
+          m_TargetAssemblyTypeName: V.Tool.JuicyFeeling.SquashAndStretch, Assembly-CSharp
+          m_MethodName: PlaySquashAndStretch
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &941457491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941457485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a182be6dd5e58468f38bbc96f8ffce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affectTransfrom: {fileID: 941457486}
+  so: {fileID: 11400000, guid: 0501900f59de0624e8c6c1dec0c2e40e, type: 2}
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1026,7 @@ GameObject:
   - component: {fileID: 976999859}
   - component: {fileID: 976999858}
   - component: {fileID: 976999861}
+  - component: {fileID: 976999862}
   m_Layer: 5
   m_Name: Button_ContinueGame
   m_TagString: Untagged
@@ -1198,6 +1178,32 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 976999862}
+          m_TargetAssemblyTypeName: V.Tool.JuicyFeeling.SquashAndStretch, Assembly-CSharp
+          m_MethodName: PlaySquashAndStretch
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &976999862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976999856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a182be6dd5e58468f38bbc96f8ffce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affectTransfrom: {fileID: 976999857}
+  so: {fileID: 11400000, guid: 0501900f59de0624e8c6c1dec0c2e40e, type: 2}
 --- !u!1 &1160234425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,6 +1266,7 @@ GameObject:
   - component: {fileID: 1176368723}
   - component: {fileID: 1176368722}
   - component: {fileID: 1176368725}
+  - component: {fileID: 1176368726}
   m_Layer: 5
   m_Name: Button_StartGame
   m_TagString: Untagged
@@ -1423,6 +1430,32 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1176368726}
+          m_TargetAssemblyTypeName: V.Tool.JuicyFeeling.SquashAndStretch, Assembly-CSharp
+          m_MethodName: PlaySquashAndStretch
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1176368726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176368720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a182be6dd5e58468f38bbc96f8ffce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affectTransfrom: {fileID: 1176368721}
+  so: {fileID: 11400000, guid: 0501900f59de0624e8c6c1dec0c2e40e, type: 2}
 --- !u!1 &1183168078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,6 +1545,7 @@ GameObject:
   - component: {fileID: 1251271904}
   - component: {fileID: 1251271903}
   - component: {fileID: 1251271906}
+  - component: {fileID: 1251271907}
   m_Layer: 5
   m_Name: Button_Settings
   m_TagString: Untagged
@@ -1675,6 +1709,32 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1251271907}
+          m_TargetAssemblyTypeName: V.Tool.JuicyFeeling.SquashAndStretch, Assembly-CSharp
+          m_MethodName: PlaySquashAndStretch
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1251271907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251271901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a182be6dd5e58468f38bbc96f8ffce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affectTransfrom: {fileID: 1251271902}
+  so: {fileID: 11400000, guid: 0501900f59de0624e8c6c1dec0c2e40e, type: 2}
 --- !u!1001 &1322288798
 PrefabInstance:
   m_ObjectHideFlags: 0
