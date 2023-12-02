@@ -1296,7 +1296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1940216513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1394,7 +1394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc78dd2a975c21d449c3c9d15d1b1b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lossButton: {fileID: 1639485875}
   winButton: {fileID: 279355433}
 --- !u!1001 &1971007619
 PrefabInstance:
