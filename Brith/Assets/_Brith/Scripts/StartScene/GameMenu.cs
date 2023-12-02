@@ -8,6 +8,7 @@ public class GameMenu : MonoBehaviour
     [SerializeField] private string FirstLv;
     [SerializeField] private string OptionScene;
     [SerializeField]private string Startscene;
+
     public void OnContinnueGame()
     {
         //todo

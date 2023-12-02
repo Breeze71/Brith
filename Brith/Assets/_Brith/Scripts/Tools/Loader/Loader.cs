@@ -13,6 +13,8 @@ public static class Loader
         StartDialogue,
         RandomMapTest,
         ThankForPlayingScene,
+        LossDialogue,
+        WinDialogue,
         LoadingScene,
     }
     private static void Update() 

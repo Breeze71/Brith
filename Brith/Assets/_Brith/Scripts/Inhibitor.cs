@@ -51,7 +51,7 @@ namespace V
 
             if(cellTech.currentLevel <= 5)
             {
-                Loader.LoadScene(Loader.Scene.RandomMapTest.ToString());
+                Loader.LoadScene(Loader.Scene.WinDialogue.ToString());
 
             }
             else if(cellTech.currentLevel > 5)

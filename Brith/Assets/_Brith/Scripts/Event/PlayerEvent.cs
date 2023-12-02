@@ -30,7 +30,7 @@ namespace V
             {
                 // Player Loss
                 OnPlayerLoss?.Invoke();
-                Debug.Log("To - Do Loss Scene");
+                Loader.LoadScene(Loader.Scene.LossDialogue.ToString());
             }
         }
     }
