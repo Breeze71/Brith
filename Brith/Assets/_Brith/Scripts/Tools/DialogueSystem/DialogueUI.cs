@@ -8,6 +8,7 @@ public class DialogueUI : MonoBehaviour
 {
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialogueText;
+    [SerializeField] private GameObject dialoguePannel;
 
     [SerializeField] private Button skipButton;
     [SerializeField] private Button autoButton;
@@ -41,10 +42,12 @@ public class DialogueUI : MonoBehaviour
     private void DialogueManager_OnDialogueStart(object sender, EventArgs e)
     {
         dialogueText.SetActive(true);
+        dialoguePannel.SetActive(true);
     }
     private void DialogueManager_OnDialogueClose(object sender, EventArgs e)
     {
         dialogueText.SetActive(false); 
+        dialoguePannel.SetActive(false);
     }
 
 }

@@ -990,8 +990,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1410,7 +1410,7 @@ Transform:
   - {fileID: 5485104414796327614}
   - {fileID: 7746103296411694397}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7746177523275667040
 GameObject:
@@ -1467,6 +1467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 5851686513012831430}
+  dialoguePannel: {fileID: 7746177523275667040}
   skipButton: {fileID: 7890722087051999821}
   autoButton: {fileID: 237105538501933733}
 --- !u!1 &7806282233496710908

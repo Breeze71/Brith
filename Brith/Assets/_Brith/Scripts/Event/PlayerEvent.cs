@@ -28,7 +28,7 @@ namespace V
             currentPlayerCell--;
             Debug.LogError("Cell Dead");
 
-            if(currentPlayerCell == 0)
+            if(currentPlayerCell == 0 && !Inhibitor.Instance.isInhibitorDead)
             {
                 // Player Loss
                 OnPlayerLoss?.Invoke();

@@ -8,16 +8,24 @@ namespace V
 {
     public class Inhibitor : MonoBehaviour, IDamagable
     {
+        public static Inhibitor Instance {get; set;}
+
         [field : SerializeField] public int HealthAmount { get; set; }
         public HealthSystem HealthSystem { get; set; }
         [field :SerializeField]public HealthBarUI HealthBarUI { get; set; }
 
-
+        public bool isInhibitorDead;
         [SerializeField] private GameObject techTreeUI;
         private CellTech cellTech;
 
         private void Awake() 
         {
+            if(Instance != null)
+            {
+                Debug.LogError("Singleton Erroe");
+            }
+            Instance = this;
+
             HealthSystem = new HealthSystem(HealthAmount);
             techTreeUI = GameObject.FindGameObjectWithTag("TechTree");
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();
@@ -25,6 +33,8 @@ namespace V
         private void Start() 
         {
             HealthBarUI.SetupHealthSystemUI(HealthSystem);
+
+            isInhibitorDead = false;
         }
 
         public void TakeDamage(int damageAmount)
@@ -44,6 +54,7 @@ namespace V
         public void Die()
         {
             cellTech.GetTechPoint(TaskSystemManager.Instance.GetAllstarNum());
+            isInhibitorDead = true;
 
             cellTech.currentLevel += 1;
 

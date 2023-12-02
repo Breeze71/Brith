@@ -14,8 +14,6 @@ namespace V
             Invoke(nameof(PlayDialogue), 0.1f);
         }
 
-        
-
         private void PlayDialogue()
         {
             if(DialogueManager.Instance.IsDialoguePlaying)  return;

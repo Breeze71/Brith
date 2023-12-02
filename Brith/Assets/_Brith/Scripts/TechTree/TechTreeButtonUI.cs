@@ -75,6 +75,7 @@ namespace V.UI
         /// To - Do DataPersis
         /// </summary>
         [SerializeField]private List<TechButtonUI> techButtonUIList;
+        [SerializeField] private StartTutorial startTutorial;
 
         private CellTech cellTech;
         private Coroutine TechPointNotEnoughCoroutine;
@@ -108,13 +109,6 @@ namespace V.UI
             #endregion
 
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>(); 
-
-            nextSceneButton.onClick.AddListener(() =>
-            {   
-                TechCanvas.SetActive(false);
-
-                NewRoommanagerOnGame.Instance.CreateNewRoom();
-            });
             
             resetTechPointButton.onClick.AddListener(() =>
             {
@@ -157,6 +151,23 @@ namespace V.UI
             cellTech.OnUnlockedNewTech += CellTech_OnUnlockedNewTech;
 
             currentTechPointText.text = cellTech.currentTechPoint.ToString();
+
+            Invoke(nameof(BindNextSceneButton), 0.1f);
+        }
+
+        private void BindNextSceneButton()
+        {
+            nextSceneButton.onClick.AddListener(() =>
+            {   
+                TechCanvas.SetActive(false);
+
+                NewRoommanagerOnGame.Instance.CreateNewRoom();
+
+                if(cellTech.currentLevel == 1)
+                {
+                    startTutorial.PlayDialogue();
+                }
+            });            
         }
 
         private void CellTech_OnUnlockedNewTech(TechType type)
