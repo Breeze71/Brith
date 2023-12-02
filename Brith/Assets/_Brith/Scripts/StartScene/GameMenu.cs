@@ -42,4 +42,8 @@ public class GameMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Guidance");
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
