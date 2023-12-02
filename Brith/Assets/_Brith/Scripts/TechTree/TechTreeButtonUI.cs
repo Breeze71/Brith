@@ -156,6 +156,12 @@ namespace V.UI
             Invoke(nameof(BindNextSceneButton), 0.1f);
         }
 
+        private void OnDestroy() 
+        {
+            cellTech.OnChangeCurrentTechPoint -= CellTech_OnChangeCurrentTechPoint;
+            cellTech.OnUnlockedNewTech -= CellTech_OnUnlockedNewTech;            
+        }
+
         private void BindNextSceneButton()
         {
             nextSceneButton.onClick.AddListener(() =>
@@ -172,7 +178,13 @@ namespace V.UI
                 {
                     dialoguePannel.SetActive(false);
                 }
-            });            
+            });     
+
+
+            foreach(TechType techType in cellTech.unlockTechList)
+            {
+                CellTech_OnUnlockedNewTech(techType);
+            }       
         }
 
         private void CellTech_OnUnlockedNewTech(TechType type)

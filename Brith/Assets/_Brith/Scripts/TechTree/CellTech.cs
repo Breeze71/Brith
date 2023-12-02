@@ -129,6 +129,7 @@ namespace V
 
                 // 5
                 case TechType.Def_1_Plus5: return TechType.Atk_2_Plus5;
+                case TechType.ElementBurst: return TechType.Slowdown;
 
                 case TechType.Element_1_Plus5: return TechType.Spd_2_Plus20;
                 case TechType.Init_4_Plus4: return TechType.Hp_2_Plus10;
@@ -170,12 +171,11 @@ namespace V
         /// <summary>
         /// 讀存檔時，解鎖全部已解鎖科技
         /// </summary>
-        public void CheckUnlockSkill()
+        private void CheckUnlockSkill()
         {
             foreach(TechType techType in unlockTechList)
             {
-                TryUnlockNewTech(techType);
-                OnUnlockedNewTech?.Invoke(techType);
+                UnlockNewTech(techType);
             }
         }
 

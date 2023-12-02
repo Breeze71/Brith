@@ -67,8 +67,15 @@ namespace V
             BigRoomCount = ReadLv.Instance.lvData.RoomNumber;
             #endregion
              //CreateNewRoom();
+
+            GameEventManager.Instance.SkillEvent.OnElementBurst += SkillEvent_OnElementBurst;
         }
-        
+
+        private void SkillEvent_OnElementBurst()
+        {
+            Rooms[0].GetComponentInChildren<SpawnEntity>().CreateEntity();
+        }
+
         //private void Update()
         //{
         //    if (Input.GetKeyDown(KeyCode.B))

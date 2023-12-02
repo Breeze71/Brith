@@ -36,7 +36,11 @@ namespace V
 
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();           
             cellTech.OnUnlockedNewTech += CellTech_OnUnlockedNewTech; // add new tech
-            cellTech.CheckUnlockSkill();
+
+            foreach(TechType techType in cellTech.unlockTechList)
+            {
+                CellTech_OnUnlockedNewTech(techType);
+            }
 
             OnElementChange += BasicEntity_ElementChange;  // pick up element
 
@@ -182,11 +186,6 @@ namespace V
                     collectElementAmount += elementCollectPlusAmount;
                     break;
             }
-        }
-
-        private void CheckUnlockTech()
-        {
-            cellTech.CheckUnlockSkill();
         }
 
         public CellTech GetCellTech()

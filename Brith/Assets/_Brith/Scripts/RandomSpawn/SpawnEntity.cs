@@ -16,6 +16,7 @@ namespace V
         [SerializeField] private GameObject[] TargetEntity;
         [SerializeField] private GameObject[] Enemy;
         public RoomInfo room;
+        
         public void CreateEntity()
         {
             //Debug.Log(FireOrigin[1].name);

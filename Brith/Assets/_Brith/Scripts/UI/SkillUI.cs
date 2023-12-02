@@ -55,13 +55,18 @@ namespace V
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();  
 
             cellTech.OnUnlockedNewTech += CellTech_OnUnlockedNewTech; // add new tech
-            Invoke(nameof(CheckUnlockSkill), .1f);
+            
+            Invoke(nameof(BindNextSceneButton), 0.1f);
         }
 
-        private void CheckUnlockSkill()
-        {
-            cellTech.CheckUnlockSkill();    // 讀存檔
+        private void BindNextSceneButton()
+        {     
 
+
+            foreach(TechType techType in cellTech.unlockTechList)
+            {
+                CellTech_OnUnlockedNewTech(techType);
+            }       
         }
 
         private void Update() 
