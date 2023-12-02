@@ -43,8 +43,6 @@ namespace V
         /// </summary>
         public void Die()
         {
-            // techTreeUI.SetActive(true);
-
             cellTech.GetTechPoint(TaskSystemManager.Instance.GetAllstarNum());
 
             cellTech.currentLevel += 1;
@@ -52,7 +50,6 @@ namespace V
             if(cellTech.currentLevel <= 5)
             {
                 Loader.LoadScene(Loader.Scene.WinDialogue.ToString());
-
             }
             else if(cellTech.currentLevel > 5)
             {

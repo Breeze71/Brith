@@ -117,7 +117,8 @@ GameObject:
   - component: {fileID: 5020823784188543534}
   - component: {fileID: 4797007609227771865}
   - component: {fileID: 6818694160779055218}
-  - component: {fileID: 4990548528872193058}
+  - component: {fileID: 6193468553626610699}
+  - component: {fileID: 3393727382521547426}
   m_Layer: 11
   m_Name: mountain01
   m_TagString: Untagged
@@ -174,8 +175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: 0
   Roomid: 0
---- !u!61 &4990548528872193058
-BoxCollider2D:
+--- !u!58 &6193468553626610699
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -206,16 +207,41 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.398396, y: -0.6623585}
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.8}
-  m_EdgeRadius: 0
+  m_Radius: 0.3250945
+--- !u!58 &3393727382521547426
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875224995149872757}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.7627827, y: -0.6461795}
+  serializedVersion: 2
+  m_Radius: 0.32509464

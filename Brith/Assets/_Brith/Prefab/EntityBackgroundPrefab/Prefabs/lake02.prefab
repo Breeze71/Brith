@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 8648381527787249468}
   - component: {fileID: -1236127885924788431}
   - component: {fileID: -8321251651631256650}
-  - component: {fileID: -8350040983836231820}
+  - component: {fileID: 1463697903889861911}
   m_Layer: 11
   m_Name: lake02
   m_TagString: Untagged
@@ -174,8 +174,8 @@ MonoBehaviour:
   POneInject: 050000000a000000
   InitialSpeed: 2
   TimeOut: 5
---- !u!61 &-8350040983836231820
-BoxCollider2D:
+--- !u!58 &1463697903889861911
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -206,16 +206,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.075053945, y: -0.16011533}
   serializedVersion: 2
-  m_Size: {x: 3, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.284845

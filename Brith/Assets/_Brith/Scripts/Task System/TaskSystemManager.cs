@@ -127,7 +127,6 @@ namespace V
         public void updateCellNumber(int cellnumber)
         {
             CellNumber += cellnumber;
-            Debug.Log(cellnumber);
             updateUI(ConditionType.CellNumber, CellNumber);
         }
         public void updateCollectElementNumber(int collectelementnumber)

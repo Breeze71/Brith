@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 7978652083769510676}
   - component: {fileID: -912870270224217526}
   - component: {fileID: 3525178552327121359}
-  - component: {fileID: -2675516757650380962}
+  - component: {fileID: 5554083306807598539}
   m_Layer: 11
   m_Name: tornado01
   m_TagString: Untagged
@@ -174,8 +174,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: 2
   Roomid: 0
---- !u!61 &-2675516757650380962
-BoxCollider2D:
+--- !u!58 &5554083306807598539
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -206,16 +206,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.051733404, y: -1.3761119}
   serializedVersion: 2
-  m_Size: {x: 1.3, y: 3}
-  m_EdgeRadius: 0
+  m_Radius: 0.28272012

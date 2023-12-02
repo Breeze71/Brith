@@ -43,12 +43,14 @@ namespace V
             TaskSystemManager.Instance.updateCellNumber(1);
 
             GameEventManager.Instance.SkillEvent.OnEndlessSkill += SkillEvent_OnEndlessSkill;
+            GameEventManager.Instance.PlayerEvent.SpawnCellEvent();
         }
         private void OnDestroy() 
         {
             GameEventManager.Instance.PlayerEvent.CellDeadEvent(); // 通知 manager 細胞死亡
             GameEventManager.Instance.SkillEvent.OnEndlessSkill -= SkillEvent_OnEndlessSkill;
             
+
             cellTech.OnUnlockedNewTech -= CellTech_OnUnlockedNewTech; // add new tech
             OnElementChange -= BasicEntity_ElementChange;  // pick up element
 
@@ -248,5 +250,6 @@ namespace V
             isEndless = false;
         }
         #endregion
+
     }
 }

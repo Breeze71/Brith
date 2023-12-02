@@ -10,11 +10,12 @@ namespace V
     /// </summary>
     public class PlayerEvent
     {
-        private int currentPlayerCell;  // 儲存當前細胞數
+        private int currentPlayerCell = 0;  // 儲存當前細胞數
 
         public event Action OnSpawnCell;
         public void SpawnCellEvent()
         {
+            Debug.LogError("Spawn Cell");
             OnSpawnCell?.Invoke();
             currentPlayerCell++;
         }
@@ -25,11 +26,13 @@ namespace V
         {
             OnCellDead?.Invoke();
             currentPlayerCell--;
+            Debug.LogError("Cell Dead");
 
             if(currentPlayerCell == 0)
             {
                 // Player Loss
                 OnPlayerLoss?.Invoke();
+                Debug.LogError("PlayerLoss");
                 Loader.LoadScene(Loader.Scene.LossDialogue.ToString());
             }
         }
