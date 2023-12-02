@@ -128,8 +128,8 @@ namespace V
         public int Hp_2 = 10;
         public int Atk_1 = 2;
         public int Atl_2 = 5;
-        public int Spd_1 = 10;
-        public int Spd_2 = 20;
+        public float Spd_1 = .2f;
+        public float Spd_2 = .5f;
         public int Def_1 = 5;
 
         public int elementCollectPlusAmount = 5;

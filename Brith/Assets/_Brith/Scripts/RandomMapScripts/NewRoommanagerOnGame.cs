@@ -144,6 +144,7 @@ namespace V
             sapwnCell.OriginRoom = Rooms[0];
             RoomCreateEntity();
         }
+
         void CreateDifferentRoom(int[] numbers, float[] range)
         {
             int number = Random.Range(numbers[0], numbers[1] + 1);

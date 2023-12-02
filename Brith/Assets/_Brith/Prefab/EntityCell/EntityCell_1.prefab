@@ -132,8 +132,8 @@ MonoBehaviour:
   Hp_2: 50
   Atk_1: 10
   Atl_2: 20
-  Spd_1: 2
-  Spd_2: 5
+  Spd_1: 0.2
+  Spd_2: 0.5
   Def_1: 10
   elementCollectPlusAmount: 5
 --- !u!114 &3408763203965687

@@ -652,7 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OriginRoom: {fileID: 0}
   CellPrefab:
-  - {fileID: 2086584053871405437, guid: d28d05739891e554cabce9560c2c1bc5, type: 3}
+  - {fileID: 205488924173850851, guid: d28d05739891e554cabce9560c2c1bc5, type: 3}
   - {fileID: 2086584053871405437, guid: c1c3435995349ae478927e1185d521c5, type: 3}
   - {fileID: 2086584053871405437, guid: 4443bffe23307e14fab70e28e2dd484a, type: 3}
   SpawnCellTimeMax: 3
@@ -1184,6 +1184,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 788575707829101908, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
+      propertyPath: dialoguePannel
+      value: 
+      objectReference: {fileID: 808031654}
     - target: {fileID: 3917765606325011560, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
       propertyPath: m_Pivot.x
       value: 0

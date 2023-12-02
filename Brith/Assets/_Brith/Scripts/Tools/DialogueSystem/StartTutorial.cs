@@ -15,20 +15,24 @@ namespace V
         {
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>(); 
         }
-        // private void Start() 
-        // {
-        //     Invoke(nameof(SetActivePannel), 0.1f);
+        private void Start() 
+        {
+            Invoke(nameof(SetActivePannel), 0.1f);
 
-        //     DialogueManager.Instance.OnDialogueClose += DialogueManager_OnDialogueClose ;
-        // }
+            DialogueManager.Instance.OnDialogueClose += DialogueManager_OnDialogueClose ;
+        }
+        private void OnDestroy() 
+        {
+            DialogueManager.Instance.OnDialogueClose -= DialogueManager_OnDialogueClose ;
+        }
 
-        // private void DialogueManager_OnDialogueClose(object sender, EventArgs e)
-        // {
-        //     if(cellTech.currentLevel == 1)
-        //     {
-        //         NewRoommanagerOnGame.Instance.CreateNewRoom();
-        //     }
-        // }
+        private void DialogueManager_OnDialogueClose(object sender, EventArgs e)
+        {
+            if(cellTech.currentLevel == 1)
+            {
+                
+            }
+        }
 
         private void SetActivePannel()
         {

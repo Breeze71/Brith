@@ -79,6 +79,7 @@ namespace V.UI
 
         private CellTech cellTech;
         private Coroutine TechPointNotEnoughCoroutine;
+        [SerializeField] private GameObject dialoguePannel;
 
         private void Awake() 
         {
@@ -166,6 +167,10 @@ namespace V.UI
                 if(cellTech.currentLevel == 1)
                 {
                     startTutorial.PlayDialogue();
+                }
+                else
+                {
+                    dialoguePannel.SetActive(false);
                 }
             });            
         }

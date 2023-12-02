@@ -286,6 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonMask: {fileID: 2608857287871855430}
   TechImg: {fileID: 3388466498587744251}
+  techType: 0
   TechCount: 1
   techName: 
   techIntroText: 
@@ -301,6 +302,8 @@ GameObject:
   - component: {fileID: 7833104301450384436}
   - component: {fileID: 6787545105717651904}
   - component: {fileID: 2608857287871855430}
+  - component: {fileID: 4214113503415461944}
+  - component: {fileID: 4772158625663322236}
   m_Layer: 5
   m_Name: MaskButton
   m_TagString: Untagged
@@ -412,6 +415,49 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4214113503415461944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281342027983272653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a182be6dd5e58468f38bbc96f8ffce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affectTransfrom: {fileID: 4992734285899926102}
+  so: {fileID: 11400000, guid: 0501900f59de0624e8c6c1dec0c2e40e, type: 2}
+--- !u!114 &4772158625663322236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281342027983272653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4214113503415461944}
+          m_TargetAssemblyTypeName: V.Tool.JuicyFeeling.SquashAndStretch, Assembly-CSharp
+          m_MethodName: PlaySquashAndStretch
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6493634508608044300
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,8 +526,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
-  m_sharedMaterial: {fileID: 4515098383345966555, guid: e49735983f7053a4e9fcaeb7d4542395, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
