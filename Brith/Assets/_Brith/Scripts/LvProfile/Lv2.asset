@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoomNumber: 0700000008000000
   OneRoomEnemyNumber: 0000000000000000
-  EndRoomEnemy: 2
+  EndRoomEnemy: 3
   StartRoomSceneEntity: 2
   OneRoomSceneEntity: 0000000001000000
