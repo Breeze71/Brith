@@ -132,8 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8a349c52f87db4a9688cb8c05b7208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <HealthAmount>k__BackingField: 100
+  <HealthAmount>k__BackingField: 300
   <HealthBarUI>k__BackingField: {fileID: 354476292414017187}
+  isInhibitorDead: 0
   techTreeUI: {fileID: 0}
 --- !u!212 &-3268371361653737758
 SpriteRenderer:
