@@ -54,7 +54,8 @@ namespace V
         private void GetCurrentCellGearInfo(EntityBase _entityBase)
         {
             // cell img
-            cellImg = _entityBase.CellImg;
+            cellImg.sprite = _entityBase.CellImg.sprite;
+
             // Gear
             foreach(Element _element in _entityBase.GetGears())
             {

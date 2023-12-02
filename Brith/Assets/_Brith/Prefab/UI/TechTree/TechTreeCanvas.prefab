@@ -225,7 +225,7 @@ RectTransform:
   - {fileID: 843227884409288304}
   - {fileID: 6152908373471518643}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1657,8 +1657,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u653B\u6027\u5B17\u53D8"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
+  m_sharedMaterial: {fileID: -5555559599864592134, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1792,8 +1792,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: x1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
+  m_sharedMaterial: {fileID: -5555559599864592134, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1942,6 +1942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJson: {fileID: 0}
+  DialoguePannel: {fileID: 0}
 --- !u!1 &3483052066367692876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,8 +2667,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u6211\u662F\u706B\u8F66\u738B\uFF01"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
+  m_sharedMaterial: {fileID: -5555559599864592134, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3029,8 +3030,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "  \u89E3\u9501\u79D1\u6280"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
+  m_sharedMaterial: {fileID: -5555559599864592134, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

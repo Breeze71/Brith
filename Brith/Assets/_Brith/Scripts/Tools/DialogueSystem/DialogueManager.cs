@@ -89,8 +89,9 @@ public class DialogueManager : MonoBehaviour
         if(!IsDialoguePlaying)  return;
 
         // 避免選選項時，會一直刷新
-        if(currentStory.currentChoices.Count == 0 && canContinue && Input.GetKeyDown(KeyCode.Mouse0))
+        if(canContinue && Input.GetKeyDown(KeyCode.Mouse0))
         {
+            Debug.Log("continue");
             ContinueStory();
         }
     }
@@ -173,7 +174,6 @@ public class DialogueManager : MonoBehaviour
 
         foreach(char _letter in _line.ToCharArray())
         {
-            // Skip Dialogue(避免同一禎同時開始對話及跳過)
             if(isAuto && canSkip)
             {
                 Debug.Log("Skip");
@@ -182,7 +182,6 @@ public class DialogueManager : MonoBehaviour
                 break;
             }
             
-            // 是否有 RichText(若有，則先不 TypeEffect)
             if(_letter == '<' || _isAddingRichText)
             {
                 _isAddingRichText = true;
@@ -194,9 +193,9 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                PlayDialogueSound(dialogueText.maxVisibleCharacters, dialogueText.text[dialogueText.maxVisibleCharacters]); // 最大可見 index = 目前文字 index
+                PlayDialogueSound(dialogueText.maxVisibleCharacters, dialogueText.text[dialogueText.maxVisibleCharacters]);
 
-                dialogueText.maxVisibleCharacters++;    // 隨 type 增加 visiable
+                dialogueText.maxVisibleCharacters++;
 
                 yield return _typeDelay;
             }
@@ -232,11 +231,11 @@ public class DialogueManager : MonoBehaviour
     {
         foreach(string _tag in _currentTags)
         {
-            string[] _splitTag = _tag.Split(':');    // 用 : 分隔成 Key - Value pair
+            string[] _splitTag = _tag.Split(':');
 
-            if(_splitTag.Length != 2)   Debug.LogError("Tag Error" + _tag); // debug
+            if(_splitTag.Length != 2)   Debug.LogError("Tag Error" + _tag);
 
-            string _tagKey = _splitTag[0].Trim();   // Trim() 忽視空格
+            string _tagKey = _splitTag[0].Trim();
             string _tagValue = _splitTag[1].Trim();
 
             TagState(_tagKey, _tagValue);
@@ -246,12 +245,6 @@ public class DialogueManager : MonoBehaviour
     {
         switch(_tagKey)
         {
-            // case Portrait_Tag:
-            //     portraitAnim.Play(_tagValue);
-            //     break;
-            case Layout_Tag:
-                Debug.Log("Layout = " + _tagValue);
-                break;
             case Audio_Tag:
                 SetCurrentAudioSO(_tagValue);
                 break;
@@ -285,12 +278,10 @@ public class DialogueManager : MonoBehaviour
         float _minPitch = currentAudioSO.minPitch;
         bool _isStopSoundOrNot = currentAudioSO.isStopSoundOrNot; 
 
-        // 隔幾個字發出聲音
         if(_currentCharacterCount % _frequencyLevel == 0)
         {
-            if(_isStopSoundOrNot)    audioSource.Stop(); // 先停止再撥放
+            if(_isStopSoundOrNot)    audioSource.Stop();
 
-            // 讓每個字頻率音軌相同
             AudioClip _talkingClip = null;
             if(makePredictable)
             {
@@ -313,7 +304,6 @@ public class DialogueManager : MonoBehaviour
                     audioSource.pitch = _predictablePitch;
                 }
 
-                // Can not divide by 0
                 else
                 {
                     audioSource.pitch = _minPitch;

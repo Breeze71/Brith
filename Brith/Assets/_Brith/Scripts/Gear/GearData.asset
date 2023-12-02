@@ -20,11 +20,11 @@ MonoBehaviour:
   WindLegCost: 10
   GroundLegCost: 10
   WaterLegCost: 10
-  FireArmEffect: 7
-  WindArmEffect: 3
-  GroundArmEffect: 20
-  WaterArmEffect: 10
+  FireArmEffect: 5
+  WindArmEffect: 1
+  GroundArmEffect: 10
+  WaterArmEffect: 5
   FireLegEffect: 3
-  WindLegEffect: 3
+  WindLegEffect: 1
   GroundLegEffect: 10
   WaterLegEffect: 5

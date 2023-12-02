@@ -8,11 +8,16 @@ namespace V
     public class TestUI : MonoBehaviour
     {
         [SerializeField] private Button winButton;
+        [SerializeField] private Button lossButton; 
         private CellTech cellTech;
         private void Awake() 
         {
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();
-        
+            
+            lossButton.onClick.AddListener(() =>
+            {
+                Loader.LoadScene(Loader.Scene.LossDialogue.ToString());
+            });
 
             winButton.onClick.AddListener(() =>
             {

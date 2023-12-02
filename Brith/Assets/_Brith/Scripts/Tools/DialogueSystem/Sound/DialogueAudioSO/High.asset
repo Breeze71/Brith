@@ -39,6 +39,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4053f12dd283d3248909ed68f381702d, type: 3}
   - {fileID: 8300000, guid: 5aa9a4b283800b944bf0a0eb256c5c16, type: 3}
   isStopSoundOrNot: 1
-  frequencyLevel: 4
+  frequencyLevel: 5
   minPitch: 0.90000004
   maxPitch: 1.1

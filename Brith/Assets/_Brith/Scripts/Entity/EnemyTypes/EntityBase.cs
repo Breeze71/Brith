@@ -23,7 +23,7 @@ namespace V
         public int HealthAmount { get; set; }
         #endregion
 
-        public Image CellImg;
+        public SpriteRenderer CellImg;
         public EntityElement EntityElement{ get; set;}   // 存儲元素 
         public int Attack;
         public float Speed;
