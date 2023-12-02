@@ -18,6 +18,7 @@ public class Door : MonoBehaviour
         {
             if ((collision.tag == ParticleTag && TransformInfo.flag) | (collision.tag == Marblestag && TransformInfo.flag) | (collision.tag == EnemyTag && TransformInfo.flag))
             {
+                //AudioManager.Instance.PlayOne("");
                 TransformInfo.flag = false;
                 collision.gameObject.transform.position = EndPosition;
                 TransformInfo.RoomID = ConnectedRoom;

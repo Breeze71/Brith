@@ -52,6 +52,7 @@ namespace V
             //}
             if (flag && currentElementAmount<spawnAmountMax)
             {
+                AudioManager.Instance.PlayOne("ElementGeneratorGenerateElement");
                 Fire();
             }
         }
