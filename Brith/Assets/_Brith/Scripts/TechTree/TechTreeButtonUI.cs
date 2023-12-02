@@ -168,7 +168,7 @@ namespace V.UI
             {   
                 TechCanvas.SetActive(false);
 
-                NewRoommanagerOnGame.Instance.CreateNewRoom();
+                //NewRoommanagerOnGame.Instance.CreateNewRoom();
 
                 if(cellTech.currentLevel == 1)
                 {

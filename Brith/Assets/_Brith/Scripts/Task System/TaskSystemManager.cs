@@ -11,6 +11,8 @@ namespace V
 {
     public class TaskSystemManager : MonoBehaviour
     {
+        [HideInInspector]
+        public bool start = false;
         class taskID
         {
             public GameObject task;
@@ -109,8 +111,16 @@ namespace V
 
         void Update()
         {
-            timer += Time.deltaTime;
-            updateTime((int)timer);
+            if (start)
+            {
+                timer += Time.deltaTime;
+                updateTime((int)timer);
+            }
+
+        }
+        public void SSt()
+        {
+            start = true;
         }
         #region interface for lv end
         public int GetAllstarNum()
