@@ -1821,6 +1821,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1139689933780183566, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_text
+      value: "\u4EFB\u52A1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139689933780183566, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
+    - target: {fileID: 1139689933780183566, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5555559599864592134, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
+    - target: {fileID: 1139689933780183566, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169833504509404676, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_text
+      value: "\u65F6\u95F4\u9650\u5236"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169833504509404676, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
+    - target: {fileID: 1169833504509404676, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5555559599864592134, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
+    - target: {fileID: 1169833504509404676, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1639104054776850282, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1909,6 +1941,22 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2054051608}
+    - target: {fileID: 5099474229785229066, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_text
+      value: "\u65F6\u95F4\u9650\u5236"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099474229785229066, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
+    - target: {fileID: 5099474229785229066, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5555559599864592134, guid: 05bbf2db52decc243932cd41548936dc, type: 2}
+    - target: {fileID: 5099474229785229066, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7104726989160507293, guid: 1a7ed42ade79ea2408ef4ae99d846967, type: 3}
       propertyPath: m_Name
       value: TaskSystem

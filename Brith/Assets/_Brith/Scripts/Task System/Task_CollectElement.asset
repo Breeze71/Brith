@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Task_CollectElement
   m_EditorClassIdentifier: 
   tasks:
-  - des: ' collect element'
+  - des: "\u6536\u96C6\u7C92\u5B50"
     id: 0
     taskConditions:
       conditionType: 0
       Count: 10
-  - des: ' collect element'
+  - des: "\u6536\u96C6\u7C92\u5B50"
     id: 1
     taskConditions:
       conditionType: 0
       Count: 20
-  - des: ' collect element'
+  - des: "\u6536\u96C6\u7C92\u5B50"
     id: 2
     taskConditions:
       conditionType: 0

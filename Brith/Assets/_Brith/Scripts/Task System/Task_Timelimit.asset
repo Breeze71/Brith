@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Task_Timelimit
   m_EditorClassIdentifier: 
   tasks:
-  - des: Time
+  - des: "\u65F6\u95F4\u9650\u5236"
     id: 0
     taskConditions:
       conditionType: 3
       Count: 10
-  - des: Time
+  - des: "\u65F6\u95F4\u9650\u5236"
     id: 1
     taskConditions:
       conditionType: 3
       Count: 5
-  - des: Time
+  - des: "\u65F6\u95F4\u9650\u5236"
     id: 2
     taskConditions:
       conditionType: 3

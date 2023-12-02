@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Task_KillNumber
   m_EditorClassIdentifier: 
   tasks:
-  - des: Kill number
+  - des: "\u51C0\u5316\u654C\u65B9"
     id: 0
     taskConditions:
       conditionType: 2
       Count: 1
-  - des: Kill number
+  - des: "\u51C0\u5316\u654C\u65B9"
     id: 1
     taskConditions:
       conditionType: 2
       Count: 2
-  - des: Kill number
+  - des: "\u51C0\u5316\u654C\u65B9"
     id: 2
     taskConditions:
       conditionType: 2

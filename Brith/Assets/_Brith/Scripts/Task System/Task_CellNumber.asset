@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Task_CellNumber
   m_EditorClassIdentifier: 
   tasks:
-  - des: cell number
+  - des: "\u7EC6\u80DE\u6570\u91CF"
     id: 0
     taskConditions:
       conditionType: 1
       Count: 1
-  - des: cell number
+  - des: "\u7EC6\u80DE\u6570\u91CF"
     id: 1
     taskConditions:
       conditionType: 1
       Count: 2
-  - des: cell number
+  - des: "\u7EC6\u80DE\u6570\u91CF"
     id: 2
     taskConditions:
       conditionType: 1
