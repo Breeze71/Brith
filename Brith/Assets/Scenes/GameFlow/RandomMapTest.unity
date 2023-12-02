@@ -1188,6 +1188,10 @@ PrefabInstance:
       propertyPath: dialoguePannel
       value: 
       objectReference: {fileID: 808031654}
+    - target: {fileID: 1726418323301526138, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3917765606325011560, guid: d6bbc6db51f817c49a4694bdbb2057a3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
