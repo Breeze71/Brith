@@ -17,14 +17,14 @@ MonoBehaviour:
     id: 0
     taskConditions:
       conditionType: 3
-      Count: 10
+      Count: 360
   - des: "\u65F6\u95F4\u9650\u5236"
     id: 1
     taskConditions:
       conditionType: 3
-      Count: 5
+      Count: 270
   - des: "\u65F6\u95F4\u9650\u5236"
     id: 2
     taskConditions:
       conditionType: 3
-      Count: 2
+      Count: 180
