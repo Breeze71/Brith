@@ -38,4 +38,8 @@ public class GameMenu : MonoBehaviour
     {
         SceneManager.LoadScene(Startscene);
     }
+    public void Guidacne()
+    {
+        SceneManager.LoadScene("Guidance");
+    }
 }

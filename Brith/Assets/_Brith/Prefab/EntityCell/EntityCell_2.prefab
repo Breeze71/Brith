@@ -291,7 +291,7 @@ MonoBehaviour:
   TargetTransform: {fileID: 0}
   CurrentEntityState: 0
   gearInfo: {fileID: 11400000, guid: 6483c1ef157c3ea4d8e894e5898798f0, type: 2}
-  elementAmountToReproduce: 20
+  elementAmountToReproduce: 3
   element: {fileID: 208937080080910159, guid: 99e9ce0ce464c8d4e880d77639a79aa0, type: 3}
   entityOriginCell: {fileID: 2086584053871405437}
   EndlessTimerMax: 0

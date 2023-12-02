@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameFlow/LoadingScene.unity
     guid: a67d015bf27b3b545aaa069e4bec86fc
+  - enabled: 1
+    path: Assets/Scenes/GameFlow/Guidance.unity
+    guid: 514d92b89f7db734081484ca9497eeee
   m_configObjects: {}

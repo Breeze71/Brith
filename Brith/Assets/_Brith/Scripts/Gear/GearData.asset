@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c3945d65f941e42a8f4bdab3ac6187, type: 3}
   m_Name: GearData
   m_EditorClassIdentifier: 
-  FireArmCost: 10
-  WindArmCost: 10
-  GroundArmCost: 10
-  WaterArmCost: 10
-  FireLegCost: 10
-  WindLegCost: 10
-  GroundLegCost: 10
-  WaterLegCost: 10
+  FireArmCost: 1
+  WindArmCost: 1
+  GroundArmCost: 1
+  WaterArmCost: 1
+  FireLegCost: 1
+  WindLegCost: 1
+  GroundLegCost: 1
+  WaterLegCost: 1
   FireArmEffect: 5
   WindArmEffect: 1
   GroundArmEffect: 10

@@ -32,6 +32,7 @@ namespace V
             }
             Instance = this;
             cellTech = GameObject.FindGameObjectWithTag("CellTag").GetComponent<CellTech>();
+            Debug.Log(cellTech.name);
             ReadLvData(GetCurrentLevel());
         }
         public int GetCurrentLevel()
@@ -41,6 +42,7 @@ namespace V
         #endregion
         void ReadLvData(int level)
         {
+            Debug.Log(level);
             LvProfile lvProfile = lvProfiles[level];
             lvData.RoomNumber = lvProfile.RoomNumber;
             lvData.OneRoomEnemyNumber = lvProfile.OneRoomEnemyNumber;

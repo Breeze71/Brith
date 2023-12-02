@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e006002c14eb814a831b89aed7ca437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TechtreeScene: 
-  FirstLv: 
+  TechtreeScene: RandomMapTest
+  FirstLv: StartDialogue
   OptionScene: UI_Settings
   Startscene: UI_EnterGame
